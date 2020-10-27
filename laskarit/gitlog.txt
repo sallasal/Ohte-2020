@@ -1,0 +1,97 @@
+sallasal@lx9-fuxi127:~/Kurssit/OHTE/ot_viikko1$ git log --stat | cat
+commit 3cc73b3e7ad66497721e3ba40d20f640a093d591
+Author: Salla S <47078225+sallasal@users.noreply.github.com>
+Date:   Tue Oct 27 13:56:02 2020 +0200
+
+    Vikat muutokset
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 8d073c62bdaa7109e390110ea278ec587b8fd845
+Author: Salla S <47078225+sallasal@users.noreply.github.com>
+Date:   Tue Oct 27 13:41:45 2020 +0200
+
+    Tiedostojen luominen
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 41cbf3b48f23948b25c3b2dbe31e28c1c5d622be
+Author: Salla S <47078225+sallasal@users.noreply.github.com>
+Date:   Tue Oct 27 13:10:51 2020 +0200
+
+    Muutoksia tiedostojen sisällä
+
+ eka.txt    | 4 ++--
+ kolmas.txt | 3 +++
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+
+commit 1b376736506bd2f71395a045511f42f71f43942b
+Author: Salla S <47078225+sallasal@users.noreply.github.com>
+Date:   Tue Oct 27 13:01:57 2020 +0200
+
+    Uudelleennimentä
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d2c7133d04c18fefc8b41d59d3d0ccf3ae881249
+Author: Salla S <47078225+sallasal@users.noreply.github.com>
+Date:   Tue Oct 27 13:01:22 2020 +0200
+
+    Poisto
+
+ toinen.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 21e3af5bc8dcb3a78d6339f7d7c4d5e53881fa5d
+Author: Salla S <47078225+sallasal@users.noreply.github.com>
+Date:   Tue Oct 27 12:58:12 2020 +0200
+
+    Poisto ja lisäys
+
+ tiedosto.txt | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+commit c26ecd44423969f675e88607ef880feabf8c4aee
+Author: Salla S <47078225+sallasal@users.noreply.github.com>
+Date:   Tue Oct 27 12:57:30 2020 +0200
+
+    Paljon tekstiä.
+
+ tiedosto.txt | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+commit 5055ce5d861e7c2bfa459906df9a1ac98a21494b
+Author: Salla S <47078225+sallasal@users.noreply.github.com>
+Date:   Tue Oct 27 12:50:47 2020 +0200
+
+    Lisäyksiä
+
+ kolmas.txt        | 0
+ stuff/sisalto.txt | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit f14a28488183f6bd437fb715493d6f416046a35d
+Author: Salla S <47078225+sallasal@users.noreply.github.com>
+Date:   Tue Oct 27 12:48:54 2020 +0200
+
+    Muutos ja lisäs
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit a9fd7319c5f8f980e40c8cccc3e77ecf6dacd0a8
+Author: Salla S <47078225+sallasal@users.noreply.github.com>
+Date:   Tue Oct 27 10:52:44 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
