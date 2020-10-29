@@ -4,6 +4,6 @@ Tämä repositorio on tehty *ohjelmistotekniikan* kurssin harjoituksia ja harjoi
 
 ## Viikko 1
 
-[gitlog.txt](https://github.com/sallasal/Ohte-s20/blob/master/laskarit/gitlog.txt)
+[gitlog.txt](https://github.com/sallasal/Ohte-s20/blob/master/laskarit/viikko1/gitlog.txt)
 
-[komentorivi.txt](https://github.com/sallasal/Ohte-s20/blob/master/laskarit/komentorivi.txt)
+[komentorivi.txt](https://github.com/sallasal/Ohte-s20/blob/master/laskarit/viikko1/komentorivi.txt)
