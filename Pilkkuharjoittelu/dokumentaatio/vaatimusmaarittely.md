@@ -34,5 +34,5 @@ Alla oleva lista on alustava suunnitelma kehittämisen vaiheista kurssin mittaan
 2. Graafinen tekstikäyttöliittymä ylläoleville.
 3. Tietokantataulu käyttäjille, käyttäjän luominen ja kirjautuminen ylläolevaan.
 4. Uuden tehtävän lisääminen tietokantaan ja arpomisen muuttaminen siten, että ei palauta omaa tehtävää.
-5. Käyttäjäkohtaisten tilastojen.
+5. Käyttäjäkohtaisten tilastojen listaaminen käyttäjän sivulla.
 6. Palkintojen luominen ja lisääminen sekä käyttäjän tilastoihin että palkinnon saadessa palautusnäkymään.
