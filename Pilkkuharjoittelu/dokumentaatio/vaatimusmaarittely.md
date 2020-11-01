@@ -16,6 +16,8 @@ Sovelluksessa on yksi käyttäjärooli, joka huolehtii kunkin käyttäjän tulos
 
 ## Sovelluksen toiminnallisuudet
 
+Käyttäjän tiedot, eteneminen ja tehtävät tallennetaan tietokantaan kahteen tauluun (User ja Exercises), joista haetaan ja joihin lisätään tietoa sovelluksessa. 
+
 Kun sovellus valmistuu, siinä on seuraavia ominaisuuksia (kevyessä tärkeysjärjestyksessä):
 
 - Uuden käyttäjän luominen ( = rekisteröityminen)
