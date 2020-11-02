@@ -11,7 +11,7 @@ import comma.domain.*;
 
 public interface ExerciseDao {
     
-    void create(Exercise exercise) throws Exception;
+    public void add(Exercise exercise) throws Exception;
     
     List<Exercise> list() throws SQLException;
     
