@@ -13,6 +13,6 @@ public interface ExerciseDao {
     
     public void add(Exercise exercise) throws Exception;
     
-    List<Exercise> list() throws SQLException;
+    ArrayList<Exercise> listAll() throws SQLException;
     
 }

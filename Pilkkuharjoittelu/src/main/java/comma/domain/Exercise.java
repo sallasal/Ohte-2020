@@ -34,4 +34,9 @@ public class Exercise {
     public boolean getComma() {
         return this.comma;
     }
+    
+    @Override
+    public String toString() {
+        return(this.firstPart + " ______ " + this.secondPart + ". (Vastaus: " + this.comma + ")");
+    }
 }

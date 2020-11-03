@@ -36,7 +36,7 @@ public class ExerciseDaoDb implements ExerciseDao {
             System.out.println(e.getMessage());
         }
         
-        //Täällä voi luoda harjoitustapauksiakin ainakin ensi alkuun
+        //Täällä voisi luoda harjoitustapauksiakin ainakin ensi alkuun
     }
 
     @Override
@@ -68,7 +68,30 @@ public class ExerciseDaoDb implements ExerciseDao {
     }
 
     @Override
-    public List<Exercise> list() {
-        return null;
+    public ArrayList<Exercise> listAll() {
+        
+        String sqlList = "SELECT firstpart, secondpart, comma FROM Exercises";
+        ArrayList<Exercise> resultList = new ArrayList<Exercise>();
+        
+        try (Connection connection = this.connect(); PreparedStatement stm = connection.prepareStatement(sqlList)) {
+            ResultSet results = stm.executeQuery();
+            
+            while (results.next()) {
+                String firstpart = results.getString("firstpart");
+                String secondpart = results.getString("secondpart");
+                boolean comma = false; 
+                
+                if (results.getInt("comma")==1) {
+                    comma = true;
+                }
+                
+                resultList.add(new Exercise(firstpart,secondpart,comma));
+            }
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        return resultList;
     }
 }
