@@ -17,8 +17,6 @@ public class ExerciseDaoDb implements ExerciseDao {
         try {
             connection = DriverManager.getConnection(url);
             DatabaseMetaData meta = connection.getMetaData();
-            System.out.println("The driver name is " + meta.getDriverName());
-            System.out.println("Connection created.");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -31,7 +29,6 @@ public class ExerciseDaoDb implements ExerciseDao {
 
         try ( Connection connection = this.connect();  Statement stm = connection.createStatement()) {
             stm.execute(sqlCreate);
-            System.out.println("Table created or already was there");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -60,7 +57,6 @@ public class ExerciseDaoDb implements ExerciseDao {
             stm.setString(2,second);
             stm.setInt(3, newcomma);
             stm.executeUpdate();
-            System.out.println("Lisäys onnistui.");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
