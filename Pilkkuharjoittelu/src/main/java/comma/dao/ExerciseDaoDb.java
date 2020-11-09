@@ -32,13 +32,40 @@ public class ExerciseDaoDb implements ExerciseDao {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        
-        //Täällä voisi luoda harjoitustapauksiakin ainakin ensi alkuun
+
+        //Add three examples for developing
+        String example = "INSERT INTO Exercises (firstpart, secondpart, comma) VALUES (?,?,?)";
+        try ( Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(example)) {
+            stm.setString(1, "Elämä on");
+            stm.setString(2, "kuin matka.");
+            stm.setInt(3, 0);
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try ( Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(example)) {
+            stm.setString(1, "Voimme päättää vain siitä");
+            stm.setString(2, "mitä teemme sillä ajalla, joka meille annetaan.");
+            stm.setInt(3, 1);
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try ( Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(example)) {
+            stm.setString(1, "Lisäämällä omia ideoitani käsien ojennuksiin");
+            stm.setString(2, "tuon tanssiin jotain omaani.");
+            stm.setInt(3, 0);
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override
     public void add(Exercise exercise) {
-        
+
         String sqlAdd = "INSERT INTO Exercises (firstpart, secondpart, comma) VALUES (?,?,?)";
 
         String first = exercise.getFirstPart();
@@ -51,10 +78,10 @@ public class ExerciseDaoDb implements ExerciseDao {
         } else {
             newcomma = 0;
         }
-        
-        try (Connection connection = this.connect(); PreparedStatement stm = connection.prepareStatement(sqlAdd)) {
-            stm.setString(1,first);
-            stm.setString(2,second);
+
+        try ( Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(sqlAdd)) {
+            stm.setString(1, first);
+            stm.setString(2, second);
             stm.setInt(3, newcomma);
             stm.executeUpdate();
         } catch (SQLException e) {
@@ -65,29 +92,29 @@ public class ExerciseDaoDb implements ExerciseDao {
 
     @Override
     public ArrayList<Exercise> listAll() {
-        
+
         String sqlList = "SELECT firstpart, secondpart, comma FROM Exercises";
         ArrayList<Exercise> resultList = new ArrayList<Exercise>();
-        
-        try (Connection connection = this.connect(); PreparedStatement stm = connection.prepareStatement(sqlList)) {
+
+        try ( Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(sqlList)) {
             ResultSet results = stm.executeQuery();
-            
+
             while (results.next()) {
                 String firstpart = results.getString("firstpart");
                 String secondpart = results.getString("secondpart");
-                boolean comma = false; 
-                
-                if (results.getInt("comma")==1) {
+                boolean comma = false;
+
+                if (results.getInt("comma") == 1) {
                     comma = true;
                 }
-                
-                resultList.add(new Exercise(firstpart,secondpart,comma));
+
+                resultList.add(new Exercise(firstpart, secondpart, comma));
             }
-            
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        
+
         return resultList;
     }
 }

@@ -4,21 +4,15 @@
  */
 package comma.domain;
 
-import comma.domain.*;
-import comma.dao.*;
-import comma.ui.*;
-import java.util.*;
-import java.sql.*;
-import javafx.application.Application;
+import comma.ui.CommaGUI;
+
+
 
 public class Main {
 
     public static void main(String[] args) {
-        ExerciseDaoDb exDao = new ExerciseDaoDb();
-        exDao.alusta();
+        CommaGUI.main(args);
         
-        Application.launch(CommaGUI.class);
-
         //TESTAILUUN
         //Exercise exercise = new Exercise("Elämä on","kuin matka", false);
         //Exercise exercise2 = new Exercise("Voimme päättää vain siitä", "mitä teemme sillä ajalla, joka meille annetaan", true);
@@ -31,4 +25,6 @@ public class Main {
 //        }
 
     }
+
+    
 }
