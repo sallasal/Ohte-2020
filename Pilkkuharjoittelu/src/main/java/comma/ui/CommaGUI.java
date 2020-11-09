@@ -36,11 +36,11 @@ public class CommaGUI extends Application {
         basicLayout.setTop(navigation);
         
         //Subscenes includind different functionalities
-        //In the beginning, just a placeholder
+        //For now, only practicing is working.
         
-        Label placeholder = new Label("Tähän tulee harjoitustehtävän näkymä");
+        PracticeView practiceView = new PracticeView();
         
-        basicLayout.setCenter(placeholder);
+        basicLayout.setCenter(practiceView.getPracticeView());
         
         //Creating and showing scene in GUI
         Scene basicView = new Scene(basicLayout);
