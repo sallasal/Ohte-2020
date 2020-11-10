@@ -43,7 +43,7 @@ public class CommaServiceTest {
      @Test
      public void hello() {}
     
-        @Test
+    @Test
     public void PalauttaaRandomillaYhdenOlion() {
         CommaService commaService = new CommaService();
         Exercise ex = commaService.getRandomExercise();
