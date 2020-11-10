@@ -20,10 +20,10 @@ Käyttäjän tiedot, eteneminen ja tehtävät tallennetaan tietokantaan kahteen 
 
 Kun sovellus valmistuu, siinä on seuraavia ominaisuuksia (kevyessä tärkeysjärjestyksessä):
 
+- Tehtävän arpominen tietokannasta käyttäjälle - OK
+- Palaute siitä, menikö vastaus tehtävään oikein - OK
 - Uuden käyttäjän luominen ( = rekisteröityminen)
 - Kirjautuminen ja uloskirjautuminen
-- Tehtävän arpominen tietokannasta käyttäjälle
-- Palaute siitä, menikö vastaus tehtävään oikein
 - Uuden tehtävän lisääminen tietokantaan
 - Tilastotiedot käyttäjän etenemisestä
 - Palkinnot, kun käyttäjä on saanut oikein riittävän määrän jonkin osa-alueen tehtäviä.
@@ -32,8 +32,8 @@ Kun sovellus valmistuu, siinä on seuraavia ominaisuuksia (kevyessä tärkeysjä
 
 Alla oleva lista on alustava suunnitelma kehittämisen vaiheista kurssin mittaan, lähinnä työkalu kehittäjälle.
 
-1. Tietokantataulu tehtäville ja yksinkertainen tekstikäyttöliittymä, jossa toimii tehtävän arpominen ja palaute.
-2. Graafinen tekstikäyttöliittymä ylläoleville.
+1. Tietokantataulu tehtäville, tehtävän arpominen ja palaute toimimaan. - OK
+2. Graafinen tekstikäyttöliittymä ylläoleville. - OK (Ei vielä erillistä palautenäkymää)
 3. Tietokantataulu käyttäjille, käyttäjän luominen ja kirjautuminen ylläolevaan.
 4. Uuden tehtävän lisääminen tietokantaan ja arpomisen muuttaminen siten, että ei palauta omaa tehtävää.
 5. Käyttäjäkohtaisten tilastojen listaaminen käyttäjän sivulla.
