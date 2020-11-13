@@ -5,8 +5,9 @@ Myöhemmässä vaiheessa sovelluksessa käyttäjä voi myös seurata omaa edisty
 
 ## Dokumentaatio
 
-Vaatimusmäärittely
-Työaikakirjanpito
+[Vaatimusmäärittely](https://github.com/sallasal/Ohte-2020/blob/master/Pilkkuharjoittelu/dokumentaatio/vaatimusmaarittely.md)
+
+[Työaikakirjanpito](https://github.com/sallasal/Ohte-2020/blob/master/Pilkkuharjoittelu/dokumentaatio/tyoaikakirjanpito.md)
 
 ## Vaatimukset ja suorittaminen
 
