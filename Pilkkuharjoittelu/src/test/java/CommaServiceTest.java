@@ -39,7 +39,7 @@ public class CommaServiceTest {
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
-    //
+    //Main
      @Test
      public void hello() {}
     
@@ -48,6 +48,5 @@ public class CommaServiceTest {
         CommaService commaService = new CommaService();
         Exercise ex = commaService.getRandomExercise();
         assertNotNull(ex);
-        
     }
 }

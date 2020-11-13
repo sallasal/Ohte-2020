@@ -8,16 +8,15 @@ import java.sql.*;
 import javafx.application.Application;
 
 public class CommaService {
+    private ExerciseDao db;
 
-    private ExerciseDaoDb exDao;
-
-    public CommaService() {
-        this.exDao = new ExerciseDaoDb();
-        exDao.alusta();
+    public CommaService() throws Exception {
+        db = new ExerciseDaoDb();
+        db.initialize();
     }
 
-    public Exercise getRandomExercise() {
-        ArrayList<Exercise> exList = exDao.listAll();
+    public Exercise getRandomExercise() throws SQLException {
+        ArrayList<Exercise> exList = db.listAll();
 
         Random random = new Random();
 

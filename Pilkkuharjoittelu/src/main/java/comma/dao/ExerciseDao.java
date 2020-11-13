@@ -11,8 +11,12 @@ import comma.domain.*;
 
 public interface ExerciseDao {
     
+    public Connection connect() throws Exception;
+    
+    public void initialize() throws Exception;
+    
     public void add(Exercise exercise) throws Exception;
     
-    ArrayList<Exercise> listAll() throws SQLException;
+    public ArrayList<Exercise> listAll() throws SQLException;
     
 }

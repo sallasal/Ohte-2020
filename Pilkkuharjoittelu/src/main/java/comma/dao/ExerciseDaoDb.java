@@ -10,7 +10,8 @@ import comma.domain.*;
 
 public class ExerciseDaoDb implements ExerciseDao {
 
-    private Connection connect() {
+    @Override
+    public Connection connect() {
         String url = "jdbc:sqlite:src/db/commas.db";
         Connection connection = null;
 
@@ -24,7 +25,8 @@ public class ExerciseDaoDb implements ExerciseDao {
         return connection;
     }
 
-    public void alusta() {
+    @Override
+    public void initialize() throws Exception {
         String sqlCreate = "CREATE TABLE IF NOT EXISTS Exercises (firstpart TEXT, secondpart TEXT, comma INTEGER)";
 
         try ( Connection connection = this.connect();  Statement stm = connection.createStatement()) {

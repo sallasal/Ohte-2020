@@ -12,6 +12,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import comma.domain.*;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CommaGUI extends Application {
 
@@ -50,7 +53,11 @@ public class CommaGUI extends Application {
         //For now, only practicing is working.
         practiceButton.setOnAction((event) -> {
             PracticeView practiceView = new PracticeView();
-            basicLayout.setCenter(practiceView.getPracticeView(this.commaService.getRandomExercise()));
+            try {
+                basicLayout.setCenter(practiceView.getPracticeView(this.commaService.getRandomExercise()));
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());;
+            }
         });
 
         basicLayout.setCenter(start);
