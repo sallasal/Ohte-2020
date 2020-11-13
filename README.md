@@ -1,13 +1,15 @@
-# Ohjelmistotekniikka 2020
+# Pilkkuharjoittelusovellus
 
-Tämä repositorio on tehty *ohjelmistotekniikan* kurssin harjoituksia ja harjoitustyötä varten **syksyn 2020** kurssille.
+Sovelluksen avulla käyttäjä voi harjoitella suomen kielen pilkkusääntöjä. 
+Myöhemmässä vaiheessa sovelluksessa käyttäjä voi myös seurata omaa edistymistään ja kerätä palkintoja ratkoessaan tehtäviä onnistuneesti.
 
-## Viikko 1
+## Dokumentaatio
 
-[gitlog.txt](https://github.com/sallasal/Ohte-s20/blob/master/laskarit/viikko1/gitlog.txt)
+Vaatimusmäärittely
+Työaikakirjanpito
 
-[komentorivi.txt](https://github.com/sallasal/Ohte-s20/blob/master/laskarit/viikko1/komentorivi.txt)
+## Vaatimukset ja suorittaminen
 
-## Viikko 2
+Sovellus vaatii toimiakseen Javan version 11.
+Koodin ja testit voi ajaa Netbeans-ohjelmointiympäristössä tai komentoriviltä seuraavilla komennoilla:
 
-[Testikattavuus-kuva](https://github.com/sallasal/Ohte-s20/blob/master/laskarit/viikko2/Test%20completeness%20for%20Unicafe.png)
