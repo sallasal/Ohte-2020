@@ -44,7 +44,7 @@ public class CommaServiceTest {
      public void hello() {}
     
     @Test
-    public void PalauttaaRandomillaYhdenOlion() {
+    public void PalauttaaRandomillaYhdenOlion() throws Exception {
         CommaService commaService = new CommaService();
         Exercise ex = commaService.getRandomExercise();
         assertNotNull(ex);
