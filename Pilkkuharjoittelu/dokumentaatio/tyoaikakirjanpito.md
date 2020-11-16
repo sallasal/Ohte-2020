@@ -7,3 +7,5 @@
 | 8.11. | 3    | Lisätty JavaFX-riippuvuus Maveniin, luotu ensimmäinen tyhjä Stage+Scene GUI-pakkaukseen ja testattu toimivuus etätyöpöydällä. Luotu ensimmäinen kevyt ulkoasuhahmotelma.|
 | 9.11. | 5    | Ohjelman sovelluslogiikan ja graafisen käyttöliittymän rungon rakentaminen. Nyt käyttöliittymässä on perusnäkymä johon haetaan alinäkymä (toistaiseksi vain harjoittelu). Sovelluslogiikka arpoo tietokannasta yhden satunnaisen harjoituksen ja antaa sen ratkaistavaksi, palaute annetaan oikein. Sovelluslogiikka, käynnistys + mainit fiksattu. |
 | 10.11.| 2    | Lisätty jacoco-riippuvuus, ensimmäinen testiluokka (sovelluslogiikan luokalle CommaService) ja ensimmäinen järkevä testi. Testattu, että jacocolla saa aikaan raportin haluttuun paikkaan. Testattu koko homman, myös jacocon, toimivuus taas virtuaalityöpöydällä. |
+| 13.11.| 1    | Korjattu sovelluslogiikkaa kutsumaan DAO-rajapintaa DAO-olion sijaan, korjattu tämän jälkeen tarpeellisia poikkeuksia. |
+| 16.11.| 2    | Korjattu testien poikkeukset, testattu tarpeelliset komentorivikomennot palautusta varten, testattu komentojen toimivuus virtuaalityöpöydällä. |
