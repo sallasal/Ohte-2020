@@ -12,7 +12,7 @@ Sovelluksessa on yksi käyttäjärooli, joka huolehtii kunkin käyttäjän tulos
 
 ## Käyttöliittymäluonnos
 
-<img src="https://github.com/sallasal/Ohte-2020/blob/master/Pilkkuharjoittelu/dokumentaatio/vaatimusm%C3%A4%C3%A4rittely-small.jpg" width="1000">
+<img src="https://github.com/sallasal/Ohte-2020/blob/master/Pilkkuharjoittelu/dokumentaatio/vaatimusmaarittely-1000.jpg" width="1000">
 
 ## Sovelluksen toiminnallisuudet
 
