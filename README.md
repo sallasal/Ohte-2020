@@ -17,7 +17,7 @@ Sovellus vaatii toimiakseen Javan version 11. Sovellus käyttää Mavenia ja kol
 
 Koodin ja testit voi ajaa Netbeans-ohjelmointiympäristössä tai komentoriviltä. Netbeans-ympäristössä ajaminen tapahtuu vihreästä nuolesta tai valikosta `Run`: `Run project (Pilkkuharjoittelu)`. Testit ajetaan Netbeansissa valitsemalla samasta valikosta `Test project (Pilkkuharjoittelu)`.
 
-Alla luetellut komentorivikomennot ajetaan projektikansiosta.
+Alla luetellut komentorivikomennot ajetaan projektikansiosta `Pilkkuharjoittelu`.
 
 ### Komentorivikomennot
 
