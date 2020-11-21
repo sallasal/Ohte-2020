@@ -20,21 +20,24 @@ Käyttäjän tiedot, eteneminen ja tehtävät tallennetaan tietokantaan kahteen 
 
 Kun sovellus valmistuu, siinä on seuraavia ominaisuuksia (kevyessä tärkeysjärjestyksessä):
 
-- Tehtävän arpominen tietokannasta käyttäjälle - OK
-- Palaute siitä, menikö vastaus tehtävään oikein - OK
-- Uuden käyttäjän luominen ( = rekisteröityminen)
-- Kirjautuminen ja uloskirjautuminen
+- Tehtävän arpominen tietokannasta käyttäjälle - TEHTY vko 3
+- Palaute siitä, menikö vastaus tehtävään oikein - TEHTY vko 3
+- Uuden käyttäjän luominen ( = rekisteröityminen) - TEHTY vko 4
+- Kirjautuminen ja uloskirjautuminen - TEHTY vko 4
 - Uuden tehtävän lisääminen tietokantaan
 - Tilastotiedot käyttäjän etenemisestä
 - Palkinnot, kun käyttäjä on saanut oikein riittävän määrän jonkin osa-alueen tehtäviä.
+- Alussa olevien harjoitustehtävien siirto omaan metodiin alustuksessa / lukeminen erillisestä tiedostosta kantaan
 
-## Sovelluksen kehittämisjärjestys
+## Sovelluksen alustava kehittämisjärjestys
 
 Alla oleva lista on alustava suunnitelma kehittämisen vaiheista kurssin mittaan, lähinnä työkalu kehittäjälle.
 
-1. Tietokantataulu tehtäville, tehtävän arpominen ja palaute toimimaan. - OK
-2. Graafinen tekstikäyttöliittymä ylläoleville. - OK (Ei vielä erillistä palautenäkymää)
-3. Tietokantataulu käyttäjille, käyttäjän luominen ja kirjautuminen ylläolevaan.
-4. Uuden tehtävän lisääminen tietokantaan ja arpomisen muuttaminen siten, että ei palauta omaa tehtävää.
-5. Käyttäjäkohtaisten tilastojen listaaminen käyttäjän sivulla.
-6. Palkintojen luominen ja lisääminen sekä käyttäjän tilastoihin että palkinnon saadessa palautusnäkymään.
+1. Tietokantataulu tehtäville, tehtävän arpominen ja palaute toimimaan. - TEHTY viikko 3
+2. Graafinen tekstikäyttöliittymä ylläoleville. - TEHTY viikko 3 (Ei vielä erillistä palautenäkymää)
+3. Tietokantataulu käyttäjille, käyttäjän luominen ja kirjautuminen ylläolevaan. - TEHTY viikko 4
+4. Palautenäkymän eriyttäminen omaksi näkymäkseen, erilleen tehtävänäkymästä.
+5. Uuden tehtävän lisääminen tietokantaan ja arpomisen muuttaminen siten, että ei palauta omaa tehtävää.
+6. Käyttäjäkohtaisten tilastojen listaaminen käyttäjän sivulla.
+7. Palkintojen luominen ja lisääminen sekä käyttäjän tilastoihin että palkinnon saadessa palautusnäkymään.
+8. Harjoitustehtävien alustaminen metodin tai tiedoston kautta.
