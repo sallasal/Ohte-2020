@@ -35,7 +35,7 @@ public class UserDaoDb implements UserDao {
         int exercises = user.getExercises();
         
         try (Connection connection = this.connect(); PreparedStatement stm = connection.prepareStatement(sqlAddUser)) {
-            stm.setString(1,username);
+            stm.setString(1, username);
             stm.setString(2, name);
             stm.setInt(3, exercises);
             stm.executeUpdate();

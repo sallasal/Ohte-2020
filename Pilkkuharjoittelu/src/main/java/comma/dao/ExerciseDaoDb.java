@@ -30,7 +30,7 @@ public class ExerciseDaoDb implements ExerciseDao {
         String sqlCreateExs = "CREATE TABLE IF NOT EXISTS Exercises (firstpart TEXT, secondpart TEXT, comma INTEGER)";
         String sqlCreateUsers = "CREATE TABLE IF NOT EXISTS Users (username TEXT, name TEXT, completedExercises INTEGER)";
 
-        try ( Connection connection = this.connect();  Statement stm = connection.createStatement()) {
+        try (Connection connection = this.connect();  Statement stm = connection.createStatement()) {
             stm.execute(sqlCreateExs);
             stm.execute(sqlCreateUsers);
         } catch (SQLException e) {
@@ -39,7 +39,7 @@ public class ExerciseDaoDb implements ExerciseDao {
 
         //Add three examples for developing, this is going to be better later
         String example = "INSERT INTO Exercises (firstpart, secondpart, comma) VALUES (?,?,?)";
-        try ( Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(example)) {
+        try (Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(example)) {
             stm.setString(1, "Elämä on");
             stm.setString(2, "kuin matka.");
             stm.setInt(3, 0);
@@ -48,7 +48,7 @@ public class ExerciseDaoDb implements ExerciseDao {
             System.out.println(e.getMessage());
         }
 
-        try ( Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(example)) {
+        try (Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(example)) {
             stm.setString(1, "Voimme päättää vain siitä");
             stm.setString(2, "mitä teemme sillä ajalla, joka meille annetaan.");
             stm.setInt(3, 1);
@@ -57,7 +57,7 @@ public class ExerciseDaoDb implements ExerciseDao {
             System.out.println(e.getMessage());
         }
 
-        try ( Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(example)) {
+        try (Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(example)) {
             stm.setString(1, "Lisäämällä omia ideoitani käsien ojennuksiin");
             stm.setString(2, "tuon tanssiin jotain omaani.");
             stm.setInt(3, 0);
@@ -83,7 +83,7 @@ public class ExerciseDaoDb implements ExerciseDao {
             newcomma = 0;
         }
 
-        try ( Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(sqlAdd)) {
+        try (Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(sqlAdd)) {
             stm.setString(1, first);
             stm.setString(2, second);
             stm.setInt(3, newcomma);
@@ -100,7 +100,7 @@ public class ExerciseDaoDb implements ExerciseDao {
         String sqlList = "SELECT firstpart, secondpart, comma FROM Exercises";
         ArrayList<Exercise> resultList = new ArrayList<Exercise>();
 
-        try ( Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(sqlList)) {
+        try (Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(sqlList)) {
             ResultSet results = stm.executeQuery();
 
             while (results.next()) {

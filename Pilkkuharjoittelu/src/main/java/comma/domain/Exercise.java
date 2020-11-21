@@ -39,6 +39,6 @@ public class Exercise {
     
     @Override
     public String toString() {
-        return(this.firstPart + " ______ " + this.secondPart + ". (Vastaus: " + this.comma + ")");
+        return (this.firstPart + " ______ " + this.secondPart + ". (Vastaus: " + this.comma + ")");
     }
 }
