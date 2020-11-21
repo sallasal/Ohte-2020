@@ -5,6 +5,13 @@ Myöhemmässä vaiheessa sovelluksessa käyttäjä voi myös seurata omaa edisty
 
 Sovellus on osa Helsingin yliopiston tietojenkäsittelytieteen Ohjelmistotekniikka-kurssin syksyn 2020 suoritusta.
 
+## Käyttöohje tällä hetkellä
+
+Tällä hetkellä sovellus aukeaa kirjautumisnäkymään. Kirjautumisnäkymä, rekisteröitymisnäkymä ja harjoittelunäkymä vaihtelevat napeista "Rekisteröi uusi käyttäjä", "Palaa kirjautumiseen" ja "Kirjaudu".
+Näkymien vaihtamista varten ei tässä commitissa tarvitse syöttää mitään tietoja. Harjoittelemaan pääsee siis vielä syöttämättä käyttäjätunnusta.
+
+Harjoittelunäkymässä uuden tehtävät (kolmesta) saa arvottua painamalla "Harjoittele".
+
 ## Dokumentaatio
 
 [Vaatimusmäärittely](https://github.com/sallasal/Ohte-2020/blob/master/Pilkkuharjoittelu/dokumentaatio/vaatimusmaarittely.md)

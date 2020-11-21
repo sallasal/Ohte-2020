@@ -32,7 +32,6 @@ public class PracticeView {
         //View functionalities
         yesComma.setOnAction((event) -> {
             boolean answer = true;
-            //Vaihda if-lauseen ehto vertailuksi arvotun olion vastaukseen
             if (ex.getComma()) {
                 feedback.setText("Oikea vastaus!");
                 statistics.setText("Tilastot ja palkinnot -placeholder");
@@ -45,7 +44,6 @@ public class PracticeView {
 
         noComma.setOnAction((event) -> {
             boolean answer = false;
-            //Vaihda if-lauseen ehto vertailuksi arvotun olion vastaukseen
             if (!ex.getComma()) {
                 feedback.setText("Oikea vastaus!");
                 statistics.setText("Tilastot ja palkinnot -placeholder");

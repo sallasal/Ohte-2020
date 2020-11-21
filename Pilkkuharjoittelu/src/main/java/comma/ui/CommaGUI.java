@@ -12,6 +12,8 @@ import comma.domain.*;
 public class CommaGUI extends Application {
 
     private CommaService commaService;
+    private Stage window;
+    
 
     @Override
     public void init() throws Exception {
@@ -19,7 +21,8 @@ public class CommaGUI extends Application {
     }
 
     @Override
-    public void start(Stage window) {
+    public void start(Stage windowArg) {
+        this.window = windowArg;
 
         window.setTitle("Pilkkusääntöjen harjoittelu");
         window.setWidth(500.00);
@@ -27,17 +30,22 @@ public class CommaGUI extends Application {
         
         //Create RegisterScene
         RegisterScene registerScene = new RegisterScene();
-        Scene register = registerScene.getRegisterScene(commaService);
+        Scene register = registerScene.getRegisterScene(commaService, window);
         
         //Create LogInScene
         LogInScene logInScene = new LogInScene();
-        Scene login = logInScene.getLogInScene(commaService);
+        Scene login = logInScene.getLogInScene(commaService, window);
         
         //Create LoggedInScene
         LoggedInScene loggedInScene = new LoggedInScene();
         Scene logged = loggedInScene.getLoggedInScene(commaService);
+        
+        //Set scenes to others
+        logInScene.setRegisterScene(register);
+        logInScene.setLoggedScene(logged);
+        registerScene.setLoginScene(login);
 
-        window.setScene(logged);
+        window.setScene(login);
         window.show();
     }
 
