@@ -1,4 +1,4 @@
-| päivä | aika | tehtävät  |
+| Päivä | Aika | Tehtävät  |
 | :----:|:-----| :-----|
 | 31.10.| 3    | Sovelluksen vaatimusmäärittely ja alustava arkkitehtuurisuunnittelu aloitettu, maven-projekti luotu. |
 | 1.11. | 4    | Suunnitelmat viimeistelty ja kirjoitettu puhtaaksi, tuotu GitHubiin, selvitetty tietokanta-asiaa ja valittu dbms. |
@@ -10,4 +10,4 @@
 | 13.11.| 1    | Korjattu sovelluslogiikkaa kutsumaan DAO-rajapintaa DAO-olion sijaan, korjattu tämän jälkeen tarpeellisia poikkeuksia. |
 | 16.11.| 2    | Korjattu testien poikkeukset, testattu tarpeelliset komentorivikomennot palautusta varten, testattu komentojen toimivuus virtuaalityöpöydällä. |
 | 19.11.| 1    | Ohjaukseen osallistuminen ja tietokannan valmiin sisällön tallentamisen pohtiminen ohjaajan avustuksella. |
-| 21.11.| 4    | User-taulun luominen kantaan, DAO-rajapinta ja -luokka sille, User-luokka sovelluslogiikkapakkaukseen ja instanssin luominen CommaService-sovelluslogiikkalukassa. Olemassaolevan harjoittelu-Scenen eriyttäminen omaksi luokakseen. Uudet scenet kirjautumiselle ja rekisteröitymiselle. Scenejen vaihto toimimaan sujuvasti (vielä toistaiseksi ilman tietokantatarkistuksia). |
+| 21.11.| 4    | User-taulun luominen kantaan, DAO-rajapinta ja -luokka sille, User-luokka sovelluslogiikkapakkaukseen ja instanssin luominen CommaService-sovelluslogiikkalukassa. Olemassaolevan harjoittelu-Scenen eriyttäminen omaksi luokakseen. Uudet Scenet kirjautumiselle ja rekisteröitymiselle. Scenejen vaihto toimimaan sujuvasti (vielä toistaiseksi ilman tietokantatarkistuksia). |
