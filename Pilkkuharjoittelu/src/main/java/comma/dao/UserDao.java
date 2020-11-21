@@ -15,9 +15,9 @@ public interface UserDao {
     
     public void add(User user) throws Exception;
     
-    public void findByUsername(String username) throws Exception;
+    public User findByUsername(String username) throws Exception;
     
-    public void findByName(String name) throws Exception;
+    public User findByName(String name) throws Exception;
     
     public int getCompletedExercises(String username) throws Exception;
 }
