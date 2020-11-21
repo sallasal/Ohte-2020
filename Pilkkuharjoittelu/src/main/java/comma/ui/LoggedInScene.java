@@ -6,11 +6,8 @@
 package comma.ui;
 
 import comma.domain.*;
-import comma.dao.*;
-import comma.ui.*;
 import java.sql.SQLException;
 import javafx.geometry.*;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;

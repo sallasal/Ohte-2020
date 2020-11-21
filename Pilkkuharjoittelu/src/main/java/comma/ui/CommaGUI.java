@@ -25,11 +25,19 @@ public class CommaGUI extends Application {
         window.setWidth(500.00);
         window.setHeight(500.00);
         
+        //Create RegisterScene
+        RegisterScene registerScene = new RegisterScene();
+        Scene register = registerScene.getRegisterScene(commaService);
+        
+        //Create LogInScene
+        LogInScene logInScene = new LogInScene();
+        Scene login = logInScene.getLogInScene(commaService);
+        
         //Create LoggedInScene
         LoggedInScene loggedInScene = new LoggedInScene();
-        Scene loggedScene = loggedInScene.getLoggedInScene(commaService);
+        Scene logged = loggedInScene.getLoggedInScene(commaService);
 
-        window.setScene(loggedScene);
+        window.setScene(logged);
         window.show();
     }
 
