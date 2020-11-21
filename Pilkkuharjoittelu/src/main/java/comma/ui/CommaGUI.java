@@ -38,12 +38,13 @@ public class CommaGUI extends Application {
         
         //Create LoggedInScene
         LoggedInScene loggedInScene = new LoggedInScene();
-        Scene logged = loggedInScene.getLoggedInScene(commaService);
+        Scene logged = loggedInScene.getLoggedInScene(commaService, window);
         
         //Set scenes to others
         logInScene.setRegisterScene(register);
         logInScene.setLoggedScene(logged);
         registerScene.setLoginScene(login);
+        loggedInScene.setLoginScene(login);
 
         window.setScene(login);
         window.show();

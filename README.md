@@ -12,7 +12,7 @@ Tällä hetkellä sovellus aukeaa kirjautumisnäkymään. Kirjautumisnäkymä, r
 Sisäänkirjautumis- ja rekisteröitymisnäkymien välillä voi tällä hetkellä vaihtaa vapaasti napista painamalla.
 Rekisteröitymisnäkymässä uuden käyttäjän lisääminen lisää kantaan uuden käyttäjän (olettaen, että rekisteröityminen onnistuu, eli mm. ettei samannimistä käyttäjää ole kannassa ennestään).
 
-Sisäänkirjautumisnäkymästä pääsee harjoittelunäkymään kirjautumalla sisään olemassaolevalla käyttäjällä. Uloskirjautumista ei vielä ole, se on tulossa sisäänkirjautuneiden näkymän yläpalkkiin.
+Sisäänkirjautumisnäkymästä pääsee harjoittelunäkymään kirjautumalla sisään olemassaolevalla käyttäjällä. Uloskirjautuminen palauttaa kirjautumisnäkymään.
 
 Harjoittelunäkymässä uuden tehtävät (kolmesta) saa arvottua painamalla "Harjoittele".
 
