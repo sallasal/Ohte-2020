@@ -27,15 +27,17 @@ public class ExerciseDaoDb implements ExerciseDao {
 
     @Override
     public void initialize() throws Exception {
-        String sqlCreate = "CREATE TABLE IF NOT EXISTS Exercises (firstpart TEXT, secondpart TEXT, comma INTEGER)";
+        String sqlCreateExs = "CREATE TABLE IF NOT EXISTS Exercises (firstpart TEXT, secondpart TEXT, comma INTEGER)";
+        String sqlCreateUsers = "CREATE TABLE IF NOT EXISTS Users (username TEXT, name TEXT, completedExercises INTEGER)";
 
         try ( Connection connection = this.connect();  Statement stm = connection.createStatement()) {
-            stm.execute(sqlCreate);
+            stm.execute(sqlCreateExs);
+            stm.execute(sqlCreateUsers);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
-        //Add three examples for developing
+        //Add three examples for developing, this is going to be better later
         String example = "INSERT INTO Exercises (firstpart, secondpart, comma) VALUES (?,?,?)";
         try ( Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(example)) {
             stm.setString(1, "Elämä on");

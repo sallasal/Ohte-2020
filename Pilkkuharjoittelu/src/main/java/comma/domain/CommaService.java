@@ -9,10 +9,12 @@ import javafx.application.Application;
 
 public class CommaService {
     private ExerciseDao db;
+    private UserDao userDao;
 
     public CommaService() throws Exception {
-        db = new ExerciseDaoDb();
+        this.db = new ExerciseDaoDb();
         db.initialize();
+        this.userDao = new UserDaoDb();
     }
 
     public Exercise getRandomExercise() throws SQLException {

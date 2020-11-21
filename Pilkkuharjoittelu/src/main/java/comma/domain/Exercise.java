@@ -4,7 +4,7 @@
  */
 
 package comma.domain;
-import comma.domain.*;
+
 import comma.dao.*;
 
 public class Exercise {
