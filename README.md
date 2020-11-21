@@ -8,8 +8,11 @@ Sovellus on osa Helsingin yliopiston tietojenkäsittelytieteen Ohjelmistotekniik
 ## Käyttöohje tällä hetkellä
 
 Tällä hetkellä sovellus aukeaa kirjautumisnäkymään. Kirjautumisnäkymä, rekisteröitymisnäkymä ja harjoittelunäkymä vaihtelevat napeista "Rekisteröi uusi käyttäjä", "Palaa kirjautumiseen" ja "Kirjaudu".
-Näkymien vaihtamista varten ei tässä commitissa tarvitse syöttää mitään tietoja. Harjoittelemaan pääsee siis vielä syöttämättä käyttäjätunnusta. 
-Uuden käyttäjäjn rekisteröiminen kuitenkin lisää kantaan jo uuden käyttäjän (olettaen, että rekisteröityminen onnistuu, eli mm. ettei samannimistä käyttäjää ole kannassa ennestään).
+
+Sisäänkirjautumis- ja rekisteröitymisnäkymien välillä voi tällä hetkellä vaihtaa vapaasti napista painamalla.
+Rekisteröitymisnäkymässä uuden käyttäjän lisääminen lisää kantaan uuden käyttäjän (olettaen, että rekisteröityminen onnistuu, eli mm. ettei samannimistä käyttäjää ole kannassa ennestään).
+
+Sisäänkirjautumisnäkymästä pääsee harjoittelunäkymään kirjautumalla sisään olemassaolevalla käyttäjällä. Uloskirjautumista ei vielä ole, se on tulossa sisäänkirjautuneiden näkymän yläpalkkiin.
 
 Harjoittelunäkymässä uuden tehtävät (kolmesta) saa arvottua painamalla "Harjoittele".
 

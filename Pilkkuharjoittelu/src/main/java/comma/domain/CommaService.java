@@ -11,11 +11,13 @@ public class CommaService {
 
     private ExerciseDao db;
     private UserDao userDao;
+    private User user;
 
     public CommaService() throws Exception {
         this.db = new ExerciseDaoDb();
         db.initialize();
         this.userDao = new UserDaoDb();
+        this.user = null;
     }
 
     // User methods
@@ -32,7 +34,18 @@ public class CommaService {
             return false;
         }
     }
-
+    
+    public boolean validateUsername(String username) throws Exception {
+        User validate = userDao.findByUsername(username);
+        
+        if (validate.getUsername() == null) {
+            return false;
+        } else {
+            this.user = validate;
+            return true;
+        }
+    }
+    
     // Exercise methods
     public Exercise getRandomExercise() throws SQLException {
         ArrayList<Exercise> exList = db.listAll();

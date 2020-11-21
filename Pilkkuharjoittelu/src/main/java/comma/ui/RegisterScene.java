@@ -53,7 +53,6 @@ public class RegisterScene {
                     message.setText("Käyttäjää ei lisätty, käyttäjänimi on jo käytössä.");
                 }
 
-                // window.setScene(login);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
