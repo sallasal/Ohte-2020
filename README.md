@@ -20,6 +20,8 @@ Harjoittelunäkymässä uuden tehtävät (kolmesta) saa arvottua painamalla "Har
 
 [Vaatimusmäärittely](https://github.com/sallasal/Ohte-2020/blob/master/Pilkkuharjoittelu/dokumentaatio/vaatimusmaarittely.md)
 
+[Arkkitehtuurikuvaus](https://github.com/sallasal/Ohte-2020/blob/master/Pilkkuharjoittelu/dokumentaatio/arkkitehtuuri.md)
+
 [Työaikakirjanpito](https://github.com/sallasal/Ohte-2020/blob/master/Pilkkuharjoittelu/dokumentaatio/tyoaikakirjanpito.md)
 
 ## Vaatimukset ja suorittaminen
