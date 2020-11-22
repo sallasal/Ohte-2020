@@ -46,6 +46,11 @@ public class CommaService {
         }
     }
     
+    // This is used just for testing, is it OK to have it here?
+    public void deleteUser(String username) throws Exception {
+        userDao.delete(username);
+    }
+    
     // Exercise methods
     public Exercise getRandomExercise() throws SQLException {
         ArrayList<Exercise> exList = db.listAll();

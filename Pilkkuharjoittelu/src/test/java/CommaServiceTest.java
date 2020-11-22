@@ -17,35 +17,59 @@ import static org.junit.Assert.*;
  * @author sallasal
  */
 public class CommaServiceTest {
-    
+
+    CommaService commaService;
+
     public CommaServiceTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+
     @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+    public void setUp() throws Exception {
+        this.commaService = new CommaService();
+        commaService.createUser("TestUser1","test user 1");     
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //Main
-     @Test
-     public void hello() {}
+    @After
+    public void tearDown() throws Exception {
+        commaService.deleteUser("TestUser1");
+        commaService.deleteUser("TestUser2");
+    }
+
+    @Test
+    public void validateUsernameReturnsTrue() throws Exception {
+        boolean returnValue = commaService.validateUsername("TestUser1");
+        assertTrue(returnValue);
+    }
     
     @Test
-    public void PalauttaaRandomillaYhdenOlion() throws Exception {
-        CommaService commaService = new CommaService();
+    public void validateUsernameReturnsFalse() throws Exception {
+        boolean returnValue = commaService.validateUsername("TestUser42");
+        assertFalse(returnValue);
+    }
+    
+    @Test
+    public void createUserReturnsTrue() throws Exception {
+        boolean returnValue = commaService.createUser("TestUser2", "Test user 2");
+        assertTrue(returnValue);
+    }
+    
+    @Test
+    public void deletingUserWorks() throws Exception {
+        commaService.createUser("TestUser3", "Test user 3");
+        commaService.deleteUser("TestUser3");
+        boolean returnValue = commaService.validateUsername("TestUser3");
+        assertFalse(returnValue);
+    }
+    
+    @Test
+    public void createUserChecksUsername() throws Exception {
+        boolean returnValue = commaService.createUser("TestUser1", "Should not work");
+        assertFalse(returnValue);
+    }
+
+    // This must be rewritten without testing random
+    @Test
+    public void returnsOneRandomObject() throws Exception {
         Exercise ex = commaService.getRandomExercise();
         assertNotNull(ex);
     }

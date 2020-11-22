@@ -15,6 +15,8 @@ public interface UserDao {
     
     public void add(User user) throws Exception;
     
+    public void delete(String username) throws Exception;
+    
     public User findByUsername(String username) throws Exception;
     
     public User findByName(String name) throws Exception;
