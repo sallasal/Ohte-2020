@@ -51,3 +51,8 @@ Testiraportin luominen projektikansion sijaintiin `target/site/jacoco/index.html
 ```
 mvn jacoco:report
 ```
+
+Checkstyle-raportin luominen projektikansion sijaintiin `target/site/checkstyle.html`:
+```
+mvn jxr:jxr checkstyle:checkstyle
+```
