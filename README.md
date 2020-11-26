@@ -14,7 +14,7 @@ Rekisteröitymisnäkymässä uuden käyttäjän lisääminen lisää kantaan uud
 
 Sisäänkirjautumisnäkymästä pääsee harjoittelunäkymään kirjautumalla sisään olemassaolevalla käyttäjällä. Uloskirjautuminen palauttaa kirjautumisnäkymään.
 
-Harjoittelunäkymässä uuden tehtävät (kolmesta) saa arvottua painamalla "Harjoittele".
+Harjoittelunäkymässä uuden tehtävät (kolmesta) saa arvottua painamalla "Harjoittele", ja palaute siirtyy palautenäkymään. Uuden tehtävän lisäysnäkymä ja käyttäjätilastonäkymä on luotu, mutta sisältö on vasta yksi label.
 
 ## Dokumentaatio
 
