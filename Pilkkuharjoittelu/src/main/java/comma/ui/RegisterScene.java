@@ -29,6 +29,8 @@ public class RegisterScene {
     public Scene getRegisterScene(CommaService commaService, Stage window) {
         GridPane registerLayout = new GridPane();
 
+        ColumnConstraints constraint = new ColumnConstraints(200);
+        registerLayout.getColumnConstraints().add(constraint);        
         registerLayout.setAlignment(Pos.CENTER);
         registerLayout.setVgap(20);
         registerLayout.setPadding(new Insets(10, 10, 10, 10));
@@ -36,6 +38,7 @@ public class RegisterScene {
         Label usernameInstructions = new Label("Syötä uusi käyttäjänimi");
         Label nameInstructions = new Label("Syötä käyttäjän nimi");
         Label message = new Label("");
+        message.setWrapText(true);
 
         TextField usernameField = new TextField();
         TextField nameField = new TextField();
@@ -48,6 +51,8 @@ public class RegisterScene {
                 boolean earlier = commaService.createUser(usernameField.getText(), nameField.getText());
 
                 if (earlier) {
+                    usernameField.clear();
+                    nameField.clear();
                     message.setText("Käyttäjä lisätty. Kirjaudu seuraavaksi sisään.");
                 } else {
                     message.setText("Käyttäjää ei lisätty, käyttäjänimi on jo käytössä.");

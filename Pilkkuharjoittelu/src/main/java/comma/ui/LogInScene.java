@@ -33,12 +33,15 @@ public class LogInScene {
     public Scene getLogInScene(CommaService commaService, Stage window) {
         GridPane loginLayout = new GridPane();
 
+        ColumnConstraints constraint = new ColumnConstraints(200);
+        loginLayout.getColumnConstraints().add(constraint);
         loginLayout.setAlignment(Pos.CENTER);
         loginLayout.setVgap(20);
         loginLayout.setPadding(new Insets(10, 10, 10, 10));
 
         Label instructions = new Label("Syötä käyttäjänimi:");
         Label feedback = new Label("");
+        feedback.setWrapText(true);
 
         TextField usernameField = new TextField("");
 
@@ -50,6 +53,7 @@ public class LogInScene {
                 if (commaService.validateUsername(usernameField.getText())) {
                     window.setScene(this.logged);
                 } else {
+                    usernameField.clear();
                     feedback.setText("Kirjautuminen ei onnistunut. Yritä uudelleen tai rekisteröidy.");
                 }
             } catch (Exception e) {

@@ -9,6 +9,12 @@ import java.sql.*;
 import comma.domain.*;
 
 public class UserDaoDb implements UserDao {
+    
+    private Connection connection;
+    
+    public UserDaoDb() {
+        this.connection = this.connect();
+    }
 
     @Override
     public Connection connect() {
@@ -34,7 +40,7 @@ public class UserDaoDb implements UserDao {
         String name = user.getName();
         int exercises = user.getExercises();
 
-        try ( Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(sqlAddUser)) {
+        try (PreparedStatement stm = connection.prepareStatement(sqlAddUser)) {
             stm.setString(1, username);
             stm.setString(2, name);
             stm.setInt(3, exercises);
@@ -50,7 +56,7 @@ public class UserDaoDb implements UserDao {
 
         String sqlDeleteUser = "DELETE FROM Users WHERE username = ?";
         
-        try ( Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(sqlDeleteUser)) {
+        try (PreparedStatement stm = connection.prepareStatement(sqlDeleteUser)) {
             stm.setString(1, username);
             stm.executeUpdate();
         } catch (SQLException e) {
@@ -66,7 +72,7 @@ public class UserDaoDb implements UserDao {
 
         String sqlFindUsername = "SELECT username, name, completedExercises FROM Users WHERE (username == ?)";
 
-        try ( Connection connection = this.connect();  PreparedStatement stm = connection.prepareStatement(sqlFindUsername)) {
+        try (PreparedStatement stm = connection.prepareStatement(sqlFindUsername)) {
             stm.setString(1, username);
             ResultSet results = stm.executeQuery();
 
