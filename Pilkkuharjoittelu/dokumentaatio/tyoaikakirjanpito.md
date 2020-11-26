@@ -12,5 +12,6 @@
 | 19.11.| 1    | Ohjaukseen osallistuminen ja tietokannan valmiin sisällön tallentamisen pohtiminen ohjaajan avustuksella. |
 | 21.11.| 9    | User-taulun luominen kantaan, DAO-rajapinta ja -luokka sille, User-luokka sovelluslogiikkapakkaukseen ja instanssin luominen CommaService-sovelluslogiikkalukassa. Olemassaolevan harjoittelu-Scenen eriyttäminen omaksi luokakseen. Uudet Scenet kirjautumiselle ja rekisteröitymiselle. Scenejen vaihto toimimaan sujuvasti. Testaus virtuaalityöasemassa. Käyttäjän lisääminen ja kirjautuminen toimimaan käyttöliittymästä kantaan asti (uuden käyttäjän tallennus kantaan, jos käyttäjänimeä ei kannassa ennestään, ja käyttäjän haku kannasta käyttäjänimen perusteella). Luokkakaavion luominen ja dokumentaation päivittäminen. |
 | 22.11.| 1    | Testikattavuuden lisääminen, käyttöliittymän jättäminen testien ulkopuolelle. |
+| 26.11.| 4    | Loppujen näkymien luominen, näkymien kutsuminen oikein, palautenäkymän palautteiden välittyminen oikein, kevyt koodin siistiminen (mm. refaktoroinnin aloittaminen). |
 
-**Yhteensä 36 tuntia**
+**Yhteensä 40 tuntia**
