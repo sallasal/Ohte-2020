@@ -7,6 +7,7 @@ package comma.ui;
 import comma.domain.*;
 import java.sql.SQLException;
 import javafx.geometry.*;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -15,6 +16,8 @@ import javafx.stage.Stage;
 public class LoggedInScene {
 
     private Scene login;
+    private Scene loggedInScene;
+    BorderPane basicLayout;
 
     public LoggedInScene() {
 
@@ -25,7 +28,8 @@ public class LoggedInScene {
     }
 
     public Scene getLoggedInScene(CommaService commaService, Stage window) {
-        BorderPane basicLayout = new BorderPane();
+        this.basicLayout = new BorderPane();
+        this.loggedInScene = new Scene(basicLayout);
 
         HBox navigation = new HBox();
         navigation.setPadding(new Insets(20, 20, 20, 20));
@@ -43,23 +47,35 @@ public class LoggedInScene {
 
         basicLayout.setTop(navigation);
 
-        //Subscenes includind different functionalities
-        //For now, only practicing is working.
+        basicLayout.setCenter(start);
+
+        // Create subscenes and add functionalities
+        // For now, only PracticeView is working
+        AddView addView = new AddView();
+        FeedbackView feedbackView = new FeedbackView();
+        PracticeView practiceView = new PracticeView(this.basicLayout, feedbackView);
+        StatisticsView statisticsView = new StatisticsView();
+
         practiceButton.setOnAction((event) -> {
-            PracticeView practiceView = new PracticeView();
             try {
                 basicLayout.setCenter(practiceView.getPracticeView(commaService.getRandomExercise()));
             } catch (SQLException e) {
                 System.out.println(e.getMessage());;
             }
         });
+        
+        createButton.setOnAction((event) -> {
+            basicLayout.setCenter(addView.getAddView());
+        });
+        
+        userButton.setOnAction((event) -> {
+            basicLayout.setCenter(statisticsView.getStatisticsView());
+        });
 
         logoutButton.setOnAction((event) -> {
             window.setScene(login);
         });
 
-        basicLayout.setCenter(start);
-
-        return new Scene(basicLayout);
+        return this.loggedInScene;
     }
 }

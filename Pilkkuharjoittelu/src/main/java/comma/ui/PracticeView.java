@@ -1,17 +1,23 @@
 package comma.ui;
 
 import comma.domain.*;
-import comma.dao.*;
-import comma.ui.*;
+import java.sql.SQLException;
 import javafx.geometry.*;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 
 public class PracticeView {
 
-    public PracticeView() {
+    private BorderPane basicLayout;
+    private int correct;
+    private FeedbackView feedbackView;
 
+    public PracticeView(BorderPane basicLayout, FeedbackView feedbackView) {
+        this.basicLayout = basicLayout;
+        this.feedbackView= feedbackView;
+        this.correct = 0;
     }
 
     public Parent getPracticeView(Exercise ex) {
@@ -29,30 +35,6 @@ public class PracticeView {
         Button yesComma = new Button("Kyllä, tulee pilkku");
         Button noComma = new Button("Ei, ei tule pilkkua");
 
-        //View functionalities
-        yesComma.setOnAction((event) -> {
-            boolean answer = true;
-            if (ex.getComma()) {
-                feedback.setText("Oikea vastaus!");
-                statistics.setText("Tilastot ja palkinnot -placeholder");
-            } else {
-                feedback.setText("Väärin. Harjoittele lisää.");
-                statistics.setText("Tilastot ja palkinnot -placeholder");
-            }
-
-        });
-
-        noComma.setOnAction((event) -> {
-            boolean answer = false;
-            if (!ex.getComma()) {
-                feedback.setText("Oikea vastaus!");
-                statistics.setText("Tilastot ja palkinnot -placeholder");
-            } else {
-                feedback.setText("Väärin. Harjoittele lisää.");
-                statistics.setText("Tilastot ja palkinnot -placeholder");
-            }
-        });
-
         //Order view
         practiceView.add(firstPart, 0, 1);
         practiceView.add(secondPart, 0, 2);
@@ -62,6 +44,35 @@ public class PracticeView {
 
         practiceView.add(feedback, 0, 7);
         practiceView.add(statistics, 0, 8);
+
+        //View functionalities
+        yesComma.setOnAction((event) -> {
+            boolean answer = true;
+            if (ex.getComma()) {
+                feedbackView.setFeedback("Oikea vastaus, hyvä!");
+                Parent feedbackParent = feedbackView.getFeedbackView();
+                basicLayout.setCenter(feedbackParent);
+            } else {
+                feedbackView.setFeedback("Väärä vastaus. Harjoittele lisää.");
+                Parent feedbackParent = feedbackView.getFeedbackView();
+                basicLayout.setCenter(feedbackParent);;
+            }
+
+        });
+
+        noComma.setOnAction((event) -> {
+            boolean answer = false;
+            if (!ex.getComma()) {
+                feedbackView.setFeedback("Oikea vastaus, hyvä!");
+                Parent feedbackParent = feedbackView.getFeedbackView();
+                basicLayout.setCenter(feedbackParent);
+            } else {
+                feedbackView.setFeedback("Väärä vastaus. Harjoittele lisää.");
+                Parent feedbackParent = feedbackView.getFeedbackView();
+                basicLayout.setCenter(feedbackParent);
+            }
+        });
+
 
         return practiceView;
     }
