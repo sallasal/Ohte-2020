@@ -28,7 +28,7 @@ Kun sovellus valmistuu, siinä on seuraavia ominaisuuksia (kevyessä tärkeysjä
 - Uuden tehtävän lisääminen tietokantaan
 - Tilastotiedot käyttäjän etenemisestä
 - Palkinnot, kun käyttäjä on saanut oikein riittävän määrän jonkin osa-alueen tehtäviä.
-- Alussa olevien harjoitustehtävien siirto omaan metodiin alustuksessa / lukeminen erillisestä tiedostosta kantaan
+- Alussa olevien harjoitustehtävien lukeminen erillisestä tiedostosta kantaan - TEHTY vko 5
 
 ## Sovelluksen alustava kehittämisjärjestys
 
@@ -41,4 +41,4 @@ Alla oleva lista on alustava suunnitelma kehittämisen vaiheista kurssin mittaan
 5. Uuden tehtävän lisääminen tietokantaan ja arpomisen muuttaminen siten, että ei palauta omaa tehtävää.
 6. Käyttäjäkohtaisten tilastojen listaaminen käyttäjän sivulla.
 7. Palkintojen luominen ja lisääminen sekä käyttäjän tilastoihin että palkinnon saadessa palautusnäkymään.
-8. Harjoitustehtävien alustaminen metodin tai tiedoston kautta.
+8. Harjoitustehtävien alustaminen metodin tai tiedoston kautta. - TEHTY vko 5
