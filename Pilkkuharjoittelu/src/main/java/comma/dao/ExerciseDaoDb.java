@@ -8,6 +8,7 @@ import java.io.*;
 import java.sql.*;
 import java.util.*;
 import comma.domain.*;
+import java.net.URL;
 
 public class ExerciseDaoDb implements ExerciseDao {
 
@@ -19,7 +20,8 @@ public class ExerciseDaoDb implements ExerciseDao {
 
     @Override
     public final Connection connect() {
-        String url = "jdbc:sqlite:src/db/commas.db";
+        String url = "jdbc:sqlite:commas.db";
+        
         Connection connection = null;
 
         try {
@@ -51,9 +53,10 @@ public class ExerciseDaoDb implements ExerciseDao {
     }
 
     private void bringExercises() throws Exception {
+        
         String sqlExercise = "INSERT INTO Exercises (firstpart, secondpart, comma, category, creator) VALUES (?,?,?,?,?)";
         
-        try (Scanner scanner = new Scanner(new File("src/db/exercises.csv"))) {
+        try (Scanner scanner = new Scanner(new File("exercises.csv"))) {
             while (scanner.hasNextLine()) {
                 String row = scanner.nextLine();
                 if (row.trim().length() == 0) {

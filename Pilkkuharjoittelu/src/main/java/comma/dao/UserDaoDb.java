@@ -18,7 +18,7 @@ public class UserDaoDb implements UserDao {
 
     @Override
     public Connection connect() {
-        String url = "jdbc:sqlite:src/db/commas.db";
+        String url = "jdbc:sqlite:commas.db";
         Connection connection = null;
 
         try {
