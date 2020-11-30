@@ -14,15 +14,15 @@ Rekisteröitymisnäkymässä uuden käyttäjän lisääminen lisää kantaan uud
 
 Sisäänkirjautumisnäkymästä pääsee harjoittelunäkymään kirjautumalla sisään olemassaolevalla käyttäjällä. Uloskirjautuminen palauttaa kirjautumisnäkymään.
 
-Harjoittelunäkymässä uuden tehtävät (kolmesta) saa arvottua painamalla "Harjoittele", ja palaute siirtyy palautenäkymään. Uuden tehtävän lisäysnäkymä ja käyttäjätilastonäkymä on luotu, mutta sisältö on vasta yksi label.
+Harjoittelunäkymässä uuden tehtävät (kolmesta) saa arvottua painamalla "Harjoittele", ja palaute siirtyy palautenäkymään. Uuden tehtävän lisäysnäkymä ja käyttäjätilastonäkymä on luotu, mutta sisältöä näkymissä ei juuri ole.
 
 ## Dokumentaatio
 
-[Vaatimusmäärittely](https://github.com/sallasal/Ohte-2020/blob/master/Pilkkuharjoittelu/dokumentaatio/vaatimusmaarittely.md)
+[Vaatimusmäärittely](https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
-[Arkkitehtuurikuvaus](https://github.com/sallasal/Ohte-2020/blob/master/Pilkkuharjoittelu/dokumentaatio/arkkitehtuuri.md)
+[Arkkitehtuurikuvaus](https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-[Työaikakirjanpito](https://github.com/sallasal/Ohte-2020/blob/master/Pilkkuharjoittelu/dokumentaatio/tyoaikakirjanpito.md)
+[Työaikakirjanpito](https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 ## Vaatimukset ja suorittaminen
 
