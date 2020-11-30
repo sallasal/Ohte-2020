@@ -44,8 +44,9 @@ public class ExerciseDaoDb implements ExerciseDao {
             System.out.println(e.getMessage());
         }
         
-        // Note to self: TÄSSÄ PITÄÄ VIELÄ TARKISTAA, ETTÄ TUODAAN HARJOITUKSET VAIN, JOS TAULU ON TYHJÄ.
-        bringExercises();
+        if (checkIfEmpty()) {
+            bringExercises();
+        }
 
     }
 
@@ -61,7 +62,7 @@ public class ExerciseDaoDb implements ExerciseDao {
                 
                 String[] exParts = row.split("\\|");
 
-                try ( PreparedStatement stm = connection.prepareStatement(sqlExercise)) {
+                try (PreparedStatement stm = connection.prepareStatement(sqlExercise)) {
                     stm.setString(1, exParts[0]);
                     stm.setString(2, exParts[1]);
                     stm.setInt(3, Integer.parseInt(exParts[2]));
@@ -78,27 +79,43 @@ public class ExerciseDaoDb implements ExerciseDao {
             System.out.println(e.getMessage());
         }
     }
+    
+    private boolean checkIfEmpty() throws Exception {
+        boolean isEmpty = false;
+        String sqlCount = "SELECT COUNT(*) AS count FROM Exercises";
+        
+        try (PreparedStatement stm = connection.prepareStatement(sqlCount)) {
+            ResultSet results = stm.executeQuery();
+            while (results.next()) {
+                if (results.getInt("count") == 0) {
+                    isEmpty = true;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        return isEmpty;
+    }
 
     @Override
     public void add(Exercise exercise) {
 
         String sqlAdd = "INSERT INTO Exercises (firstpart, secondpart, comma, category, creator) VALUES (?,?,?,?,?)";
+        int comma;
 
-        String first = exercise.getFirstPart();
-        String second = exercise.getSecondPart();
-        Boolean comma = exercise.getComma();
-        int newcomma;
-
-        if (comma) {
-            newcomma = 1;
+        if (exercise.getComma()) {
+            comma = 1;
         } else {
-            newcomma = 0;
+            comma = 0;
         }
 
-        try ( PreparedStatement stm = connection.prepareStatement(sqlAdd)) {
-            stm.setString(1, first);
-            stm.setString(2, second);
-            stm.setInt(3, newcomma);
+        try (PreparedStatement stm = connection.prepareStatement(sqlAdd)) {
+            stm.setString(1, exercise.getFirstPart());
+            stm.setString(2, exercise.getSecondPart());
+            stm.setInt(3, comma);
+            stm.setInt(4, exercise.getCategory());
+            stm.setString(5, exercise.getCreator());
             stm.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -112,7 +129,7 @@ public class ExerciseDaoDb implements ExerciseDao {
         String sqlList = "SELECT firstpart, secondpart, comma, category, creator FROM Exercises";
         ArrayList<Exercise> resultList = new ArrayList<>();
 
-        try ( PreparedStatement stm = connection.prepareStatement(sqlList)) {
+        try (PreparedStatement stm = connection.prepareStatement(sqlList)) {
             ResultSet results = stm.executeQuery();
 
             while (results.next()) {

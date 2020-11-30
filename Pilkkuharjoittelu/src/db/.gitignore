@@ -1,4 +1,0 @@
-*
-!.gitignore
-
-#This file is here to keep db location exiting while cloning project, as git does not allow empty folders.
