@@ -56,7 +56,7 @@ public class ExerciseDaoDb implements ExerciseDao {
         
         String sqlExercise = "INSERT INTO Exercises (firstpart, secondpart, comma, category, creator) VALUES (?,?,?,?,?)";
         
-        try (Scanner scanner = new Scanner(new File("exercises.csv"))) {
+        try (Scanner scanner = new Scanner(new File("src/main/resources/exercises.csv"))) {
             while (scanner.hasNextLine()) {
                 String row = scanner.nextLine();
                 if (row.trim().length() == 0) {
