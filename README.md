@@ -12,9 +12,17 @@ Tällä hetkellä sovellus aukeaa kirjautumisnäkymään. Kirjautumisnäkymä, r
 Sisäänkirjautumis- ja rekisteröitymisnäkymien välillä voi tällä hetkellä vaihtaa vapaasti napista painamalla.
 Rekisteröitymisnäkymässä uuden käyttäjän lisääminen lisää kantaan uuden käyttäjän (olettaen, että rekisteröityminen onnistuu, eli mm. ettei samannimistä käyttäjää ole kannassa ennestään).
 
-Sisäänkirjautumisnäkymästä pääsee harjoittelunäkymään kirjautumalla sisään olemassaolevalla käyttäjällä. Uloskirjautuminen palauttaa kirjautumisnäkymään.
+Sisäänkirjautumisnäkymästä pääsee harjoittelunäkymään kirjautumalla sisään olemassaolevalla käyttäjänimellä.
 
-Harjoittelunäkymässä uuden tehtävät (kolmesta) saa arvottua painamalla "Harjoittele", ja palaute siirtyy palautenäkymään. Uuden tehtävän lisäysnäkymä ja käyttäjätilastonäkymä on luotu, mutta sisältöä näkymissä ei juuri ole.
+Tehtävässä on toistaiseksi kolme tiedostosta kantaan luettua esimerkkitehtävää, ellei käyttäjä ole lisännyt itse lisää. Harjoittelunäkymässä uuden tehtävät saa arvottua painamalla "Harjoittele", ja palaute näytetään palautenäkymässä. 
+
+Uuden tehtävän lisäysnäkymässä käyttäjä voi lisätä tehtävän, joka lisätään tietokantaan ja arvotaan sitten muiden tehtävien mukana (tulevaisuudessa niin, ettei käyttäjä voi saada itse lisäämäänsä tehtävää). Käyttäjätilastonäkymä on luotu, mutta sisältöä siinä ei vielä ole.
+
+Uloskirjautuminen palauttaa kirjautumisnäkymään.
+
+## Releaset
+
+[Viikko 5](https://github.com/sallasal/Ohte-2020/releases/tag/viikko5)
 
 ## Dokumentaatio
 
@@ -41,13 +49,11 @@ mvn compile exec:java -Dexec.mainClass=comma.domain.Main
 ```
 
 Sovelluksen testien ajaminen:
-
 ```
 mvn test
 ```
 
 Testiraportin luominen projektikansion sijaintiin `target/site/jacoco/index.html`:
-
 ```
 mvn jacoco:report
 ```
@@ -55,4 +61,9 @@ mvn jacoco:report
 Checkstyle-raportin luominen projektikansion sijaintiin `target/site/checkstyle.html`:
 ```
 mvn jxr:jxr checkstyle:checkstyle
+```
+
+.jar-pakkauksen luominen
+```
+mvn package
 ```
