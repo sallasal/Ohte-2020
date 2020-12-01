@@ -14,5 +14,7 @@
 | 22.11.| 1    | Testikattavuuden lisääminen, käyttöliittymän jättäminen testien ulkopuolelle. |
 | 26.11.| 4    | Loppujen näkymien luominen, näkymien kutsuminen oikein, palautenäkymän palautteiden välittyminen oikein, kevyt koodin siistiminen (mm. refaktoroinnin aloittaminen). |
 | 29.11.| 2    | Harjoitustehtävien lukeminen kovakoodauksen sijaan omasta pipe-erotellusta tiedostostaan ja tallentaminen kantaan ExerciseDaoDb-luokassa tietokantaa alustettaessa. |
+| 30.11.| 5    | Pakkauksen tekeminen ja sen selvittely, miten resursseja (exercises.csv) luodaan niin, että pysyy .jar-tiedostossa mukana. Samoin sen selvittäminen, miten ja mihin tietokanta tallennetaan siten, että käyttö onnistuu .jar-tiedostonkin kautta. |
+| 1.12. | 4    | Jar-tiedoston resurssien lukemisen viimeistely. Uusi ominaisuus: käyttäjä voi lisätä uuden tehtävän kantaan. Jar-ajautumisen ja komentorivin komentojen testaus sekä omalla työpöydällä että etätyöpöydällä. |
 
-**Yhteensä 42 tuntia**
+**Yhteensä 46 tuntia**
