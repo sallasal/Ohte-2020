@@ -25,7 +25,7 @@ Kun sovellus valmistuu, siinä on seuraavia ominaisuuksia (kevyessä tärkeysjä
 - Uuden käyttäjän luominen ( = rekisteröityminen) - TEHTY vko 4
 - Kirjautuminen ja uloskirjautuminen - TEHTY vko 4
 - Kaikkien näkymien luominen ja kutsuminen oikein - TEHTY vko 5
-- Uuden tehtävän lisääminen tietokantaan
+- Uuden tehtävän lisääminen tietokantaan - TEHTY vko 5
 - Tilastotiedot käyttäjän etenemisestä
 - Palkinnot, kun käyttäjä on saanut oikein riittävän määrän jonkin osa-alueen tehtäviä.
 - Alussa olevien harjoitustehtävien lukeminen erillisestä tiedostosta kantaan - TEHTY vko 5
@@ -38,7 +38,8 @@ Alla oleva lista on alustava suunnitelma kehittämisen vaiheista kurssin mittaan
 2. Graafinen tekstikäyttöliittymä ylläoleville. - TEHTY viikko 3 (Ei vielä erillistä palautenäkymää)
 3. Tietokantataulu käyttäjille, käyttäjän luominen ja kirjautuminen ylläolevaan. - TEHTY viikko 4
 4. Palautenäkymän eriyttäminen omaksi näkymäkseen, erilleen tehtävänäkymästä. - TEHTY viikko 5
-5. Uuden tehtävän lisääminen tietokantaan ja arpomisen muuttaminen siten, että ei palauta omaa tehtävää.
-6. Käyttäjäkohtaisten tilastojen listaaminen käyttäjän sivulla.
-7. Palkintojen luominen ja lisääminen sekä käyttäjän tilastoihin että palkinnon saadessa palautusnäkymään.
-8. Harjoitustehtävien alustaminen metodin tai tiedoston kautta. - TEHTY vko 5
+5. Uuden tehtävän lisääminen tietokantaan. - TEHTY viikko 5
+6. Arpomisen muuttaminen siten, että ei palauta omaa tehtävää.
+7. Käyttäjäkohtaisten tilastojen listaaminen käyttäjän sivulla.
+8. Palkintojen luominen ja lisääminen sekä käyttäjän tilastoihin että palkinnon saadessa palautusnäkymään.
+9. Harjoitustehtävien alustaminen tiedoston kautta. - TEHTY vko 5
