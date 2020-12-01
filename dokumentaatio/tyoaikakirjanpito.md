@@ -17,4 +17,4 @@
 | 30.11.| 5    | Pakkauksen tekeminen ja sen selvittely, miten resursseja (exercises.csv) luodaan niin, että pysyy .jar-tiedostossa mukana. Samoin sen selvittäminen, miten ja mihin tietokanta tallennetaan siten, että käyttö onnistuu .jar-tiedostonkin kautta. |
 | 1.12. | 4    | Jar-tiedoston resurssien lukemisen viimeistely. Uusi ominaisuus: käyttäjä voi lisätä uuden tehtävän kantaan. Jar-ajautumisen ja komentorivin komentojen testaus sekä omalla työpöydällä että etätyöpöydällä. |
 
-**Yhteensä 46 tuntia**
+**Yhteensä 51 tuntia**
