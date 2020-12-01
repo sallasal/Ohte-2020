@@ -30,7 +30,7 @@ Uloskirjautuminen palauttaa kirjautumisnäkymään.
 
 [Arkkitehtuurikuvaus](https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-[Työaikakirjanpito](https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/vaatimusmaarittely.md)
+[Työaikakirjanpito](https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 
 ## Vaatimukset ja suorittaminen
 
