@@ -21,7 +21,7 @@ public class ExerciseDaoDb implements ExerciseDao {
     @Override
     public final Connection connect() {
         String url = "jdbc:sqlite:commas.db";
-        
+
         Connection connection = null;
 
         try {
@@ -39,13 +39,13 @@ public class ExerciseDaoDb implements ExerciseDao {
         String sqlCreateExs = "CREATE TABLE IF NOT EXISTS Exercises (firstpart TEXT, secondpart TEXT, comma INTEGER, category INTEGER, creator TEXT)";
         String sqlCreateUsers = "CREATE TABLE IF NOT EXISTS Users (username TEXT, name TEXT, completedExercises INTEGER)";
 
-        try (Statement stm = connection.createStatement()) {
+        try ( Statement stm = connection.createStatement()) {
             stm.execute(sqlCreateExs);
             stm.execute(sqlCreateUsers);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        
+
         if (checkIfEmpty()) {
             bringExercises();
         }
@@ -53,19 +53,24 @@ public class ExerciseDaoDb implements ExerciseDao {
     }
 
     private void bringExercises() throws Exception {
-        
+
         String sqlExercise = "INSERT INTO Exercises (firstpart, secondpart, comma, category, creator) VALUES (?,?,?,?,?)";
-        
-        try (Scanner scanner = new Scanner(new File("src/main/resources/exercises.csv"))) {
-            while (scanner.hasNextLine()) {
-                String row = scanner.nextLine();
+
+        InputStream inputStream = null;
+        try {
+            ClassLoader classLoader = this.getClass().getClassLoader();
+            inputStream = classLoader.getResourceAsStream("exercises.csv");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String row;
+            while ((row = reader.readLine()) != null) {
+
                 if (row.trim().length() == 0) {
                     continue;
                 }
-                
+
                 String[] exParts = row.split("\\|");
 
-                try (PreparedStatement stm = connection.prepareStatement(sqlExercise)) {
+                try ( PreparedStatement stm = connection.prepareStatement(sqlExercise)) {
                     stm.setString(1, exParts[0]);
                     stm.setString(2, exParts[1]);
                     stm.setInt(3, Integer.parseInt(exParts[2]));
@@ -77,17 +82,19 @@ public class ExerciseDaoDb implements ExerciseDao {
                 }
 
             }
-
+            reader.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        } finally {
+            inputStream.close();
         }
     }
-    
+
     private boolean checkIfEmpty() throws Exception {
         boolean isEmpty = false;
         String sqlCount = "SELECT COUNT(*) AS count FROM Exercises";
-        
-        try (PreparedStatement stm = connection.prepareStatement(sqlCount)) {
+
+        try ( PreparedStatement stm = connection.prepareStatement(sqlCount)) {
             ResultSet results = stm.executeQuery();
             while (results.next()) {
                 if (results.getInt("count") == 0) {
@@ -97,7 +104,7 @@ public class ExerciseDaoDb implements ExerciseDao {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        
+
         return isEmpty;
     }
 
@@ -113,7 +120,7 @@ public class ExerciseDaoDb implements ExerciseDao {
             comma = 0;
         }
 
-        try (PreparedStatement stm = connection.prepareStatement(sqlAdd)) {
+        try ( PreparedStatement stm = connection.prepareStatement(sqlAdd)) {
             stm.setString(1, exercise.getFirstPart());
             stm.setString(2, exercise.getSecondPart());
             stm.setInt(3, comma);
@@ -132,7 +139,7 @@ public class ExerciseDaoDb implements ExerciseDao {
         String sqlList = "SELECT firstpart, secondpart, comma, category, creator FROM Exercises";
         ArrayList<Exercise> resultList = new ArrayList<>();
 
-        try (PreparedStatement stm = connection.prepareStatement(sqlList)) {
+        try ( PreparedStatement stm = connection.prepareStatement(sqlList)) {
             ResultSet results = stm.executeQuery();
 
             while (results.next()) {
