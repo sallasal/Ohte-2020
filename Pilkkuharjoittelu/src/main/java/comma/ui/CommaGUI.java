@@ -25,8 +25,8 @@ public class CommaGUI extends Application {
         this.window = windowArg;
 
         window.setTitle("Pilkkusääntöjen harjoittelu");
-        window.setWidth(500.00);
-        window.setHeight(500.00);
+        window.setWidth(800.00);
+        window.setHeight(800.00);
         
         //Create RegisterScene
         RegisterScene registerScene = new RegisterScene();

@@ -30,7 +30,7 @@ public class Exercise {
         this.category = category;
         this.creator = creator;
     }
-    
+        
     public String getFirstPart() {
         return this.firstPart;
     }

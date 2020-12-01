@@ -51,7 +51,7 @@ public class LoggedInScene {
 
         // Create subscenes and add functionalities
         // For now, only PracticeView is working
-        AddView addView = new AddView();
+        AddView addView = new AddView(this.basicLayout, commaService);
         FeedbackView feedbackView = new FeedbackView();
         PracticeView practiceView = new PracticeView(this.basicLayout, feedbackView);
         StatisticsView statisticsView = new StatisticsView();
