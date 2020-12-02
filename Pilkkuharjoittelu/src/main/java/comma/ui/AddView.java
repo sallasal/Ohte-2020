@@ -30,7 +30,7 @@ public class AddView {
 
         Label firstPartLab = new Label("Lauseen alkuosa:");
         Label secondPartLab = new Label("Lauseen loppuosa:");
-        Label commaLab = new Label("Tuleeko väliin pilkku? \n (1 = kyllä, 0 = ei)") ;
+        Label commaLab = new Label("Tuleeko väliin pilkku? \n (1 = kyllä, 0 = ei)");
         commaLab.setWrapText(true);
         Label categoryLab = new Label("Mitä kategoriaa harjoitus on? \n (1 = päälauseet, 2 = sivulauseet, \n 3 = erikoistapaukset)");
         categoryLab.setWrapText(true);
@@ -52,7 +52,7 @@ public class AddView {
                 commaField.clear();
                 categoryField.clear();
                 feedbackLab.setText("Tehtävän lisääminen onnistui!");
-            } catch(Exception e) {
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         });

@@ -39,7 +39,7 @@ public class ExerciseDaoDb implements ExerciseDao {
         String sqlCreateExs = "CREATE TABLE IF NOT EXISTS Exercises (firstpart TEXT, secondpart TEXT, comma INTEGER, category INTEGER, creator TEXT)";
         String sqlCreateUsers = "CREATE TABLE IF NOT EXISTS Users (username TEXT, name TEXT, completedExercises INTEGER)";
 
-        try ( Statement stm = connection.createStatement()) {
+        try (Statement stm = connection.createStatement()) {
             stm.execute(sqlCreateExs);
             stm.execute(sqlCreateUsers);
         } catch (SQLException e) {
@@ -70,7 +70,7 @@ public class ExerciseDaoDb implements ExerciseDao {
 
                 String[] exParts = row.split("\\|");
 
-                try ( PreparedStatement stm = connection.prepareStatement(sqlExercise)) {
+                try (PreparedStatement stm = connection.prepareStatement(sqlExercise)) {
                     stm.setString(1, exParts[0]);
                     stm.setString(2, exParts[1]);
                     stm.setInt(3, Integer.parseInt(exParts[2]));
@@ -94,7 +94,7 @@ public class ExerciseDaoDb implements ExerciseDao {
         boolean isEmpty = false;
         String sqlCount = "SELECT COUNT(*) AS count FROM Exercises";
 
-        try ( PreparedStatement stm = connection.prepareStatement(sqlCount)) {
+        try (PreparedStatement stm = connection.prepareStatement(sqlCount)) {
             ResultSet results = stm.executeQuery();
             while (results.next()) {
                 if (results.getInt("count") == 0) {
@@ -120,7 +120,7 @@ public class ExerciseDaoDb implements ExerciseDao {
             comma = 0;
         }
 
-        try ( PreparedStatement stm = connection.prepareStatement(sqlAdd)) {
+        try (PreparedStatement stm = connection.prepareStatement(sqlAdd)) {
             stm.setString(1, exercise.getFirstPart());
             stm.setString(2, exercise.getSecondPart());
             stm.setInt(3, comma);
@@ -139,7 +139,7 @@ public class ExerciseDaoDb implements ExerciseDao {
         String sqlList = "SELECT firstpart, secondpart, comma, category, creator FROM Exercises";
         ArrayList<Exercise> resultList = new ArrayList<>();
 
-        try ( PreparedStatement stm = connection.prepareStatement(sqlList)) {
+        try (PreparedStatement stm = connection.prepareStatement(sqlList)) {
             ResultSet results = stm.executeQuery();
 
             while (results.next()) {

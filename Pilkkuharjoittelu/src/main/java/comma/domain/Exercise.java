@@ -15,13 +15,6 @@ public class Exercise {
     private int category;
     private String creator;
     
-    public Exercise() {
-        this.firstPart = null;
-        this.secondPart = null;
-        this.comma = false;
-        this.category = 3;
-        this.creator = "program";
-    }
     
     public Exercise(String firstPart, String secondPart, boolean comma, int category, String creator) {
         this.firstPart = firstPart;
