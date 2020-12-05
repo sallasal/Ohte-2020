@@ -20,6 +20,8 @@ Uuden tehtävän lisäysnäkymässä käyttäjä voi lisätä tehtävän, joka l
 
 Uloskirjautuminen palauttaa kirjautumisnäkymään.
 
+**Puutteet vielä mm.: ei vielä tallenna onnistunutta tehtävää kantaan kirjanpitoa varten, ei vielä validoi käyttäjän syötteitä (joten käytä lempeästi)**
+
 ## Releaset
 
 [Viikko 5](https://github.com/sallasal/Ohte-2020/releases/tag/viikko5)
