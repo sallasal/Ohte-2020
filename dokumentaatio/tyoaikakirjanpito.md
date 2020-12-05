@@ -17,5 +17,6 @@
 | 30.11.| 5    | Pakkauksen tekeminen ja sen selvittely, miten resursseja (exercises.csv) luodaan niin, että pysyy .jar-tiedostossa mukana. Samoin sen selvittäminen, miten ja mihin tietokanta tallennetaan siten, että käyttö onnistuu .jar-tiedostonkin kautta. |
 | 1.12. | 4    | Jar-tiedoston resurssien lukemisen viimeistely. Uusi ominaisuus: käyttäjä voi lisätä uuden tehtävän kantaan. Jar-ajautumisen ja komentorivin komentojen testaus sekä omalla työpöydällä että etätyöpöydällä. |
 | 2.12. | 1    | Testiluokka Exerciselle, checkstyle-korjaukset. Checkstylen ja jacocon toimivuustarkistukset ja yleinen toimivuustarkistus virtuaalityöpöydällä. |
+| 5.12. | 5    | User-tietokantatauluun lisätty kirjanpito kunkin kolmen kategorian edistymisen seurantaan. Kunkin kategorian edistymisen seuranta luetaan kannasta oikein kunkin käyttäjän käyttäjätietonäkymässä (tähän meni paljon aikaa, oli paljon debuggausta). Tehty kunnollinen logout-systeemi joka nollaa käyttäjän CommaServicessä sekä tehty uusi start-näkymä käyttöliittymään - nämä siksi, että sai näyttämään oikein kunkin käyttäjän tilastot. |
 
-**Yhteensä 52 tuntia**
+**Yhteensä 57 tuntia**
