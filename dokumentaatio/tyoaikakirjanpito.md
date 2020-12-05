@@ -16,5 +16,6 @@
 | 29.11.| 2    | Harjoitustehtävien lukeminen kovakoodauksen sijaan omasta pipe-erotellusta tiedostostaan ja tallentaminen kantaan ExerciseDaoDb-luokassa tietokantaa alustettaessa. |
 | 30.11.| 5    | Pakkauksen tekeminen ja sen selvittely, miten resursseja (exercises.csv) luodaan niin, että pysyy .jar-tiedostossa mukana. Samoin sen selvittäminen, miten ja mihin tietokanta tallennetaan siten, että käyttö onnistuu .jar-tiedostonkin kautta. |
 | 1.12. | 4    | Jar-tiedoston resurssien lukemisen viimeistely. Uusi ominaisuus: käyttäjä voi lisätä uuden tehtävän kantaan. Jar-ajautumisen ja komentorivin komentojen testaus sekä omalla työpöydällä että etätyöpöydällä. |
+| 2.12. | 1    | Testiluokka Exerciselle, checkstyle-korjaukset. Checkstylen ja jacocon toimivuustarkistukset ja yleinen toimivuustarkistus virtuaalityöpöydällä. |
 
-**Yhteensä 51 tuntia**
+**Yhteensä 52 tuntia**
