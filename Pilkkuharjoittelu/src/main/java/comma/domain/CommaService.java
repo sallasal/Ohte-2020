@@ -73,6 +73,10 @@ public class CommaService {
     public String getUsername() {
         return this.user.getUsername();
     }
+    
+    public void nullUser() {
+        this.user = null;
+    }
 
     public void deleteUser(String username) throws Exception {
         userDao.delete(username);

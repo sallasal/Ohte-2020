@@ -42,21 +42,20 @@ public class LoggedInScene {
         Button userButton = new Button("Käyttäjätiedot");
         Button logoutButton = new Button("Kirjaudu ulos");
 
-        Label start = new Label("Aloita valitsemalla toiminto.");
-
         //Note to self: add rest of the buttons to this very command when ready
         navigation.getChildren().addAll(practiceButton, createButton, userButton, logoutButton);
 
         basicLayout.setTop(navigation);
-
-        basicLayout.setCenter(start);
 
         // Create subscenes and add functionalities
         // For now, only PracticeView is working
         AddView addView = new AddView(this.basicLayout, commaService);
         FeedbackView feedbackView = new FeedbackView();
         PracticeView practiceView = new PracticeView(this.basicLayout, commaService, feedbackView);
+        StartView startView = new StartView();
         StatisticsView statisticsView = new StatisticsView(this.basicLayout, commaService);
+
+        basicLayout.setCenter(startView.getStartView());
 
         practiceButton.setOnAction((event) -> {
             try {
@@ -65,11 +64,11 @@ public class LoggedInScene {
                 System.out.println(e.getMessage());;
             }
         });
-        
+
         createButton.setOnAction((event) -> {
             basicLayout.setCenter(addView.getAddView());
         });
-        
+
         userButton.setOnAction((event) -> {
             try {
                 basicLayout.setCenter(statisticsView.getStatisticsView());
@@ -79,6 +78,8 @@ public class LoggedInScene {
         });
 
         logoutButton.setOnAction((event) -> {
+            commaService.nullUser();
+            basicLayout.setCenter(startView.getStartView());
             window.setScene(login);
         });
 
