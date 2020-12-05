@@ -9,9 +9,9 @@ import java.sql.*;
 import comma.domain.*;
 
 public class UserDaoDb implements UserDao {
-    
+
     private Connection connection;
-    
+
     public UserDaoDb() {
         this.connection = this.connect();
     }
@@ -32,11 +32,11 @@ public class UserDaoDb implements UserDao {
     }
 
     @Override
-    public void add(User user) {
+    public void add(User user) throws Exception {
 
         String sqlAddUser = "INSERT INTO Users (username, name, completedCtg1, completedCtg2, CompletedCtg3) VALUES (?, ?, ?, ?, ?)";
 
-        try (PreparedStatement stm = connection.prepareStatement(sqlAddUser)) {
+        try ( PreparedStatement stm = connection.prepareStatement(sqlAddUser)) {
             stm.setString(1, user.getUsername());
             stm.setString(2, user.getName());
             stm.setInt(3, user.getExercises(1));
@@ -50,11 +50,11 @@ public class UserDaoDb implements UserDao {
     }
 
     @Override
-    public void delete(String username) {
+    public void delete(String username) throws Exception {
 
         String sqlDeleteUser = "DELETE FROM Users WHERE username = ?";
-        
-        try (PreparedStatement stm = connection.prepareStatement(sqlDeleteUser)) {
+
+        try ( PreparedStatement stm = connection.prepareStatement(sqlDeleteUser)) {
             stm.setString(1, username);
             stm.executeUpdate();
         } catch (SQLException e) {
@@ -64,13 +64,13 @@ public class UserDaoDb implements UserDao {
     }
 
     @Override
-    public User findByUsername(String username) {
+    public User findByUsername(String username) throws Exception {
 
         User userToReturn = new User();
 
         String sqlFindUsername = "SELECT username, name, completedCtg1, completedCtg2, CompletedCtg3 FROM Users WHERE (username == ?)";
 
-        try (PreparedStatement stm = connection.prepareStatement(sqlFindUsername)) {
+        try ( PreparedStatement stm = connection.prepareStatement(sqlFindUsername)) {
             stm.setString(1, username);
             ResultSet results = stm.executeQuery();
 
@@ -90,33 +90,106 @@ public class UserDaoDb implements UserDao {
 
         return userToReturn;
     }
-    
+
     @Override
-    public int passedExercisesInCategory(String username, int category) {
+    public int passedExercisesInCategory(String username, int category) throws Exception {
         int passedExercises = -1;
-        String columnName = "compteledCtg"+String.valueOf(category);
-        
+        String columnName = "completedCtg" + String.valueOf(category);
+        System.out.println("Tuleeko kolumnin nimi oikein: " + columnName);
+
         String sqlGetExCount = "SELECT ? FROM Users WHERE (username == ?)";
-        
-        try (PreparedStatement stm = connection.prepareStatement(sqlGetExCount)) {
+
+        try ( PreparedStatement stm = connection.prepareStatement(sqlGetExCount)) {
             stm.setString(1, columnName);
             stm.setString(2, username);
             ResultSet results = stm.executeQuery();
-            
+            System.out.println("Tulokset: " + results.toString());
+
             while (results.next()) {
+                System.out.println("Tästä kolumnista haetaan: " + results.getInt(columnName));
                 passedExercises = results.getInt(columnName);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        
+
         return passedExercises;
     }
 
     @Override
-    public int getCompletedExercises(String username) {
-        // Coming soon
-        return 0;
+    public int passedExercisesInCategory1(String username) throws Exception {
+        int passedExercises = -1;
+
+        String sqlGetExCount = "SELECT completedCtg1 FROM Users WHERE (username == ?)";
+
+        try ( PreparedStatement stm = connection.prepareStatement(sqlGetExCount)) {
+            stm.setString(1, username);
+            ResultSet results = stm.executeQuery();
+
+            while (results.next()) {
+                passedExercises = results.getInt("completedCtg1");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return passedExercises;
+    }
+
+    @Override
+    public int passedExercisesInCategory2(String username) throws Exception {
+        int passedExercises = -1;
+
+        String sqlGetExCount = "SELECT completedCtg2 FROM Users WHERE (username == ?)";
+
+        try ( PreparedStatement stm = connection.prepareStatement(sqlGetExCount)) {
+            stm.setString(1, username);
+            ResultSet results = stm.executeQuery();
+
+            while (results.next()) {
+                passedExercises = results.getInt("completedCtg2");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return passedExercises;
+    }
+
+    @Override
+    public int passedExercisesInCategory3(String username) throws Exception {
+        int passedExercises = -1;
+
+        String sqlGetExCount = "SELECT completedCtg3 FROM Users WHERE (username == ?)";
+
+        try ( PreparedStatement stm = connection.prepareStatement(sqlGetExCount)) {
+            stm.setString(1, username);
+            ResultSet results = stm.executeQuery();
+
+            while (results.next()) {
+                passedExercises = results.getInt("completedCtg3");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return passedExercises;
+    }
+
+    @Override
+    public void addCompletion(String username, int category, int newCount) throws Exception {
+
+        String columnName = "completedCtg" + String.valueOf(category);
+        String sqlAddCompletion = "UPDATE Users SET ? = ? WHERE username = ?";
+
+        try ( PreparedStatement stm = connection.prepareStatement(sqlAddCompletion)) {
+            stm.setString(1, columnName);
+            stm.setInt(2, newCount);
+            stm.setString(3, username);
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }

@@ -2,6 +2,8 @@ package comma.ui;
 
 import comma.domain.*;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.geometry.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,10 +14,12 @@ public class PracticeView {
 
     private BorderPane basicLayout;
     private int correct;
+    private CommaService commaService;
     private FeedbackView feedbackView;
 
     public PracticeView(BorderPane basicLayout, CommaService commaService, FeedbackView feedbackView) {
         this.basicLayout = basicLayout;
+        this.commaService = commaService;
         this.feedbackView= feedbackView;
         this.correct = 0;
     }
@@ -50,6 +54,11 @@ public class PracticeView {
             boolean answer = true;
             if (ex.getComma()) {
                 feedbackView.setFeedback("Oikea vastaus, hyvä!");
+                try {
+                    this.commaService.addCompletion(ex.getCategory());
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
                 Parent feedbackParent = feedbackView.getFeedbackView();
                 basicLayout.setCenter(feedbackParent);
             } else {
@@ -64,6 +73,11 @@ public class PracticeView {
             boolean answer = false;
             if (!ex.getComma()) {
                 feedbackView.setFeedback("Oikea vastaus, hyvä!");
+                try {
+                    this.commaService.addCompletion(ex.getCategory());
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
                 Parent feedbackParent = feedbackView.getFeedbackView();
                 basicLayout.setCenter(feedbackParent);
             } else {

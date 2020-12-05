@@ -45,13 +45,35 @@ public class CommaService {
             return true;
         }
     }
-    
-    public int getCompletedExercises(int category) {
-        return this.user.getExercises(category);
+
+    public int getCompletedExercises1() throws Exception {
+        return userDao.passedExercisesInCategory1(this.getUsername());
     }
-    
+
+    public int getCompletedExercises2() throws Exception {
+        return userDao.passedExercisesInCategory2(this.getUsername());
+    }
+
+    public int getCompletedExercises3() throws Exception {
+        return userDao.passedExercisesInCategory3(this.getUsername());
+    }
+
+    public void addCompletion(int category) throws Exception {
+        int currentCount = -2;
+        if (category == 1) {
+            currentCount = this.getCompletedExercises1();
+        } else if (category == 2) {
+            currentCount = this.getCompletedExercises2();
+        } else if (category == 3) {
+            currentCount = this.getCompletedExercises3();
+        }
+        
+        currentCount++;
+        userDao.addCompletion(this.getUsername(), category, currentCount);
+    }
+
     public String getUsername() {
-        return this.user.getName();
+        return this.user.getUsername();
     }
 
     public void deleteUser(String username) throws Exception {
@@ -69,15 +91,15 @@ public class CommaService {
 
     public void createExercise(String firstpart, String secondpart,
             int comma, int category, String user) throws Exception {
-        
+
         boolean commaBoolean = false;
-        
+
         if (comma == 1) {
             commaBoolean = true;
         }
-        
+
         Exercise exerciseToAdd = new Exercise(firstpart, secondpart, commaBoolean, category, user);
-        
+
         db.add(exerciseToAdd);
     }
 }

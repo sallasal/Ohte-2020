@@ -6,6 +6,8 @@ package comma.ui;
 
 import comma.domain.*;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.geometry.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -69,7 +71,11 @@ public class LoggedInScene {
         });
         
         userButton.setOnAction((event) -> {
-            basicLayout.setCenter(statisticsView.getStatisticsView());
+            try {
+                basicLayout.setCenter(statisticsView.getStatisticsView());
+            } catch (Exception e) {
+                System.out.println(e.getMessage());;
+            }
         });
 
         logoutButton.setOnAction((event) -> {
