@@ -31,9 +31,9 @@ public class StatisticsView {
         Label header = new Label("Tilastot käyttäjälle " + commaService.getUsername());
         header.setWrapText(true);
         Label completedExercisesh2 = new Label("Suoritettuja tehtäviä:");
-        Label completedCtg1 = new Label("Päälausetehtäviä " + String.valueOf(commaService.getCompletedExercises1()));
-        Label completedCtg2 = new Label("Sivulausetehtäviä " + String.valueOf(commaService.getCompletedExercises2()));
-        Label completedCtg3 = new Label("Erikoistapaustehtäviä " + String.valueOf(commaService.getCompletedExercises3()));
+        Label completedCtg1 = new Label("Päälausetehtäviä " + String.valueOf(commaService.getCompletedExercises(1)));
+        Label completedCtg2 = new Label("Sivulausetehtäviä " + String.valueOf(commaService.getCompletedExercises(2)));
+        Label completedCtg3 = new Label("Erikoistapaustehtäviä " + String.valueOf(commaService.getCompletedExercises(3)));
         Label achievements = new Label("Saavutetut palkinnot:");
         
         statisticsView.add(header, 0, 0);

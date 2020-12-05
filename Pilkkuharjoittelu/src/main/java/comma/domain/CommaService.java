@@ -46,28 +46,26 @@ public class CommaService {
         }
     }
 
-    public int getCompletedExercises1() throws Exception {
-        return userDao.passedExercisesInCategory1(this.getUsername());
-    }
-
-    public int getCompletedExercises2() throws Exception {
-        return userDao.passedExercisesInCategory2(this.getUsername());
-    }
-
-    public int getCompletedExercises3() throws Exception {
-        return userDao.passedExercisesInCategory3(this.getUsername());
+    public int getCompletedExercises(int category) throws Exception {
+        if (category == 1) {
+            return userDao.passedExercisesInCategory1(this.getUsername());
+        } else if (category == 2) {
+            return userDao.passedExercisesInCategory2(this.getUsername());
+        } else {
+            return userDao.passedExercisesInCategory3(this.getUsername());
+        }
     }
 
     public void addCompletion(int category) throws Exception {
         int currentCount = -2;
         if (category == 1) {
-            currentCount = this.getCompletedExercises1();
+            currentCount = this.getCompletedExercises(1);
         } else if (category == 2) {
-            currentCount = this.getCompletedExercises2();
+            currentCount = this.getCompletedExercises(2);
         } else if (category == 3) {
-            currentCount = this.getCompletedExercises3();
+            currentCount = this.getCompletedExercises(3);
         }
-        
+
         currentCount++;
         userDao.addCompletion(this.getUsername(), category, currentCount);
     }
