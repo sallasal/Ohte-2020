@@ -34,16 +34,14 @@ public class UserDaoDb implements UserDao {
     @Override
     public void add(User user) {
 
-        String sqlAddUser = "INSERT INTO Users (username, name, completedExercises) VALUES (?, ?, ?)";
-
-        String username = user.getUsername();
-        String name = user.getName();
-        int exercises = user.getExercises();
+        String sqlAddUser = "INSERT INTO Users (username, name, completedCtg1, completedCtg2, CompletedCtg3) VALUES (?, ?, ?, ?, ?)";
 
         try (PreparedStatement stm = connection.prepareStatement(sqlAddUser)) {
-            stm.setString(1, username);
-            stm.setString(2, name);
-            stm.setInt(3, exercises);
+            stm.setString(1, user.getUsername());
+            stm.setString(2, user.getName());
+            stm.setInt(3, user.getExercises(1));
+            stm.setInt(4, user.getExercises(2));
+            stm.setInt(5, user.getExercises(3));
             stm.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -70,7 +68,7 @@ public class UserDaoDb implements UserDao {
 
         User userToReturn = new User();
 
-        String sqlFindUsername = "SELECT username, name, completedExercises FROM Users WHERE (username == ?)";
+        String sqlFindUsername = "SELECT username, name, completedCtg1, completedCtg2, CompletedCtg3 FROM Users WHERE (username == ?)";
 
         try (PreparedStatement stm = connection.prepareStatement(sqlFindUsername)) {
             stm.setString(1, username);
@@ -79,9 +77,11 @@ public class UserDaoDb implements UserDao {
             while (results.next()) {
                 String usrnm = results.getString("username");
                 String name = results.getString("name");
-                int completed = results.getInt("completedExercises");
+                int completedCtg1 = results.getInt("completedCtg1");
+                int completedCtg2 = results.getInt("completedCtg2");
+                int completedCtg3 = results.getInt("completedCtg3");
 
-                userToReturn = new User(usrnm, name, completed);
+                userToReturn = new User(usrnm, name, completedCtg1, completedCtg2, completedCtg3);
             }
 
         } catch (SQLException e) {
@@ -90,11 +90,27 @@ public class UserDaoDb implements UserDao {
 
         return userToReturn;
     }
-
+    
     @Override
-    public User findByName(String ame) {
-        //Coming soon
-        return null;
+    public int passedExercisesInCategory(String username, int category) {
+        int passedExercises = -1;
+        String columnName = "compteledCtg"+String.valueOf(category);
+        
+        String sqlGetExCount = "SELECT ? FROM Users WHERE (username == ?)";
+        
+        try (PreparedStatement stm = connection.prepareStatement(sqlGetExCount)) {
+            stm.setString(1, columnName);
+            stm.setString(2, username);
+            ResultSet results = stm.executeQuery();
+            
+            while (results.next()) {
+                passedExercises = results.getInt(columnName);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        return passedExercises;
     }
 
     @Override

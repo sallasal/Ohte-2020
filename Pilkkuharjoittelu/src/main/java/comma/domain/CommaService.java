@@ -46,6 +46,10 @@ public class CommaService {
         }
     }
     
+    public int getCompletedExercises(int category) {
+        return this.user.getExercises(category);
+    }
+    
     public String getUsername() {
         return this.user.getName();
     }

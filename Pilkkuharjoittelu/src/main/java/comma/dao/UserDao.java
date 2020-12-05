@@ -19,7 +19,7 @@ public interface UserDao {
     
     public User findByUsername(String username) throws Exception;
     
-    public User findByName(String name) throws Exception;
-    
     public int getCompletedExercises(String username) throws Exception;
+    
+    public int passedExercisesInCategory(String username, int category) throws Exception;
 }

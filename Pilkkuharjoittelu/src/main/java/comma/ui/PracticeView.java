@@ -14,7 +14,7 @@ public class PracticeView {
     private int correct;
     private FeedbackView feedbackView;
 
-    public PracticeView(BorderPane basicLayout, FeedbackView feedbackView) {
+    public PracticeView(BorderPane basicLayout, CommaService commaService, FeedbackView feedbackView) {
         this.basicLayout = basicLayout;
         this.feedbackView= feedbackView;
         this.correct = 0;

@@ -53,8 +53,8 @@ public class LoggedInScene {
         // For now, only PracticeView is working
         AddView addView = new AddView(this.basicLayout, commaService);
         FeedbackView feedbackView = new FeedbackView();
-        PracticeView practiceView = new PracticeView(this.basicLayout, feedbackView);
-        StatisticsView statisticsView = new StatisticsView();
+        PracticeView practiceView = new PracticeView(this.basicLayout, commaService, feedbackView);
+        StatisticsView statisticsView = new StatisticsView(this.basicLayout, commaService);
 
         practiceButton.setOnAction((event) -> {
             try {

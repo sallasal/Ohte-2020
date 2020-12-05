@@ -37,7 +37,7 @@ public class ExerciseDaoDb implements ExerciseDao {
     @Override
     public void initialize() throws Exception {
         String sqlCreateExs = "CREATE TABLE IF NOT EXISTS Exercises (firstpart TEXT, secondpart TEXT, comma INTEGER, category INTEGER, creator TEXT)";
-        String sqlCreateUsers = "CREATE TABLE IF NOT EXISTS Users (username TEXT, name TEXT, completedExercises INTEGER)";
+        String sqlCreateUsers = "CREATE TABLE IF NOT EXISTS Users (username TEXT, name TEXT, completedCtg1 INTEGER, completedCtg2 INTEGER, completedCtg3 INTEGER)";
 
         try (Statement stm = connection.createStatement()) {
             stm.execute(sqlCreateExs);
