@@ -27,6 +27,7 @@ Myös uloskirjautuminen tapahtuu ylävalikon kautta.
 
 Kirjautumisen jälkeen harjoituksen voi suorittaa valitsemalla ylävalikosta *Harjoittele*.
 Tällöin näkymään avautuu tehtävä. Tehtävänä on päätellä, tuleeko annetun lauseen alkuosan ja annetun loppuosan väliin pilkku.
+Ohjelma arpoo harjoituksen kaikista vaihtoehdoista. Painamalla uudelleen *Harjoittele* ohjelma arpoo uuden tehtävän.
 
 Tehtävään vastataan käyttäjän parhaan taidon mukaisesti valitsemalla *Kyllä, tulee pilkku* tai *Ei, ei tule pilkkua*.
 Valinnan jälkeen käyttäjä ohjautuu palautenäkymään, jossa kerrotaan, menikö vastaus oikein ja tuottiko oikea vastaus mahdollisesti palkinnon.
