@@ -18,6 +18,6 @@
 | 1.12. | 4    | Jar-tiedoston resurssien lukemisen viimeistely. Uusi ominaisuus: käyttäjä voi lisätä uuden tehtävän kantaan. Jar-ajautumisen ja komentorivin komentojen testaus sekä omalla työpöydällä että etätyöpöydällä. |
 | 2.12. | 1    | Testiluokka Exerciselle, checkstyle-korjaukset. Checkstylen ja jacocon toimivuustarkistukset ja yleinen toimivuustarkistus virtuaalityöpöydällä. |
 | 5.12. | 5    | User-tietokantatauluun lisätty kirjanpito kunkin kolmen kategorian edistymisen seurantaan. Kunkin kategorian edistymisen seuranta luetaan kannasta oikein kunkin käyttäjän käyttäjätietonäkymässä (tähän meni paljon aikaa, oli paljon debuggausta). Tehty kunnollinen logout-systeemi joka nollaa käyttäjän CommaServicessä sekä tehty uusi start-näkymä käyttöliittymään - nämä siksi, että sai näyttämään oikein kunkin käyttäjän tilastot. |
-| 6.12. | 1    | Poistettu reippaasti copypastekoodia eilisen jäljiltä. Onnistuneiden harjoitusten lukumäärän kirjoittaminen kantaan saatu toimimaan. |
+| 6.12. | 4    | Poistettu reippaasti copypastekoodia eilisen jäljiltä. Onnistuneiden harjoitusten lukumäärän kirjoittaminen kantaan saatu toimimaan. Lisätty JavaDoc ja kommenetoitu sillä kaikki luokat pakkauksista comma.dao ja comma.domain. Päivitetty arkkitehtuurikuvaus (mm. lisätty uusi sekvenssikaavio onnistuneelle harjoitukselle), luotu käyttöohje ja päivitetty muu dokumentaatio ajan tasalle. |
 
-**Yhteensä 57 tuntia**
+**Yhteensä 61 tuntia**
