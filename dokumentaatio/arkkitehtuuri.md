@@ -56,6 +56,18 @@ Sovelluksen käynnistyksen yhteydessä luokka *ExerciseDaoDb* lukee lisäksi tie
 
 ## Toiminnallisuudet
 
-Harjoituksen hakeminen ja väärä vastaus toimivat sovelluksessa seuraavasti:
+Sovelluksen aivan keskeisin toiminnallisuus on harjoituksen hakeminen ja käyttäjän suorittama vastaus, joka menee oikein tai väärin. Alla on havainnollistavat sekvenssikaaviot siitä, mitä kummassakin tapauksessa tapahtuu. Etenkin tehtävän haku ja oikea vastaus käyttää luokkia ja ominaisuuksia varsin kattavasti.
 
-<img src="https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/media/Sekvenssikaavio.jpg">
+**Tehtävän haku ja väärä vastaus**
+
+<img src="https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/media/Sekvenssikaavio_vaara-vastaus.jpg">
+
+**Tehtävän haku ja oikea vastaus**
+
+<img src="https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/media/Sekvenssikaavio_oikea-vastaus.jpg">
+
+Muut sovelluksen keskeiset toiminnallisuudet ovat
+- Uuden tehtävän lisääminen tietokantaan
+- Tilastojen haku kirjautuneelle käyttäjälle
+- Palkintojen myöntäminen käyttäjälle, kun tehtyjä tehtäviä on riittävästi
+- Käyttäjänhallinta: rekisteröityminen, sisään- ja uloskirjautuminen
