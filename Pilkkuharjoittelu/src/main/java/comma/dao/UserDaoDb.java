@@ -94,20 +94,16 @@ public class UserDaoDb implements UserDao {
     @Override
     public int passedExercisesInCategory(String username, int category) throws Exception {
         int passedExercises = -1;
-        String columnName = "completedCtg" + String.valueOf(category);
-        System.out.println("Tuleeko kolumnin nimi oikein: " + columnName);
 
-        String sqlGetExCount = "SELECT ? FROM Users WHERE (username == ?)";
+        String sqlGetExCount = getSQLForExercises(category);
 
         try ( PreparedStatement stm = connection.prepareStatement(sqlGetExCount)) {
-            stm.setString(1, columnName);
-            stm.setString(2, username);
+            stm.setString(1, username);
             ResultSet results = stm.executeQuery();
             System.out.println("Tulokset: " + results.toString());
 
             while (results.next()) {
-                System.out.println("Tästä kolumnista haetaan: " + results.getInt(columnName));
-                passedExercises = results.getInt(columnName);
+                passedExercises = results.getInt("completedCtg"+String.valueOf(category));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -115,65 +111,17 @@ public class UserDaoDb implements UserDao {
 
         return passedExercises;
     }
-
-    @Override
-    public int passedExercisesInCategory1(String username) throws Exception {
-        int passedExercises = -1;
-
-        String sqlGetExCount = "SELECT completedCtg1 FROM Users WHERE (username == ?)";
-
-        try ( PreparedStatement stm = connection.prepareStatement(sqlGetExCount)) {
-            stm.setString(1, username);
-            ResultSet results = stm.executeQuery();
-
-            while (results.next()) {
-                passedExercises = results.getInt("completedCtg1");
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+    
+    public String getSQLForExercises(int category) {
+        if (category == 1) {
+            return "SELECT completedCtg1 FROM Users WHERE (username == ?)";
+        } else if (category == 2) {
+           return "SELECT completedCtg2 FROM Users WHERE (username == ?)";
+        } else if (category == 3) {
+           return "SELECT completedCtg3 FROM Users WHERE (username == ?)";
         }
-
-        return passedExercises;
-    }
-
-    @Override
-    public int passedExercisesInCategory2(String username) throws Exception {
-        int passedExercises = -1;
-
-        String sqlGetExCount = "SELECT completedCtg2 FROM Users WHERE (username == ?)";
-
-        try ( PreparedStatement stm = connection.prepareStatement(sqlGetExCount)) {
-            stm.setString(1, username);
-            ResultSet results = stm.executeQuery();
-
-            while (results.next()) {
-                passedExercises = results.getInt("completedCtg2");
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-
-        return passedExercises;
-    }
-
-    @Override
-    public int passedExercisesInCategory3(String username) throws Exception {
-        int passedExercises = -1;
-
-        String sqlGetExCount = "SELECT completedCtg3 FROM Users WHERE (username == ?)";
-
-        try ( PreparedStatement stm = connection.prepareStatement(sqlGetExCount)) {
-            stm.setString(1, username);
-            ResultSet results = stm.executeQuery();
-
-            while (results.next()) {
-                passedExercises = results.getInt("completedCtg3");
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-
-        return passedExercises;
+        
+        return "";
     }
 
     @Override

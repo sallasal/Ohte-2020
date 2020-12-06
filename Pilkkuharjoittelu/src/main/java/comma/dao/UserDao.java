@@ -21,11 +21,5 @@ public interface UserDao {
     
     public int passedExercisesInCategory(String username, int category) throws Exception;
     
-    public int passedExercisesInCategory1(String username) throws Exception;
-    
-    public int passedExercisesInCategory2(String username) throws Exception;
-    
-    public int passedExercisesInCategory3(String username) throws Exception;
-    
     public void addCompletion(String username, int category, int newCount) throws Exception;
 }

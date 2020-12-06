@@ -47,13 +47,7 @@ public class CommaService {
     }
 
     public int getCompletedExercises(int category) throws Exception {
-        if (category == 1) {
-            return userDao.passedExercisesInCategory1(this.getUsername());
-        } else if (category == 2) {
-            return userDao.passedExercisesInCategory2(this.getUsername());
-        } else {
-            return userDao.passedExercisesInCategory3(this.getUsername());
-        }
+        return userDao.passedExercisesInCategory(this.user.getUsername(), category);
     }
 
     public void addCompletion(int category) throws Exception {
