@@ -1,18 +1,19 @@
 /**
+ * @author sallasal
+ */
+
+package comma.domain;
+
+import comma.dao.*;
+import java.util.*;
+import java.sql.*;
+
+/**
  * This class takes care of all interaction between database and GUI.
  * Class fetches values from database and also writes to database via DAOs.
  * Class also calculates parameter based values for db and GUI.
  * Class also saves user information for each session.
  */
-package comma.domain;
-
-import comma.domain.*;
-import comma.dao.*;
-import comma.ui.*;
-import java.util.*;
-import java.sql.*;
-import javafx.application.Application;
-
 public class CommaService {
 
     private ExerciseDao db;

@@ -1,12 +1,13 @@
 /**
- *
  * @author sallasal
  */
-
 package comma.domain;
 
 import comma.dao.*;
 
+/**
+ * Class defines Exercise objects and their class variables
+ */
 public class Exercise {
 
     private String firstPart;
@@ -14,8 +15,18 @@ public class Exercise {
     private boolean comma;
     private int category;
     private String creator;
-    
-    
+
+    /**
+     * Creates new Exercise object
+     *
+     * @param firstpart String for sentence part before comma place
+     * @param secondpart String for sentence part after comma place
+     * @param comma true if comma is needed, false otherwise
+     * @param category Integer for exercise category: 1 = main clause, 2 =
+     * subordinate clause, 3 = some other case
+     * @param creator String for username of exercise creator ("program" for
+     * default sentence)
+     */
     public Exercise(String firstPart, String secondPart, boolean comma, int category, String creator) {
         this.firstPart = firstPart;
         this.secondPart = secondPart;
@@ -23,27 +34,32 @@ public class Exercise {
         this.category = category;
         this.creator = creator;
     }
-        
+
     public String getFirstPart() {
         return this.firstPart;
     }
-    
+
     public String getSecondPart() {
         return this.secondPart;
     }
-    
+
     public boolean getComma() {
         return this.comma;
     }
-    
+
     public int getCategory() {
         return this.category;
     }
-    
+
     public String getCreator() {
         return this.creator;
     }
-    
+
+    /**
+     * Overrides default toString method to be more informative
+     *
+     * @return String that includes first part, second part and comma information of the Exercise object
+     */
     @Override
     public String toString() {
         return (this.firstPart + " ______ " + this.secondPart + ". (Vastaus: " + this.comma + ")");

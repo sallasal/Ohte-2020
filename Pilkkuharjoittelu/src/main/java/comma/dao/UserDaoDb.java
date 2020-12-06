@@ -8,6 +8,9 @@ import java.util.*;
 import java.sql.*;
 import comma.domain.*;
 
+/**
+ * Class takes care of database interactions with User tables and User objects.
+ */
 public class UserDaoDb implements UserDao {
 
     private Connection connection;
@@ -16,6 +19,11 @@ public class UserDaoDb implements UserDao {
         this.connection = this.connect();
     }
 
+    /**
+     * Connects the class to database using SQLite JDBC driver
+     *
+     * @return Connection object for class to use
+     */
     @Override
     public Connection connect() {
         String url = "jdbc:sqlite:commas.db";
@@ -31,6 +39,12 @@ public class UserDaoDb implements UserDao {
         return connection;
     }
 
+    /**
+     * Adds new row to User table based on User object
+     *
+     * @param user User object that is to be added to the database
+     * @throws java.lang.Exception
+     */
     @Override
     public void add(User user) throws Exception {
 
@@ -49,6 +63,12 @@ public class UserDaoDb implements UserDao {
 
     }
 
+    /**
+     * Deletes an user from database
+     *
+     * @param username username for user that is going to be deleted
+     * @throws java.lang.Exception
+     */
     @Override
     public void delete(String username) throws Exception {
 
@@ -63,6 +83,13 @@ public class UserDaoDb implements UserDao {
 
     }
 
+    /**
+     * Fetches user information from User table based on username
+     *
+     * @param username Username for User that is searched from db
+     * @return User object for the username
+     * @throws java.lang.Exception
+     */
     @Override
     public User findByUsername(String username) throws Exception {
 
@@ -91,6 +118,16 @@ public class UserDaoDb implements UserDao {
         return userToReturn;
     }
 
+    /**
+     * Checks User's amount of passed exercises in defined category from User
+     * table
+     *
+     * @param username username of the User the check is performed to
+     * @param category category number for the category the check is performed
+     * to (1...3)
+     * @return integer that is the count of passed exercises in defined category
+     * @throws java.lang.Exception
+     */
     @Override
     public int passedExercisesInCategory(String username, int category) throws Exception {
         int passedExercises = -1;
@@ -111,7 +148,7 @@ public class UserDaoDb implements UserDao {
         return passedExercises;
     }
 
-    public String getSQLForExercises(int category) {
+    private String getSQLForExercises(int category) {
         if (category == 1) {
             return "SELECT completedCtg1 FROM Users WHERE (username == ?)";
         } else if (category == 2) {
@@ -123,6 +160,13 @@ public class UserDaoDb implements UserDao {
         return "";
     }
 
+    /**
+     * Adds new amount of completed exercises in defined category for User
+     *
+     * @param username username of the User the completion is added to
+     * @param category category number of the completed exercise (1...3)
+     * @param newCount new completion count that replaces the old amount
+     */
     @Override
     public void addCompletion(String username, int category, int newCount) throws Exception {
 
@@ -137,7 +181,7 @@ public class UserDaoDb implements UserDao {
         }
     }
 
-    public String getSQLForCompletion(int category) {
+    private String getSQLForCompletion(int category) {
         if (category == 1) {
             return "UPDATE Users SET completedCtg1 = ? WHERE username == ?";
         } else if (category == 2) {

@@ -4,6 +4,9 @@
  */
 package comma.domain;
 
+/**
+ * Class defines User objects and their class variables
+ */
 public class User {
 
     private String username;
@@ -12,6 +15,9 @@ public class User {
     private int completedCtg2;
     private int completedCtg3;
 
+    /**
+     * Creates blank user with default class variable values
+     */
     public User() {
         this.username = null;
         this.name = null;
@@ -20,6 +26,12 @@ public class User {
         this.completedCtg3 = 0;
     }
 
+    /**
+     * Creates user with username and name parameters, otherwise defauls values
+     *
+     * @param username Username for the new user
+     * @param name Full name for the new user
+     */
     public User(String username, String name) {
         this.username = username;
         this.name = name;
@@ -28,6 +40,15 @@ public class User {
         this.completedCtg3 = 0;
     }
 
+    /**
+     * Creates user with all possible variables defined
+     *
+     * @param username Username for the new user
+     * @param name Full name for the new user
+     * @param completed1 Amount of exercises completed in main clause category
+     * @param completed2 Amount of exercises completed in subordinate clause category
+     * @param completed3 Amount of exercises completed in other cases category
+     */
     public User(String username, String name, int completed1, int completed2, int completed3) {
         this.username = username;
         this.name = name;
@@ -52,6 +73,15 @@ public class User {
         this.username = username;
     }
 
+    /**
+     * Fetches number of passed exercises in defined category
+     *
+     * @param category category number from which the value is going to be
+     * fetched. Default -1, if no category is defined.
+     *
+     * @return integer that shows how many exercises are completed from defined
+     * category for this user
+     */
     public int getExercises(int category) {
         if (category == 1) {
             return this.completedCtg1;
@@ -64,6 +94,13 @@ public class User {
         return -1;
     }
 
+    /**
+     * Sets new number of passed exercises in defined category for user
+     *
+     * @param category category number from which the value is going to be
+     * fetched
+     * @param newcount new vcount to be set to class varible
+     */
     public void setExercises(int category, int newCount) {
         if (category == 1) {
             this.completedCtg1 = newCount;

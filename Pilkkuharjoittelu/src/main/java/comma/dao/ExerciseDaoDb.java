@@ -8,8 +8,12 @@ import java.io.*;
 import java.sql.*;
 import java.util.*;
 import comma.domain.*;
-import java.net.URL;
 
+/**
+ * This class covers core of database interaction of the application. The class
+ * initializes database and fetches default exercises. It takes care of other
+ * Exercise table interactions as well.
+ */
 public class ExerciseDaoDb implements ExerciseDao {
 
     private final Connection connection;
@@ -18,6 +22,11 @@ public class ExerciseDaoDb implements ExerciseDao {
         this.connection = this.connect();
     }
 
+    /**
+     * Connects the class to database using SQLite JDBC driver
+     *
+     * @return Connection object for class to use
+     */
     @Override
     public final Connection connect() {
         String url = "jdbc:sqlite:commas.db";
@@ -34,12 +43,18 @@ public class ExerciseDaoDb implements ExerciseDao {
         return connection;
     }
 
+    /**
+     * Initializes the database: creates tables if not exist already if Exercise
+     * table is empty, calls method to fetch default exercises from resource
+     * file
+     * @throws java.lang.Exception
+     */
     @Override
     public void initialize() throws Exception {
         String sqlCreateExs = "CREATE TABLE IF NOT EXISTS Exercises (firstpart TEXT, secondpart TEXT, comma INTEGER, category INTEGER, creator TEXT)";
         String sqlCreateUsers = "CREATE TABLE IF NOT EXISTS Users (username TEXT, name TEXT, completedCtg1 INTEGER, completedCtg2 INTEGER, completedCtg3 INTEGER)";
 
-        try (Statement stm = connection.createStatement()) {
+        try ( Statement stm = connection.createStatement()) {
             stm.execute(sqlCreateExs);
             stm.execute(sqlCreateUsers);
         } catch (SQLException e) {
@@ -52,6 +67,10 @@ public class ExerciseDaoDb implements ExerciseDao {
 
     }
 
+    /**
+     * Reads default exercises from resource file and inserts them to Exercise
+     * table
+     */
     private void bringExercises() throws Exception {
 
         String sqlExercise = "INSERT INTO Exercises (firstpart, secondpart, comma, category, creator) VALUES (?,?,?,?,?)";
@@ -70,7 +89,7 @@ public class ExerciseDaoDb implements ExerciseDao {
 
                 String[] exParts = row.split("\\|");
 
-                try (PreparedStatement stm = connection.prepareStatement(sqlExercise)) {
+                try ( PreparedStatement stm = connection.prepareStatement(sqlExercise)) {
                     stm.setString(1, exParts[0]);
                     stm.setString(2, exParts[1]);
                     stm.setInt(3, Integer.parseInt(exParts[2]));
@@ -90,11 +109,16 @@ public class ExerciseDaoDb implements ExerciseDao {
         }
     }
 
+    /**
+     * Checks if the Exercise table is empty (= has no rows) in database
+     *
+     * @return boolean true, if row count is 0, false otherwise
+     */
     private boolean checkIfEmpty() throws Exception {
         boolean isEmpty = false;
         String sqlCount = "SELECT COUNT(*) AS count FROM Exercises";
 
-        try (PreparedStatement stm = connection.prepareStatement(sqlCount)) {
+        try ( PreparedStatement stm = connection.prepareStatement(sqlCount)) {
             ResultSet results = stm.executeQuery();
             while (results.next()) {
                 if (results.getInt("count") == 0) {
@@ -108,6 +132,11 @@ public class ExerciseDaoDb implements ExerciseDao {
         return isEmpty;
     }
 
+    /**
+     * Adds new row to Exercise table based on Exercise object
+     *
+     * @param exercise Exercise object that is to be added to the database
+     */
     @Override
     public void add(Exercise exercise) {
 
@@ -120,7 +149,7 @@ public class ExerciseDaoDb implements ExerciseDao {
             comma = 0;
         }
 
-        try (PreparedStatement stm = connection.prepareStatement(sqlAdd)) {
+        try ( PreparedStatement stm = connection.prepareStatement(sqlAdd)) {
             stm.setString(1, exercise.getFirstPart());
             stm.setString(2, exercise.getSecondPart());
             stm.setInt(3, comma);
@@ -133,13 +162,18 @@ public class ExerciseDaoDb implements ExerciseDao {
 
     }
 
+    /**
+     * Fetches all exercises from Exercise table as an ArrayList
+     *
+     * @return ArrayList of Exercise objects that contains all exercises from db
+     */
     @Override
     public ArrayList<Exercise> listAll() {
 
         String sqlList = "SELECT firstpart, secondpart, comma, category, creator FROM Exercises";
         ArrayList<Exercise> resultList = new ArrayList<>();
 
-        try (PreparedStatement stm = connection.prepareStatement(sqlList)) {
+        try ( PreparedStatement stm = connection.prepareStatement(sqlList)) {
             ResultSet results = stm.executeQuery();
 
             while (results.next()) {
