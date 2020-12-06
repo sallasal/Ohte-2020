@@ -18,5 +18,6 @@
 | 1.12. | 4    | Jar-tiedoston resurssien lukemisen viimeistely. Uusi ominaisuus: käyttäjä voi lisätä uuden tehtävän kantaan. Jar-ajautumisen ja komentorivin komentojen testaus sekä omalla työpöydällä että etätyöpöydällä. |
 | 2.12. | 1    | Testiluokka Exerciselle, checkstyle-korjaukset. Checkstylen ja jacocon toimivuustarkistukset ja yleinen toimivuustarkistus virtuaalityöpöydällä. |
 | 5.12. | 5    | User-tietokantatauluun lisätty kirjanpito kunkin kolmen kategorian edistymisen seurantaan. Kunkin kategorian edistymisen seuranta luetaan kannasta oikein kunkin käyttäjän käyttäjätietonäkymässä (tähän meni paljon aikaa, oli paljon debuggausta). Tehty kunnollinen logout-systeemi joka nollaa käyttäjän CommaServicessä sekä tehty uusi start-näkymä käyttöliittymään - nämä siksi, että sai näyttämään oikein kunkin käyttäjän tilastot. |
+| 6.12. | 1    | Poistettu reippaasti copypastekoodia eilisen jäljiltä. Onnistuneiden harjoitusten lukumäärän kirjoittaminen kantaan saatu toimimaan. |
 
 **Yhteensä 57 tuntia**

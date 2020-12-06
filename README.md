@@ -16,11 +16,13 @@ Sisäänkirjautumisnäkymästä pääsee harjoittelunäkymään kirjautumalla si
 
 Tehtävässä on toistaiseksi kolme tiedostosta kantaan luettua esimerkkitehtävää, ellei käyttäjä ole lisännyt itse lisää. Harjoittelunäkymässä uuden tehtävät saa arvottua painamalla "Harjoittele", ja palaute näytetään palautenäkymässä. 
 
+Tilastonäkymässä käyttäjä näkee, montako tehtävää on suorittanut onnistuneesti kustakin kolmesta tehtäväkategoriasta.
+
 Uuden tehtävän lisäysnäkymässä käyttäjä voi lisätä tehtävän, joka lisätään tietokantaan ja arvotaan sitten muiden tehtävien mukana (tulevaisuudessa niin, ettei käyttäjä voi saada itse lisäämäänsä tehtävää). Käyttäjätilastonäkymä on luotu, mutta sisältöä siinä ei vielä ole.
 
 Uloskirjautuminen palauttaa kirjautumisnäkymään.
 
-**Puutteet vielä mm.: ei vielä tallenna onnistunutta tehtävää kantaan kirjanpitoa varten, ei vielä validoi käyttäjän syötteitä (joten käytä lempeästi)**
+**Puutteet vielä mm.: ei vielä validoi käyttäjän syötteitä (joten käytä lempeästi)**
 
 ## Releaset
 

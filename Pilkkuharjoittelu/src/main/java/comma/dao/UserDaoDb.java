@@ -100,10 +100,9 @@ public class UserDaoDb implements UserDao {
         try ( PreparedStatement stm = connection.prepareStatement(sqlGetExCount)) {
             stm.setString(1, username);
             ResultSet results = stm.executeQuery();
-            System.out.println("Tulokset: " + results.toString());
 
             while (results.next()) {
-                passedExercises = results.getInt("completedCtg"+String.valueOf(category));
+                passedExercises = results.getInt("completedCtg" + String.valueOf(category));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -111,33 +110,43 @@ public class UserDaoDb implements UserDao {
 
         return passedExercises;
     }
-    
+
     public String getSQLForExercises(int category) {
         if (category == 1) {
             return "SELECT completedCtg1 FROM Users WHERE (username == ?)";
         } else if (category == 2) {
-           return "SELECT completedCtg2 FROM Users WHERE (username == ?)";
+            return "SELECT completedCtg2 FROM Users WHERE (username == ?)";
         } else if (category == 3) {
-           return "SELECT completedCtg3 FROM Users WHERE (username == ?)";
+            return "SELECT completedCtg3 FROM Users WHERE (username == ?)";
         }
-        
+
         return "";
     }
 
     @Override
     public void addCompletion(String username, int category, int newCount) throws Exception {
 
-        String columnName = "completedCtg" + String.valueOf(category);
-        String sqlAddCompletion = "UPDATE Users SET ? = ? WHERE username = ?";
+        String sqlAddCompletion = getSQLForCompletion(category);
 
         try ( PreparedStatement stm = connection.prepareStatement(sqlAddCompletion)) {
-            stm.setString(1, columnName);
-            stm.setInt(2, newCount);
-            stm.setString(3, username);
+            stm.setInt(1, newCount);
+            stm.setString(2, username);
             stm.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public String getSQLForCompletion(int category) {
+        if (category == 1) {
+            return "UPDATE Users SET completedCtg1 = ? WHERE username == ?";
+        } else if (category == 2) {
+            return "UPDATE Users SET completedCtg2 = ? WHERE username == ?";
+        } else if (category == 3) {
+            return "UPDATE Users SET completedCtg3 = ? WHERE username == ?";
+        }
+
+        return "";
     }
 
 }
