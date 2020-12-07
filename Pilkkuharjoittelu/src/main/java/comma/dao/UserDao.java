@@ -11,7 +11,7 @@ import java.util.*;
 
 public interface UserDao {
     
-    public Connection connect() throws Exception;
+    public Connection connect(String dbLocation) throws Exception;
     
     public void add(User user) throws Exception;
     

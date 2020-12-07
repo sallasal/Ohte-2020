@@ -18,18 +18,18 @@ public class ExerciseDaoDb implements ExerciseDao {
 
     private final Connection connection;
 
-    public ExerciseDaoDb() {
-        this.connection = this.connect();
+    public ExerciseDaoDb(String dbLocation) {
+        this.connection = this.connect(dbLocation);
     }
 
     /**
      * Connects the class to database using SQLite JDBC driver
-     *
+     * @param dbLocation defines database location and driver
      * @return Connection object for class to use
      */
     @Override
-    public final Connection connect() {
-        String url = "jdbc:sqlite:commas.db";
+    public final Connection connect(String dbLocation) {
+        String url = dbLocation;
 
         Connection connection = null;
 

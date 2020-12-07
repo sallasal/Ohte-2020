@@ -17,7 +17,7 @@ public class CommaGUI extends Application {
 
     @Override
     public void init() throws Exception {
-        this.commaService = new CommaService();
+        this.commaService = new CommaService("jdbc:sqlite:commas.db");
     }
 
     @Override

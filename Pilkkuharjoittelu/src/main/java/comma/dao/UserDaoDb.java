@@ -15,8 +15,8 @@ public class UserDaoDb implements UserDao {
 
     private Connection connection;
 
-    public UserDaoDb() {
-        this.connection = this.connect();
+    public UserDaoDb(String dbLocation) {
+        this.connection = this.connect(dbLocation);
     }
 
     /**
@@ -25,8 +25,8 @@ public class UserDaoDb implements UserDao {
      * @return Connection object for class to use
      */
     @Override
-    public Connection connect() {
-        String url = "jdbc:sqlite:commas.db";
+    public Connection connect(String dbLocation) {
+        String url = dbLocation;
         Connection connection = null;
 
         try {

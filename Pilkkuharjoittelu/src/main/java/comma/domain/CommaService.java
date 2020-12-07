@@ -1,7 +1,6 @@
 /**
  * @author sallasal
  */
-
 package comma.domain;
 
 import comma.dao.*;
@@ -9,10 +8,10 @@ import java.util.*;
 import java.sql.*;
 
 /**
- * This class takes care of all interaction between database and GUI.
- * Class fetches values from database and also writes to database via DAOs.
- * Class also calculates parameter based values for db and GUI.
- * Class also saves user information for each session.
+ * This class takes care of all interaction between database and GUI. Class
+ * fetches values from database and also writes to database via DAOs. Class also
+ * calculates parameter based values for db and GUI. Class also saves user
+ * information for each session.
  */
 public class CommaService {
 
@@ -20,18 +19,23 @@ public class CommaService {
     private UserDao userDao;
     private User user;
 
-    public CommaService() throws Exception {
-        this.db = new ExerciseDaoDb();
+    public CommaService(String dbLocation) throws Exception {
+        this.db = new ExerciseDaoDb(dbLocation);
         db.initialize();
-        this.userDao = new UserDaoDb();
+        this.userDao = new UserDaoDb(dbLocation);
         this.user = null;
     }
-    
-    public CommaService(UserDao userDao, ExerciseDao exerciseDao) throws Exception {
-        this.db = exerciseDao;
-        db.initialize();
-        this.userDao = userDao;
-        this.user = null;
+
+    public String getUsername() {
+        return this.user.getUsername();
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return this.user;
     }
 
     /**
@@ -108,10 +112,6 @@ public class CommaService {
         userDao.addCompletion(this.getUsername(), category, currentCount);
     }
 
-    public String getUsername() {
-        return this.user.getUsername();
-    }
-
     /**
      * Nulls the user information in CommaService class parameter, used when
      * user logs out
@@ -148,8 +148,10 @@ public class CommaService {
      *
      * @param firstpart String for sentence part before comma place
      * @param secondpart String for sentence part after comma place
-     * @param comma Integer 1 if comma is needed, 0 otherwise (0 is default if any other value is given)
-     * @param category Integer for exercise category: 1 = main clause, 2 = subordinate clause, 3 = some other case
+     * @param comma Integer 1 if comma is needed, 0 otherwise (0 is default if
+     * any other value is given)
+     * @param category Integer for exercise category: 1 = main clause, 2 =
+     * subordinate clause, 3 = some other case
      * @param user String for username that indicates who is adding exercise
      */
     public void createExercise(String firstpart, String secondpart,

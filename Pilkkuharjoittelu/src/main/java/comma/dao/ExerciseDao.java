@@ -11,7 +11,7 @@ import comma.domain.*;
 
 public interface ExerciseDao {
     
-    public Connection connect() throws Exception;
+    public Connection connect(String dbLocation) throws Exception;
     
     public void initialize() throws Exception;
     

@@ -5,7 +5,6 @@ package comma.domain.test;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import comma.domain.*;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -21,17 +20,16 @@ import static org.junit.Assert.*;
 public class CommaServiceTest {
 
     CommaService commaService;
- 
+
     public CommaServiceTest() {
     }
 
     @Before
     public void setUp() throws Exception {
-        FakeUserDaoDb userDao = new FakeUserDaoDb();
-        FakeExerciseDaoDb exerciseDao = new FakeExerciseDaoDb();
-        
-        this.commaService = new CommaService(userDao, exerciseDao);
-        commaService.createUser("TestUser1","test user 1");     
+
+        this.commaService = new CommaService("jdbc:sqlite:commasTest.db");
+        this.commaService.createUser("TestUser1", "TestUser1 for testing");
+        this.commaService.setUser(new User("TestUser1", "TestUser1 for testing"));
     }
 
     @After
@@ -45,19 +43,25 @@ public class CommaServiceTest {
         boolean returnValue = commaService.validateUsername("TestUser1");
         assertTrue(returnValue);
     }
-    
+
     @Test
     public void validateUsernameReturnsFalse() throws Exception {
         boolean returnValue = commaService.validateUsername("TestUser42");
         assertFalse(returnValue);
     }
-    
+
     @Test
     public void createUserReturnsTrue() throws Exception {
         boolean returnValue = commaService.createUser("TestUser2", "Test user 2");
         assertTrue(returnValue);
     }
-    
+
+    @Test
+    public void returnsOneRandomObject() throws Exception {
+        Exercise ex = commaService.getRandomExercise();
+        assertNotNull(ex);
+    }
+
     @Test
     public void deletingUserWorks() throws Exception {
         commaService.createUser("TestUser3", "Test user 3");
@@ -65,17 +69,53 @@ public class CommaServiceTest {
         boolean returnValue = commaService.validateUsername("TestUser3");
         assertFalse(returnValue);
     }
-    
+
+    @Test
+    public void nullingUserWorks() throws Exception {
+        this.commaService.nullUser();
+        assertNull(this.commaService.getUser());
+        this.commaService.setUser(new User("TestUser1", "TestUser1 for testing"));
+    }
+
     @Test
     public void createUserChecksUsername() throws Exception {
         boolean returnValue = commaService.createUser("TestUser1", "Should not work");
         assertFalse(returnValue);
     }
 
-    // This must be rewritten without testing random
     @Test
-    public void returnsOneRandomObject() throws Exception {
-        Exercise ex = commaService.getRandomExercise();
-        assertNotNull(ex);
+    public void getUsernameReturnsCorrectly() throws Exception {
+        String palautettava = commaService.getUsername();
+        System.out.println(palautettava);
+    }
+
+    @Test
+    public void getsCompletedExercisesCorrectly() throws Exception {
+        int completedInCat2 = commaService.getCompletedExercises(2);
+        assertEquals(0, commaService.getCompletedExercises(2));
+    }
+
+    @Test
+    public void addsCompletionCorrectlyToCtg1() throws Exception {
+        int completed = commaService.getCompletedExercises(1);
+        completed++;
+        commaService.addCompletion(1);
+        assertEquals(completed, commaService.getCompletedExercises(1));
+    }
+
+    @Test
+    public void addsCompletionCorrectlyToCtg2() throws Exception {
+        int completed = commaService.getCompletedExercises(2);
+        completed++;
+        commaService.addCompletion(2);
+        assertEquals(completed, commaService.getCompletedExercises(2));
+    }
+
+    @Test
+    public void addsCompletionCorrectlyToCtg3() throws Exception {
+        int completed = commaService.getCompletedExercises(3);
+        completed++;
+        commaService.addCompletion(3);
+        assertEquals(completed, commaService.getCompletedExercises(3));
     }
 }
