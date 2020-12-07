@@ -27,14 +27,17 @@ public class CommaServiceTest {
 
     @Before
     public void setUp() throws Exception {
-        this.commaService = new CommaService();
+        FakeUserDaoDb userDao = new FakeUserDaoDb();
+        FakeExerciseDaoDb exerciseDao = new FakeExerciseDaoDb();
+        
+        this.commaService = new CommaService(userDao, exerciseDao);
         commaService.createUser("TestUser1","test user 1");     
     }
 
     @After
     public void tearDown() throws Exception {
-        commaService.deleteUser("TestUser1");
-        commaService.deleteUser("TestUser2");
+        //commaService.deleteUser("TestUser1");
+        //commaService.deleteUser("TestUser2");
     }
 
     @Test

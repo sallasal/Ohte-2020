@@ -26,6 +26,13 @@ public class CommaService {
         this.userDao = new UserDaoDb();
         this.user = null;
     }
+    
+    public CommaService(UserDao userDao, ExerciseDao exerciseDao) throws Exception {
+        this.db = exerciseDao;
+        db.initialize();
+        this.userDao = userDao;
+        this.user = null;
+    }
 
     /**
      * Create a new user if username does not already exist
