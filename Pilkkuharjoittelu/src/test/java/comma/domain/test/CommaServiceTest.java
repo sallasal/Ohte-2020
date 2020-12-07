@@ -36,8 +36,8 @@ public class CommaServiceTest {
 
     @After
     public void tearDown() throws Exception {
-        //commaService.deleteUser("TestUser1");
-        //commaService.deleteUser("TestUser2");
+        commaService.deleteUser("TestUser1");
+        commaService.deleteUser("TestUser2");
     }
 
     @Test

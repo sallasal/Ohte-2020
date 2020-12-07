@@ -28,7 +28,7 @@ public class FakeUserDaoDb implements UserDao {
      */
     @Override
     public Connection connect() {
-        String url = "jdbc:sqlite:commas.db";
+        String url = "jdbc:sqlite:commasTest.db";
         Connection connection = null;
 
         try {
