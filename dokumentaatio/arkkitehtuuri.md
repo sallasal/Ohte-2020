@@ -41,7 +41,7 @@ Käyttöliittymässä vaihdellaan kolmen eri Scenen (*Login*, *Register*, *Logge
 
 Lisäksi *LoggedIn*-scenen päävalikosta on mahdollista kirjautua ulos. Toiminto nollaa *CommaServicen* käyttäjämuistin ja palauttaa *LoginScenen*.
 
-## Tiedon tallentaminen
+## Tiedon tallentaminen: tietokanta ja tiedostosta luku
 
 Sovellus lukee ja tallentaa tietoja *commas.db*-tietokannassa. Tietokannanhallintajärjestelmä on SQLite, ja siihen yhdistetään SQLite JDBC -ajurilla (tuottanut Xerial). Tietokannassa on kaksi taulua: *Exercises* ja *Users*. Tietokannan skeema:
 
@@ -50,7 +50,10 @@ CREATE TABLE Exercises (firstpart TEXT, secondpart TEXT, comma INTEGER, category
 CREATE TABLE Users (username TEXT, name TEXT, completedCtg1 INTEGER, completedCtg2 INTEGER, completedCtg3 INTEGER);
 ```
 
-Tietokanta ja taulut generoidaan sovelluksen juureen käynnistettäessä, mikäli niitä ei ennestään ole olemassa. Tiedon lukemisesta ja tallennuksesta vastaavat luokat *ExerciseDaoDb* ja *UserDaoDb*, jotka toteuttavat rajapinnat *ExerciseDao* ja *UserDao* (vastaavasti). *CommaService* kutsuu luokkia rajapinnan kautta.
+Tietokanta ja taulut generoidaan sovelluksen juureen käynnistettäessä, mikäli niitä ei ennestään ole olemassa. Tietokannan polku on *commas.db*. Testit luovat käyttöönsä CommaServicelle erillisen tietokannan *commasTest.db* niin ikään projektin juureen. 
+Tietokannan osoite annetaan CommaServiceä luotaessa parametrina, ja tästä se valutetaan DAO-luokille, jotka huolehtivat kannan luomisesta ja siihen yhdistämisestä.
+
+Tiedon lukemisesta ja tallennuksesta vastaavat luokat *ExerciseDaoDb* ja *UserDaoDb*, jotka toteuttavat rajapinnat *ExerciseDao* ja *UserDao* (vastaavasti). *CommaService* kutsuu luokkia rajapinnan kautta.
 
 Sovelluksen käynnistyksen yhteydessä luokka *ExerciseDaoDb* lukee lisäksi tiedostoa Maven-resurssisijainnista: <projektin juuri>*/src/main/resources/exercises.csv*. Tiedostossa ovat ohjelmassa valmiiksi olevat harjoitustehtävät, joiden tekijäksi tietokantaan merkitään siten *ExerciseDaoDb*:ssä `program`.
 
