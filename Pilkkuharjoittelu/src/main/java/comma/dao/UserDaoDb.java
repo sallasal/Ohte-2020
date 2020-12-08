@@ -15,6 +15,12 @@ public class UserDaoDb implements UserDao {
 
     private Connection connection;
 
+    /**
+     * Generates a new ExerciseDaoDb instance that has database in given
+     * location
+     *
+     * @param dbLocation defines database location and driver
+     */
     public UserDaoDb(String dbLocation) {
         this.connection = this.connect(dbLocation);
     }
@@ -50,7 +56,7 @@ public class UserDaoDb implements UserDao {
 
         String sqlAddUser = "INSERT INTO Users (username, name, completedCtg1, completedCtg2, CompletedCtg3) VALUES (?, ?, ?, ?, ?)";
 
-        try ( PreparedStatement stm = connection.prepareStatement(sqlAddUser)) {
+        try (PreparedStatement stm = connection.prepareStatement(sqlAddUser)) {
             stm.setString(1, user.getUsername());
             stm.setString(2, user.getName());
             stm.setInt(3, user.getExercises(1));
@@ -74,7 +80,7 @@ public class UserDaoDb implements UserDao {
 
         String sqlDeleteUser = "DELETE FROM Users WHERE username = ?";
 
-        try ( PreparedStatement stm = connection.prepareStatement(sqlDeleteUser)) {
+        try (PreparedStatement stm = connection.prepareStatement(sqlDeleteUser)) {
             stm.setString(1, username);
             stm.executeUpdate();
         } catch (SQLException e) {
@@ -97,7 +103,7 @@ public class UserDaoDb implements UserDao {
 
         String sqlFindUsername = "SELECT username, name, completedCtg1, completedCtg2, CompletedCtg3 FROM Users WHERE (username == ?)";
 
-        try ( PreparedStatement stm = connection.prepareStatement(sqlFindUsername)) {
+        try (PreparedStatement stm = connection.prepareStatement(sqlFindUsername)) {
             stm.setString(1, username);
             ResultSet results = stm.executeQuery();
 
@@ -134,7 +140,7 @@ public class UserDaoDb implements UserDao {
 
         String sqlGetExCount = getSQLForExercises(category);
 
-        try ( PreparedStatement stm = connection.prepareStatement(sqlGetExCount)) {
+        try (PreparedStatement stm = connection.prepareStatement(sqlGetExCount)) {
             stm.setString(1, username);
             ResultSet results = stm.executeQuery();
 
@@ -172,7 +178,7 @@ public class UserDaoDb implements UserDao {
 
         String sqlAddCompletion = getSQLForCompletion(category);
 
-        try ( PreparedStatement stm = connection.prepareStatement(sqlAddCompletion)) {
+        try (PreparedStatement stm = connection.prepareStatement(sqlAddCompletion)) {
             stm.setInt(1, newCount);
             stm.setString(2, username);
             stm.executeUpdate();

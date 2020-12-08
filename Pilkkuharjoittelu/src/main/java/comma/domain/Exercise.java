@@ -3,8 +3,6 @@
  */
 package comma.domain;
 
-import comma.dao.*;
-
 /**
  * Class defines Exercise objects and their class variables
  */
@@ -19,8 +17,8 @@ public class Exercise {
     /**
      * Creates new Exercise object
      *
-     * @param firstpart String for sentence part before comma place
-     * @param secondpart String for sentence part after comma place
+     * @param firstPart String for sentence part before comma place
+     * @param secondPart String for sentence part after comma place
      * @param comma true if comma is needed, false otherwise
      * @param category Integer for exercise category: 1 = main clause, 2 =
      * subordinate clause, 3 = some other case

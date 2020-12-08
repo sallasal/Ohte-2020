@@ -99,7 +99,7 @@ public class User {
      *
      * @param category category number from which the value is going to be
      * fetched
-     * @param newcount new vcount to be set to class varible
+     * @param newCount new vcount to be set to class varible
      */
     public void setExercises(int category, int newCount) {
         if (category == 1) {
