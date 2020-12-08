@@ -9,7 +9,11 @@ Sovellus on osa Helsingin yliopiston tietojenkäsittelytieteen Ohjelmistotekniik
 
 Ohjelma valmistuu joulukuussa 2020.
 
-## Releaset
+## Uusin release
+
+[Viikko 6](https://github.com/sallasal/Ohte-2020/releases/tag/viikko6)
+
+**Vanhemmat vakaat versiot**
 
 [Viikko 5](https://github.com/sallasal/Ohte-2020/releases/tag/viikko5)
 
@@ -46,7 +50,7 @@ mvn test
 
 Testiraportin luominen projektikansion sijaintiin `target/site/jacoco/index.html`:
 ```
-mvn jacoco:report
+mvn test jacoco:report
 ```
 
 Checkstyle-raportin luominen projektikansion sijaintiin `target/site/checkstyle.html`:
@@ -57,6 +61,11 @@ mvn jxr:jxr checkstyle:checkstyle
 .jar-pakkauksen luominen
 ```
 mvn package
+```
+
+.jar-pakkauksen ajaminen
+```
+java -jar <tiedostonnimi>
 ```
 
 JavaDoc-raportin luominen (**poista ensin vanha**, jos olet luonut raportin jo aiemmin!)
