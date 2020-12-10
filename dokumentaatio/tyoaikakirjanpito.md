@@ -20,5 +20,6 @@
 | 5.12. | 5    | User-tietokantatauluun lisätty kirjanpito kunkin kolmen kategorian edistymisen seurantaan. Kunkin kategorian edistymisen seuranta luetaan kannasta oikein kunkin käyttäjän käyttäjätietonäkymässä (tähän meni paljon aikaa, oli paljon debuggausta). Tehty kunnollinen logout-systeemi joka nollaa käyttäjän CommaServicessä sekä tehty uusi start-näkymä käyttöliittymään - nämä siksi, että sai näyttämään oikein kunkin käyttäjän tilastot. |
 | 6.12. | 4    | Poistettu reippaasti copypastekoodia eilisen jäljiltä. Onnistuneiden harjoitusten lukumäärän kirjoittaminen kantaan saatu toimimaan. Lisätty JavaDoc ja kommenetoitu sillä kaikki luokat pakkauksista comma.dao ja comma.domain. Päivitetty arkkitehtuurikuvaus (mm. lisätty uusi sekvenssikaavio onnistuneelle harjoitukselle), luotu käyttöohje ja päivitetty muu dokumentaatio ajan tasalle. |
 | 7.12. | 2    | Muutettu CommaServicen kutsusta alaspäin niin, että CommaServiceä kutsuttaessa määritetään tietokannan sijainti. Määritetty testeille erillinen oma testitietokantansa: CommaServicen testit eivät siis enää testaa prod-db:llä. Nostettu testikattavuus muokkausten jälkeen 78 prosenttiin. |
+| 8.12. | 2    | Koodin siistimistä ja dokumentaation täydentämistä. Kattavat komentorivitoimivuustarkistukset virtuaalityöpöydällä. Viikon 6 releasen luominen. |
 
-**Yhteensä 63 tuntia**
+**Yhteensä 65 tuntia**
