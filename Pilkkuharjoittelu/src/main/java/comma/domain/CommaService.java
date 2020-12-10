@@ -136,7 +136,7 @@ public class CommaService {
      * @return Exercise object
      */
     public Exercise getRandomExercise() throws SQLException {
-        ArrayList<Exercise> exList = db.listAll();
+        ArrayList<Exercise> exList = db.listAll(this.user.getUsername());
 
         Random random = new Random();
 

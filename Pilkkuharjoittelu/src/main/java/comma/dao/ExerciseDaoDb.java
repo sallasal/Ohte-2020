@@ -179,13 +179,15 @@ public class ExerciseDaoDb implements ExerciseDao {
      * @return ArrayList of Exercise objects that contains all exercises from db
      */
     @Override
-    public ArrayList<Exercise> listAll() {
+    public ArrayList<Exercise> listAll(String username) {
 
-        String sqlList = "SELECT firstpart, secondpart, comma, category, creator FROM Exercises";
+        String sqlList = "SELECT firstpart, secondpart, comma, category, creator FROM Exercises WHERE creator != ?";
         ArrayList<Exercise> resultList = new ArrayList<>();
 
         try (PreparedStatement stm = connection.prepareStatement(sqlList)) {
+            stm.setString(1, username);
             ResultSet results = stm.executeQuery();
+            
 
             while (results.next()) {
                 String firstpart = results.getString("firstpart");
