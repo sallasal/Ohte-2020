@@ -28,6 +28,6 @@ Kun sovellus valmistuu, siinä on seuraavia ominaisuuksia (kevyessä tärkeysjä
 - Uuden tehtävän lisääminen tietokantaan - TEHTY vko 5
 - Tilastotiedot käyttäjän etenemisestä: lukee tietokannasta oikein tehdyt tehtävät - TEHTY vko 6
 - Tilastotiedot käyttäjän etenemisestä: päivittää tietokannan onnistumisen yhteydessä. - TEHTY vko 6
-- Ohjelma ei arvo käyttäjälle tämän itse tekemiä tehtäviä.
-- Palkinnot, kun käyttäjä on saanut oikein riittävän määrän jonkin osa-alueen tehtäviä.
+- Ohjelma ei arvo käyttäjälle tämän itse tekemiä tehtäviä. - TEHTY vko 7
+- Palkinnot, kun käyttäjä on saanut oikein riittävän määrän jonkin osa-alueen tehtäviä. - TEHTY vko 7
 - Alussa olevien harjoitustehtävien lukeminen erillisestä tiedostosta kantaan - TEHTY vko 5
