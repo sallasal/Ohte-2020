@@ -20,7 +20,7 @@ public class PracticeView {
     public PracticeView(BorderPane basicLayout, CommaService commaService, FeedbackView feedbackView) {
         this.basicLayout = basicLayout;
         this.commaService = commaService;
-        this.feedbackView= feedbackView;
+        this.feedbackView = feedbackView;
         this.correct = 0;
     }
 
@@ -52,18 +52,20 @@ public class PracticeView {
         //View functionalities
         yesComma.setOnAction((event) -> {
             boolean answer = true;
+            String prizeFeedback = "";
             if (ex.getComma()) {
                 feedbackView.setFeedback("Oikea vastaus, hyvä!");
                 try {
                     this.commaService.addCompletion(ex.getCategory());
+                    this.commaService.checkNewPrize(ex.getCategory());
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
-                Parent feedbackParent = feedbackView.getFeedbackView();
+                Parent feedbackParent = feedbackView.getFeedbackView(prizeFeedback);
                 basicLayout.setCenter(feedbackParent);
             } else {
                 feedbackView.setFeedback("Väärä vastaus. Harjoittele lisää.");
-                Parent feedbackParent = feedbackView.getFeedbackView();
+                Parent feedbackParent = feedbackView.getFeedbackView(prizeFeedback);
                 basicLayout.setCenter(feedbackParent);;
             }
 
@@ -71,22 +73,23 @@ public class PracticeView {
 
         noComma.setOnAction((event) -> {
             boolean answer = false;
+            String prizeFeedback = "";
             if (!ex.getComma()) {
                 feedbackView.setFeedback("Oikea vastaus, hyvä!");
                 try {
                     this.commaService.addCompletion(ex.getCategory());
+                    prizeFeedback = commaService.checkNewPrize(ex.getCategory());
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
-                Parent feedbackParent = feedbackView.getFeedbackView();
+                Parent feedbackParent = feedbackView.getFeedbackView(prizeFeedback);
                 basicLayout.setCenter(feedbackParent);
             } else {
                 feedbackView.setFeedback("Väärä vastaus. Harjoittele lisää.");
-                Parent feedbackParent = feedbackView.getFeedbackView();
+                Parent feedbackParent = feedbackView.getFeedbackView("");
                 basicLayout.setCenter(feedbackParent);
             }
         });
-
 
         return practiceView;
     }

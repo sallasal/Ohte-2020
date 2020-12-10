@@ -28,19 +28,20 @@ public class FeedbackView {
         this.statisticsText = statisticsText;
     }
 
-    public Parent getFeedbackView() {
+    public Parent getFeedbackView(String prizeFeedback) {
         GridPane feedbackView = new GridPane();
 
-        ColumnConstraints constraint = new ColumnConstraints(300);
+        ColumnConstraints constraint = new ColumnConstraints(500);
         feedbackView.getColumnConstraints().add(constraint);
         feedbackView.setAlignment(Pos.CENTER);
         feedbackView.setVgap(20);
         feedbackView.setPadding(new Insets(10, 10, 10, 10));
 
         Label feedbackLabel = new Label(this.feedback);
-        Label statisticsLabel = new Label("Palkinto-placeholder"); // Note to self: Kun palkinnot valmiit, aseta plkintoteksti PracticeView'ssa.
+        Label statisticsLabel = new Label(prizeFeedback);
         Label instruction = new Label("Valitse ylävalikosta 'Harjoittele', jos haluat tehdä uuden tehtävän.");
         feedbackLabel.setWrapText(true);
+        statisticsLabel.setWrapText(true);
         instruction.setWrapText(true);
 
         feedbackView.add(feedbackLabel, 0, 0);

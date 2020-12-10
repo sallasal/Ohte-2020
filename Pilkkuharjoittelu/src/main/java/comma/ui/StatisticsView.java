@@ -28,13 +28,16 @@ public class StatisticsView {
         statisticsView.setVgap(20);
         statisticsView.setPadding(new Insets(10, 10, 10, 10));
         
-        Label header = new Label("Tilastot käyttäjälle " + commaService.getUsername());
+        Label header = new Label("Tilastot käyttäjälle " + commaService.getName());
         header.setWrapText(true);
         Label completedExercisesh2 = new Label("Suoritettuja tehtäviä:");
         Label completedCtg1 = new Label("Päälausetehtäviä " + String.valueOf(commaService.getCompletedExercises(1)));
         Label completedCtg2 = new Label("Sivulausetehtäviä " + String.valueOf(commaService.getCompletedExercises(2)));
         Label completedCtg3 = new Label("Erikoistapaustehtäviä " + String.valueOf(commaService.getCompletedExercises(3)));
         Label achievements = new Label("Saavutetut palkinnot:");
+        Label prizeCtg1 = new Label("Päälauseet: "+commaService.checkPrize(1));
+        Label prizeCtg2 = new Label("Sivulauseet: "+commaService.checkPrize(2));
+        Label prizeCtg3 = new Label("Erikoistapaukset: "+commaService.checkPrize(3));
         
         statisticsView.add(header, 0, 0);
         statisticsView.add(completedExercisesh2, 0, 2);
@@ -42,6 +45,9 @@ public class StatisticsView {
         statisticsView.add(completedCtg2, 0, 4);
         statisticsView.add(completedCtg3, 0, 5);
         statisticsView.add(achievements, 0, 7);
+        statisticsView.add(prizeCtg1, 0, 8);
+        statisticsView.add(prizeCtg2, 0, 9);
+        statisticsView.add(prizeCtg3, 0, 10);
 
         return statisticsView;
     }
