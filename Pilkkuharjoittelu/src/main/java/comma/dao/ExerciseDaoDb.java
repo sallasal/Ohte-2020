@@ -172,6 +172,33 @@ public class ExerciseDaoDb implements ExerciseDao {
         }
 
     }
+    
+    @Override
+    public Exercise get(String firstpart) {
+        String sqlGetExercise = "SELECT secondpart, comma, category, creator FROM Exercises WHERE firstpart = ?";
+        
+        try (PreparedStatement stm = connection.prepareStatement(sqlGetExercise)) {
+            stm.setString(1, firstpart);
+            ResultSet results = stm.executeQuery();
+            
+            while (results.next()) {
+                String secondpart = results.getString("secondpart");
+                int category = results.getInt("category");
+                String creator = results.getString("creator");
+                boolean comma = false;
+
+                if (results.getInt("comma") == 1) {
+                    comma = true;
+                }
+                
+                return new Exercise(firstpart, secondpart, comma, category, creator);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        return null;
+    }
 
     /**
      * Fetches all exercises from Exercise table as an ArrayList

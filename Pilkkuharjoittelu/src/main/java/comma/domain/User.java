@@ -94,23 +94,4 @@ public class User {
         return -1;
     }
 
-    /**
-     * Sets new number of passed exercises in defined category for user
-     *
-     * @param category category number from which the value is going to be
-     * fetched
-     * @param newCount new vcount to be set to class varible
-     */
-    public void setExercises(int category, int newCount) {
-        if (category == 1) {
-            this.completedCtg1 = newCount;
-        }
-        if (category == 2) {
-            this.completedCtg2 = newCount;
-        }
-        if (category == 3) {
-            this.completedCtg3 = newCount;
-        }
-    }
-
 }

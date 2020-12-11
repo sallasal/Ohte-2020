@@ -17,6 +17,8 @@ public interface ExerciseDao {
     
     public void add(Exercise exercise) throws Exception;
     
+    public Exercise get(String firstpart) throws Exception;
+    
     public ArrayList<Exercise> listAll(String username) throws SQLException;
     
 }

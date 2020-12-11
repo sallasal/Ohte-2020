@@ -39,6 +39,12 @@ public class CommaServiceTest {
     }
 
     @Test
+    public void returnsNameCorrectly() {
+        String name = commaService.getName();
+        assertEquals("TestUser1 for testing", name);
+    }
+
+    @Test
     public void validateUsernameReturnsTrue() throws Exception {
         boolean returnValue = commaService.validateUsername("TestUser1");
         assertTrue(returnValue);
@@ -90,6 +96,17 @@ public class CommaServiceTest {
     }
 
     @Test
+    public void createExerciseWorksCorrectly() throws Exception {
+        String firstpart = "Testilauseessa on kaksi osaa";
+        String secondpart = "joita testataan.";
+        int comma = 1;
+        int category = 2;
+        commaService.createExercise(firstpart, secondpart, comma, category, commaService.getUsername());
+        Exercise ex = commaService.getExercise(firstpart);
+        assertEquals("joita testataan.", ex.getSecondPart());
+    }
+
+    @Test
     public void getsCompletedExercisesCorrectly() throws Exception {
         int completedInCat2 = commaService.getCompletedExercises(2);
         assertEquals(0, commaService.getCompletedExercises(2));
@@ -117,5 +134,45 @@ public class CommaServiceTest {
         completed++;
         commaService.addCompletion(3);
         assertEquals(completed, commaService.getCompletedExercises(3));
+    }
+
+    @Test
+    public void checkPrizeReturnsCorrectString() throws Exception {
+        commaService.createUser("WinnerUser", "Winner user ");
+        for (int i = 0; i < 20; i++) {
+            commaService.addCompletion(3);
+        }
+        assertEquals("Erikoistapausten esitaistelija", commaService.checkPrize(3));
+        commaService.deleteUser("WinnerUser");
+    }
+
+    @Test
+    public void checkNewPrizeWorksForCat1() throws Exception {
+        commaService.createUser("WinnerUser", "Winner user ");
+        for (int i = 0; i < 3; i++) {
+            commaService.addCompletion(1);
+        }
+        assertEquals("Onnea! Ansaitsit Päälauseiden pääministeri -palkinnon!", commaService.checkNewPrize(1));
+        commaService.deleteUser("WinnerUser");
+    }
+
+    @Test
+    public void checkNewPrizeWorksForCat2() throws Exception {
+        commaService.createUser("WinnerUser", "Winner user ");
+        for (int i = 0; i < 3; i++) {
+            commaService.addCompletion(2);
+        }
+        assertEquals("Onnea! Ansaitsit Sivulauseiden saalistaja -palkinnon!", commaService.checkNewPrize(2));
+        commaService.deleteUser("WinnerUser");
+    }
+
+    @Test
+    public void checkNewPrizeWorksForCat3() throws Exception {
+        commaService.createUser("WinnerUser", "Winner user ");
+        for (int i = 0; i < 3; i++) {
+            commaService.addCompletion(3);
+        }
+        assertEquals("Onnea! Ansaitsit Erikoistapausten esitaistelija -palkinnon!", commaService.checkNewPrize(3));
+        commaService.deleteUser("WinnerUser");
     }
 }
