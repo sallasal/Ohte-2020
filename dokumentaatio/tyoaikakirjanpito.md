@@ -22,5 +22,6 @@
 | 7.12. | 2    | Muutettu CommaServicen kutsusta alaspäin niin, että CommaServiceä kutsuttaessa määritetään tietokannan sijainti. Määritetty testeille erillinen oma testitietokantansa: CommaServicen testit eivät siis enää testaa prod-db:llä. Nostettu testikattavuus muokkausten jälkeen 78 prosenttiin. |
 | 8.12. | 2    | Koodin siistimistä ja dokumentaation täydentämistä. Kattavat komentorivitoimivuustarkistukset virtuaalityöpöydällä. Viikon 6 releasen luominen. |
 | 10.12.| 2    | Lisätty ominaisuus, että käyttäjä ei saa itse lisäämiään tehtäviä. Lisätty palkintojen tarkistus palautenäkymään ja tilastonäkymään. |
+| 11.12.| 2    | Testien lisääminen uusille ominaisuuksille, koodin siistiminen ja JavaDocin lisääminen joillekin metodeille. |
 
-**Yhteensä 67 tuntia**
+**Yhteensä 69 tuntia**
