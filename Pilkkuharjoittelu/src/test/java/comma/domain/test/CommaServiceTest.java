@@ -85,6 +85,16 @@ public class CommaServiceTest {
         boolean returnValue = commaService.createUser("TestUser1", "Should not work");
         assertFalse(returnValue);
     }
+    
+    @Test
+    public void userCreationTracksWrongInputCorrectly() throws Exception {
+        String firstpart = "This is long enough";
+        String secondpart = "and this too.";
+        int comma = 1;
+        int category = 4;
+        boolean testValidation = commaService.validateInput(firstpart, secondpart, comma, category);
+        assertEquals(false, testValidation);
+    }
 
     @Test
     public void getUsernameReturnsCorrectly() throws Exception {
@@ -98,9 +108,8 @@ public class CommaServiceTest {
         String secondpart = "joita testataan.";
         int comma = 1;
         int category = 2;
-        commaService.createExercise(firstpart, secondpart, comma, category, commaService.getUsername());
-        Exercise ex = commaService.getExercise(firstpart);
-        assertEquals("joita testataan.", ex.getSecondPart());
+        boolean testCreation = commaService.createExercise(firstpart, secondpart, comma, category, commaService.getUsername());
+        assertEquals(testCreation, true);
     }
 
     @Test

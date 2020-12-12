@@ -33,7 +33,7 @@ public class LogInScene {
     public Scene getLogInScene(CommaService commaService, Stage window) {
         GridPane loginLayout = new GridPane();
 
-        ColumnConstraints constraint = new ColumnConstraints(200);
+        ColumnConstraints constraint = new ColumnConstraints(300);
         loginLayout.getColumnConstraints().add(constraint);
         loginLayout.setAlignment(Pos.CENTER);
         loginLayout.setVgap(20);

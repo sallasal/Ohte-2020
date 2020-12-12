@@ -23,5 +23,6 @@
 | 8.12. | 2    | Koodin siistimistä ja dokumentaation täydentämistä. Kattavat komentorivitoimivuustarkistukset virtuaalityöpöydällä. Viikon 6 releasen luominen. |
 | 10.12.| 2    | Lisätty ominaisuus, että käyttäjä ei saa itse lisäämiään tehtäviä. Lisätty palkintojen tarkistus palautenäkymään ja tilastonäkymään. |
 | 11.12.| 2    | Testien lisääminen uusille ominaisuuksille, koodin siistiminen ja JavaDocin lisääminen joillekin metodeille. |
+| 12.12.| 4    | Runsaasti lisää testausta etenkin CommaDaolle, testiluokka ExerciseDaoDb:lle. Käyttäjien syötteiden validointi ja myös näiden metodien testausten lisääminen. |
 
-**Yhteensä 69 tuntia**
+**Yhteensä 73 tuntia**

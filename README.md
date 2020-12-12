@@ -1,11 +1,13 @@
 # Pilkkuharjoittelusovellus
 
 Sovelluksen avulla käyttäjä voi harjoitella suomen kielen pilkkusääntöjä. 
-Myöhemmässä vaiheessa sovelluksessa käyttäjä voi myös seurata omaa edistymistään ja kerätä palkintoja ratkoessaan tehtäviä onnistuneesti.
+Käyttäjä voi myös seurata omaa edistymistään ja kerätä palkintoja ratkoessaan tehtäviä onnistuneesti.
+
+Sovelluksen toiminnallisuudet ovat valmiit, dokumentaatio ja ulkoasu vielä viilattavana.
+Tällä hetkellä sovelluksessa on vain muutama esimerkkitehtävä valmiina, ja palkintojen myöntämisraja on 3 onnistunutta tehtävää kategoriassaan.
+Valmiissa sovelluksessa esimerkkitehtäviä lisätään exercises.csv-resurssiin runsaasti enemmän ja palkintojen rajaa nostetaan.
 
 Sovellus on osa Helsingin yliopiston tietojenkäsittelytieteen Ohjelmistotekniikka-kurssin syksyn 2020 suoritusta.
-
-**Ohjelmassa on vielä puutteita: se ei esimerkiksi vielä validoi käyttäjän syötteitä (joten käytä lempeästi).**
 
 Ohjelma valmistuu joulukuussa 2020.
 

@@ -29,7 +29,7 @@ public class RegisterScene {
     public Scene getRegisterScene(CommaService commaService, Stage window) {
         GridPane registerLayout = new GridPane();
 
-        ColumnConstraints constraint = new ColumnConstraints(200);
+        ColumnConstraints constraint = new ColumnConstraints(300);
         registerLayout.getColumnConstraints().add(constraint);        
         registerLayout.setAlignment(Pos.CENTER);
         registerLayout.setVgap(20);
@@ -55,7 +55,8 @@ public class RegisterScene {
                     nameField.clear();
                     message.setText("Käyttäjä lisätty. Kirjaudu seuraavaksi sisään.");
                 } else {
-                    message.setText("Käyttäjää ei lisätty, käyttäjänimi on jo käytössä.");
+                    message.setText("Käyttäjää ei lisätty. Käyttäjänimi voi olla käytössä. "
+                            + "Käyttäjänimen ja nimen pituuden on oltava vähintään 3 ja enintään 30 merkkiä.");
                 }
 
             } catch (Exception e) {

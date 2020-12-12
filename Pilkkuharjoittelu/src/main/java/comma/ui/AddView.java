@@ -35,6 +35,7 @@ public class AddView {
         Label categoryLab = new Label("Mitä kategoriaa harjoitus on? \n (1 = päälauseet, 2 = sivulauseet, \n 3 = erikoistapaukset)");
         categoryLab.setWrapText(true);
         Label feedbackLab = new Label("");
+        feedbackLab.setWrapText(true);
         
         TextField firstPartField = new TextField();
         TextField secondPartField = new TextField();
@@ -45,13 +46,18 @@ public class AddView {
         
         addButton.setOnAction((event) -> {
             try {
-                commaService.createExercise(firstPartField.getText(), secondPartField.getText(), 
-                        Integer.valueOf(commaField.getText()), Integer.valueOf(categoryField.getText()), commaService.getUsername());
+                boolean create = (commaService.createExercise(firstPartField.getText(), secondPartField.getText(), 
+                        Integer.valueOf(commaField.getText()), Integer.valueOf(categoryField.getText()), commaService.getUsername()));
                 firstPartField.clear();
                 secondPartField.clear();
                 commaField.clear();
                 categoryField.clear();
-                feedbackLab.setText("Tehtävän lisääminen onnistui!");
+                if (create) {
+                    feedbackLab.setText("Tehtävän lisääminen onnistui!");
+                } else {
+                    feedbackLab.setText("Tehtävän lisääminen ei onnistunut. "
+                            + "Lauseen osien tulee olla 3-200 merkkiä pitkiä, ja muiden arvojen tulee olla annettujen joukossa.");
+                }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
