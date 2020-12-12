@@ -1,10 +1,10 @@
+/**
+ *
+ * @author sallasal
+ */
+
 package comma.domain.test;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 import comma.domain.*;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -13,13 +13,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author sallasal
- */
+
 public class CommaServiceTest {
 
-    CommaService commaService;
+    private CommaService commaService;
 
     public CommaServiceTest() {
     }
@@ -137,7 +134,27 @@ public class CommaServiceTest {
     }
 
     @Test
-    public void checkPrizeReturnsCorrectString() throws Exception {
+    public void checkPrizeWorksForCat1() throws Exception {
+        commaService.createUser("WinnerUser", "Winner user ");
+        for (int i = 0; i < 20; i++) {
+            commaService.addCompletion(1);
+        }
+        assertEquals("Päälauseiden pääministeri", commaService.checkPrize(1));
+        commaService.deleteUser("WinnerUser");
+    }
+
+    @Test
+    public void checkPrizeWorksForCat2() throws Exception {
+        commaService.createUser("WinnerUser", "Winner user ");
+        for (int i = 0; i < 20; i++) {
+            commaService.addCompletion(2);
+        }
+        assertEquals("Sivulauseiden saalistaja", commaService.checkPrize(2));
+        commaService.deleteUser("WinnerUser");
+    }
+
+    @Test
+    public void checkPrizeWorksForCat3() throws Exception {
         commaService.createUser("WinnerUser", "Winner user ");
         for (int i = 0; i < 20; i++) {
             commaService.addCompletion(3);
