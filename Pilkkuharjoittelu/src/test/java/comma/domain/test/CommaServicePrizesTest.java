@@ -14,11 +14,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 
-public class CommaServiceTest {
+public class CommaServicePrizesTest {
 
     private CommaService commaService;
 
-    public CommaServiceTest() {
+    public CommaServicePrizesTest() {
     }
 
     @Before
@@ -33,89 +33,6 @@ public class CommaServiceTest {
     public void tearDown() throws Exception {
         commaService.deleteUser("TestUser1");
         commaService.deleteUser("TestUser2");
-    }
-
-    @Test
-    public void returnsNameCorrectly() {
-        String name = commaService.getName();
-        assertEquals("TestUser1 for testing", name);
-    }
-
-    @Test
-    public void validateUsernameReturnsTrue() throws Exception {
-        boolean returnValue = commaService.validateUsername("TestUser1");
-        assertTrue(returnValue);
-    }
-
-    @Test
-    public void validateUsernameReturnsFalse() throws Exception {
-        boolean returnValue = commaService.validateUsername("TestUser42");
-        assertFalse(returnValue);
-    }
-
-    @Test
-    public void createUserReturnsTrue() throws Exception {
-        boolean returnValue = commaService.createUser("TestUser2", "Test user 2");
-        assertTrue(returnValue);
-    }
-
-    @Test
-    public void returnsOneRandomObject() throws Exception {
-        Exercise ex = commaService.getRandomExercise();
-        assertNotNull(ex);
-    }
-
-    @Test
-    public void deletingUserWorks() throws Exception {
-        commaService.createUser("TestUser3", "Test user 3");
-        commaService.deleteUser("TestUser3");
-        boolean returnValue = commaService.validateUsername("TestUser3");
-        assertFalse(returnValue);
-    }
-
-    @Test
-    public void nullingUserWorks() throws Exception {
-        this.commaService.nullUser();
-        assertNull(this.commaService.getUser());
-        this.commaService.setUser(new User("TestUser1", "TestUser1 for testing"));
-    }
-
-    @Test
-    public void createUserChecksUsername() throws Exception {
-        boolean returnValue = commaService.createUser("TestUser1", "Should not work");
-        assertFalse(returnValue);
-    }
-    
-    @Test
-    public void userCreationTracksWrongInputCorrectly() throws Exception {
-        String firstpart = "This is long enough";
-        String secondpart = "and this too.";
-        int comma = 1;
-        int category = 4;
-        boolean testValidation = commaService.validateInput(firstpart, secondpart, comma, category);
-        assertEquals(false, testValidation);
-    }
-
-    @Test
-    public void getUsernameReturnsCorrectly() throws Exception {
-        String palautettava = commaService.getUsername();
-        System.out.println(palautettava);
-    }
-
-    @Test
-    public void createExerciseWorksCorrectly() throws Exception {
-        String firstpart = "Testilauseessa on kaksi osaa";
-        String secondpart = "joita testataan.";
-        int comma = 1;
-        int category = 2;
-        boolean testCreation = commaService.createExercise(firstpart, secondpart, comma, category, commaService.getUsername());
-        assertEquals(testCreation, true);
-    }
-
-    @Test
-    public void getsCompletedExercisesCorrectly() throws Exception {
-        int completedInCat2 = commaService.getCompletedExercises(2);
-        assertEquals(0, commaService.getCompletedExercises(2));
     }
 
     @Test
