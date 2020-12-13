@@ -24,5 +24,6 @@
 | 10.12.| 2    | Lisätty ominaisuus, että käyttäjä ei saa itse lisäämiään tehtäviä. Lisätty palkintojen tarkistus palautenäkymään ja tilastonäkymään. |
 | 11.12.| 2    | Testien lisääminen uusille ominaisuuksille, koodin siistiminen ja JavaDocin lisääminen joillekin metodeille. |
 | 12.12.| 4    | Runsaasti lisää testausta etenkin CommaDaolle, testiluokka ExerciseDaoDb:lle. Käyttäjien syötteiden validointi ja myös näiden metodien testausten lisääminen. |
+| 13.12.| 3    | Ison CommaServiceTest-testiluokan jakaminen kolmeen osaan. Testien parantaminen ja testikattavuuden kehittäminen. Testausdokumentin kirjoittaminen. |
 
-**Yhteensä 73 tuntia**
+**Yhteensä 76 tuntia**
