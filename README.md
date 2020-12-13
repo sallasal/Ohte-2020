@@ -25,6 +25,8 @@ Ohjelma valmistuu joulukuussa 2020.
 
 [Käyttöohje](https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/kayttoohje.md)
 
+[Testausdokumentti](https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/testausdokumentti.md)
+
 [Työaikakirjanpito](https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 
 [Vaatimusmäärittely](https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/vaatimusmaarittely.md)
