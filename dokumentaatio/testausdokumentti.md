@@ -27,9 +27,9 @@ Tähän tiedostoon ei ohjelmassa kirjoiteta mitään.
 
 ### Integraatio- ja yksikkötestauksen testikattavuus
 
-[Lisätään tähän vielä ihan lopullisen ohjelman integraatio- ja yksikkötestauksen testikattavuustiedot, sisältäen rivi- ja haarautumakattavuudet.]
+<img src="https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/media/testikattavuus.png" />
 
-Tällä hetkellä yksikkötestausten piiristä puuttuvat lähinnä tilanteet, joihin ei pitäisi koskaan joutua (esim. integraatiotestauksen kautta) - virheellisten arvojen palautusarvot ja vastaavat.
+Tällä hetkellä yksikkötestausten piiristä puuttuvat lähinnä tilanteet, joihin ei pitäisi koskaan joutua (esim. integraatiotestauksen kautta) - virheellisten arvojen palautusarvot ja muutamia virheellisen syötteen validointihaaroista.
 
 ## Järjestelmätestaus
 
