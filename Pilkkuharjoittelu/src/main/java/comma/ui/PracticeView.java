@@ -50,7 +50,7 @@ public class PracticeView {
                 feedbackView.setFeedback("Oikea vastaus, hyvä!");
                 try {
                     this.commaService.addCompletion(ex.getCategory());
-                    this.commaService.checkNewPrize(ex.getCategory());
+                    prizeFeedback = this.commaService.checkNewPrize(ex.getCategory());
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
