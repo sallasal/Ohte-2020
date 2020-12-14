@@ -63,18 +63,8 @@ public class AddView {
             }
         });
         
-        addView.add(firstPartLab, 0, 0);
-        addView.add(firstPartField, 0, 1);
-        addView.add(secondPartLab, 0, 2);
-        addView.add(secondPartField, 0, 3);
-        addView.add(commaLab, 0, 4);
-        addView.add(commaField, 0, 5);
-        addView.add(categoryLab, 0, 6);
-        addView.add(categoryField, 0, 7);
-        addView.add(addButton, 0, 9);
-        addView.add(feedbackLab, 0, 10);
+        addView.addColumn(0, firstPartLab, firstPartField, secondPartLab, secondPartField, commaLab, commaField, categoryLab, categoryField, addButton, feedbackLab);
         
-
         return addView;
     }
 

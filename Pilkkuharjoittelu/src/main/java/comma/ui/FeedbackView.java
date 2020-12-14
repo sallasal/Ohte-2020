@@ -43,10 +43,8 @@ public class FeedbackView {
         feedbackLabel.setWrapText(true);
         statisticsLabel.setWrapText(true);
         instruction.setWrapText(true);
-
-        feedbackView.add(feedbackLabel, 0, 0);
-        feedbackView.add(statisticsLabel, 0, 1);
-        feedbackView.add(instruction, 0 , 3);
+        
+        feedbackView.addColumn(0, feedbackLabel, statisticsLabel, instruction);
 
         return feedbackView;
     }

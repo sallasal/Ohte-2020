@@ -39,15 +39,8 @@ public class PracticeView {
         Button yesComma = new Button("Kyllä, tulee pilkku");
         Button noComma = new Button("Ei, ei tule pilkkua");
 
-        //Order view
-        practiceView.add(firstPart, 0, 1);
-        practiceView.add(secondPart, 0, 2);
-
-        practiceView.add(yesComma, 0, 4);
-        practiceView.add(noComma, 0, 5);
-
-        practiceView.add(feedback, 0, 7);
-        practiceView.add(statistics, 0, 8);
+        practiceView.addColumn(0, firstPart, secondPart, yesComma, noComma, feedback, statistics);
+        
 
         //View functionalities
         yesComma.setOnAction((event) -> {

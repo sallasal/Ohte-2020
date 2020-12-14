@@ -64,12 +64,8 @@ public class LogInScene {
         registerButton.setOnAction((event) -> {
             window.setScene(this.register);
         });
-
-        loginLayout.add(instructions, 0, 1);
-        loginLayout.add(usernameField, 0, 2);
-        loginLayout.add(loginButton, 0, 3);
-        loginLayout.add(feedback, 0, 4);
-        loginLayout.add(registerButton, 0, 6);
+        
+        loginLayout.addColumn(0, instructions, usernameField, loginButton, feedback, registerButton);
 
         return new Scene(loginLayout);
     }

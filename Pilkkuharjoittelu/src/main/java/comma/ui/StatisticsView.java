@@ -39,15 +39,7 @@ public class StatisticsView {
         Label prizeCtg2 = new Label("Sivulauseet: "+commaService.checkPrize(2));
         Label prizeCtg3 = new Label("Erikoistapaukset: "+commaService.checkPrize(3));
         
-        statisticsView.add(header, 0, 0);
-        statisticsView.add(completedExercisesh2, 0, 2);
-        statisticsView.add(completedCtg1, 0, 3);
-        statisticsView.add(completedCtg2, 0, 4);
-        statisticsView.add(completedCtg3, 0, 5);
-        statisticsView.add(achievements, 0, 7);
-        statisticsView.add(prizeCtg1, 0, 8);
-        statisticsView.add(prizeCtg2, 0, 9);
-        statisticsView.add(prizeCtg3, 0, 10);
+        statisticsView.addColumn(0, header, completedExercisesh2, completedCtg1, completedCtg2, completedCtg3, achievements, prizeCtg1, prizeCtg2, prizeCtg3);
 
         return statisticsView;
     }
