@@ -25,5 +25,6 @@
 | 11.12.| 2    | Testien lisääminen uusille ominaisuuksille, koodin siistiminen ja JavaDocin lisääminen joillekin metodeille. |
 | 12.12.| 4    | Runsaasti lisää testausta etenkin CommaDaolle, testiluokka ExerciseDaoDb:lle. Käyttäjien syötteiden validointi ja myös näiden metodien testausten lisääminen. |
 | 13.12.| 3    | Ison CommaServiceTest-testiluokan jakaminen kolmeen osaan. Testien parantaminen ja testikattavuuden kehittäminen. Testausdokumentin kirjoittaminen. |
+| 14.12.| 2    | Testien viilaaminen (mm. joidenkin puuttuvien haarojen testaaminen), testikattavuuden päivittäminen testausdokumenttiin. Käyttöliittymäkoodin siistiminen ja pienen virheen korjaus palkintopalautteissa. |
 
-**Yhteensä 76 tuntia**
+**Yhteensä 78 tuntia**
