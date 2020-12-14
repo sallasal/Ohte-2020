@@ -52,6 +52,19 @@ public class CommaServiceUserTest {
         boolean returnValue = commaService.validateUsername("TestUser42");
         assertFalse(returnValue);
     }
+    
+    @Test
+    public void validateUsernameRejectsProgram() throws Exception {
+        boolean validateUsername = commaService.validateUsername("program");
+        assertFalse(validateUsername);
+    }
+    
+    @Test
+    public void validateUsernameRejectsTooLong() throws Exception {
+        String tooLongUsername = "This username is definitely too long for this program.";
+        boolean validateUsername = commaService.validateUsername(tooLongUsername);
+        assertFalse(validateUsername);
+    }
 
     @Test
     public void createUserReturnsTrue() throws Exception {
@@ -60,6 +73,42 @@ public class CommaServiceUserTest {
     }
 
     @Test
+    public void createUserChecksUsername() throws Exception {
+        boolean returnValue = commaService.createUser("TestUser1", "Should not work");
+        assertFalse(returnValue);
+    }
+    
+    @Test
+    public void userCreationTracksTooShortInput() throws Exception {
+        String username = "T";
+        String name = "This is OK";
+        boolean testUsername = commaService.createUser(username, name);
+        assertEquals(false, testUsername);
+    }
+    
+    @Test
+    public void createUserTracksTooLongInput() throws Exception {
+        String username = "This is OK";
+        String name = "But this is much too long string to be a name in this program";
+        boolean testName = commaService.createUser(username, name);
+        assertFalse(testName);
+    }
+    
+    @Test
+    public void createUserRejectsProgram() throws Exception {
+        String username = "program";
+        String name = "Good name input this is";
+        boolean testProgram = commaService.createUser(username, name);
+        assertFalse(testProgram);
+    }
+
+    @Test
+    public void getUsernameReturnsCorrectly() throws Exception {
+        String palautettava = commaService.getUsername();
+        System.out.println(palautettava);
+    }
+    
+        @Test
     public void deletingUserWorks() throws Exception {
         commaService.createUser("TestUser3", "Test user 3");
         commaService.deleteUser("TestUser3");
@@ -72,28 +121,6 @@ public class CommaServiceUserTest {
         this.commaService.nullUser();
         assertNull(this.commaService.getUser());
         this.commaService.setUser(new User("TestUser1", "TestUser1 for testing"));
-    }
-
-    @Test
-    public void createUserChecksUsername() throws Exception {
-        boolean returnValue = commaService.createUser("TestUser1", "Should not work");
-        assertFalse(returnValue);
-    }
-    
-    @Test
-    public void userCreationTracksWrongInputCorrectly() throws Exception {
-        String firstpart = "This is long enough";
-        String secondpart = "and this too.";
-        int comma = 1;
-        int category = 4;
-        boolean testValidation = commaService.validateInput(firstpart, secondpart, comma, category);
-        assertEquals(false, testValidation);
-    }
-
-    @Test
-    public void getUsernameReturnsCorrectly() throws Exception {
-        String palautettava = commaService.getUsername();
-        System.out.println(palautettava);
     }
 
 }

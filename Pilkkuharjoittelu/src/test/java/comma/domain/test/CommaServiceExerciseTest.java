@@ -47,30 +47,30 @@ public class CommaServiceExerciseTest {
         String secondpart = "that are tested.";
         int comma = 1;
         int category = 2;
-        boolean testCreation = commaService.createExercise(firstpart, secondpart, comma, category, commaService.getUsername());
+        boolean testCreation = commaService.validateInput(firstpart, secondpart, comma, category);
         assertEquals(true, testCreation);
     }
     
     @Test
     public void validateInputCatchesTooLongFirstpart() throws Exception {
-        String firstpart = "Sed perspiciatis unde omnis iste natus error sit "
-                + "voluptatem accusantium doloremque laudantium, totam rem "
-                + "aperiam, eaque ipsa quae ab illo inventore veritatis et quasi "
-                + "architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam volupt";
+        String firstpart = "b";
         String secondpart = "This is OK.";
         int comma = 0;
         int category = 3;
-        boolean testFirstPart = commaService.createExercise(firstpart, secondpart, comma, category, commaService.getUsername());
+        boolean testFirstPart = commaService.validateInput(firstpart, secondpart, comma, category);
         assertEquals(false, testFirstPart);
     }
     
     @Test
     public void validateInputCathchesTooShortSecondPart() throws Exception {
-        String firstpart = "Now this is OK";
+        String firstpart = "Sed perspiciatis unde omnis iste natus error sit "
+                + "voluptatem accusantium doloremque laudantium, totam rem "
+                + "aperiam, eaque ipsa quae ab illo inventore veritatis et quasi "
+                + "architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam volupt";
         String secondpart = "B";
         int comma = 1;
         int category = 1;
-        boolean testSecondPart = commaService.createExercise(firstpart, secondpart, comma, category, commaService.getUsername());
+        boolean testSecondPart = commaService.validateInput(firstpart, secondpart, comma, category);
         assertEquals(false, testSecondPart);
     }
     
@@ -80,7 +80,7 @@ public class CommaServiceExerciseTest {
         String secondpart = "This too is OK";
         int comma = -1;
         int category = 2;
-        boolean testCommaValue = commaService.createExercise(firstpart, secondpart, comma, category, commaService.getUsername());
+        boolean testCommaValue = commaService.validateInput(firstpart, secondpart, comma, category);
         assertEquals(false, testCommaValue);
     }
     
@@ -90,7 +90,7 @@ public class CommaServiceExerciseTest {
         String secondpart = "And so is this";
         int comma = 0;
         int category = 4;
-        boolean testCategoryValue = commaService.createExercise(firstpart, secondpart, comma, category, commaService.getUsername());
+        boolean testCategoryValue = commaService.validateInput(firstpart, secondpart, comma, category);
         assertEquals(false, testCategoryValue);
     }
 
