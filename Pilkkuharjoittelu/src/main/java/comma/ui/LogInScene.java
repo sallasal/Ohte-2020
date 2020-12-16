@@ -9,6 +9,7 @@ import javafx.geometry.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.paint.*;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
 
@@ -67,7 +68,7 @@ public class LogInScene {
         });
         
         loginLayout.addColumn(0, header, instructions, usernameField, loginButton, feedback, registerButton);
-
+        
         return new Scene(loginLayout);
     }
 }

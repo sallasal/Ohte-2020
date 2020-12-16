@@ -34,16 +34,20 @@ public class PracticeView {
         Label instruction = new Label("Valitse, tuleeko lauseen alku- ja loppuosan väliin pilkku.");
         instruction.setWrapText(true);
         Label firstPart = new Label(ex.getFirstPart());
+        firstPart.setWrapText(true);
         Label secondPart = new Label(ex.getSecondPart());
+        secondPart.setWrapText(true);
         Label feedback = new Label("");
         Label statistics = new Label("");
         Label empty = new Label("");
         Label empty2 = new Label("");
+        Label line = new Label("---------------");
+        Label line2 = new Label("---------------");
 
         Button yesComma = new Button("Kyllä, tulee pilkku");
         Button noComma = new Button("Ei, ei tule pilkkua");
 
-        practiceView.addColumn(0, header, instruction, empty, firstPart, secondPart, empty2, yesComma, noComma, feedback, statistics);
+        practiceView.addColumn(0, header, instruction, empty, line, firstPart, secondPart, line2, empty2, yesComma, noComma, feedback, statistics);
         
 
         //View functionalities

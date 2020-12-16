@@ -95,7 +95,7 @@ public class CommaService {
      */
     public String checkPrize(int category) throws Exception {
         int exerciseCount = userDao.passedExercisesInCategory(this.user.getUsername(), category);
-        if (exerciseCount >= 3) {
+        if (exerciseCount >= 5) {
             if (category == 1) {
                 return "Päälauseiden pääministeri";
             } else if (category == 2) {
@@ -118,7 +118,7 @@ public class CommaService {
      */
     public String checkNewPrize(int category) throws Exception {
         int exerciseCount = userDao.passedExercisesInCategory(this.user.getUsername(), category);
-        if (exerciseCount == 3) {
+        if (exerciseCount == 5) {
             if (category == 1) {
                 return "Onnea! Ansaitsit Päälauseiden pääministeri -palkinnon!";
             } else if (category == 2) {

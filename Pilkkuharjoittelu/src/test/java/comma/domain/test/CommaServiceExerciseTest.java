@@ -47,8 +47,18 @@ public class CommaServiceExerciseTest {
         String secondpart = "that are tested.";
         int comma = 1;
         int category = 2;
-        boolean testCreation = commaService.validateInput(firstpart, secondpart, comma, category);
-        assertEquals(true, testCreation);
+        boolean testCreation = commaService.createExercise(firstpart, secondpart, comma, category, commaService.getUsername());
+        assertTrue(testCreation);
+    }
+    
+    @Test
+    public void createExerciseChecksComma() throws Exception {
+        String firstpart = "This is good first part";
+        String secondpart = "This is good second part";
+        int comma = -1;
+        int category = 3;
+        boolean testComma = commaService.createExercise(firstpart, secondpart, comma, category, commaService.getUsername());
+        assertFalse(testComma);
     }
     
     @Test
@@ -58,7 +68,7 @@ public class CommaServiceExerciseTest {
         int comma = 0;
         int category = 3;
         boolean testFirstPart = commaService.validateInput(firstpart, secondpart, comma, category);
-        assertEquals(false, testFirstPart);
+        assertFalse(testFirstPart);
     }
     
     @Test
@@ -71,7 +81,7 @@ public class CommaServiceExerciseTest {
         int comma = 1;
         int category = 1;
         boolean testSecondPart = commaService.validateInput(firstpart, secondpart, comma, category);
-        assertEquals(false, testSecondPart);
+        assertFalse(testSecondPart);
     }
     
     @Test
@@ -81,7 +91,7 @@ public class CommaServiceExerciseTest {
         int comma = -1;
         int category = 2;
         boolean testCommaValue = commaService.validateInput(firstpart, secondpart, comma, category);
-        assertEquals(false, testCommaValue);
+        assertFalse(testCommaValue);
     }
     
     @Test
@@ -91,7 +101,7 @@ public class CommaServiceExerciseTest {
         int comma = 0;
         int category = 4;
         boolean testCategoryValue = commaService.validateInput(firstpart, secondpart, comma, category);
-        assertEquals(false, testCategoryValue);
+        assertFalse(testCategoryValue);
     }
 
     @Test
