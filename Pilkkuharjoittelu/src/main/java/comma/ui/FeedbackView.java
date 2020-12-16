@@ -4,11 +4,12 @@
  */
 package comma.ui;
 
-import comma.domain.*;
 import javafx.geometry.*;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.*;
 
 public class FeedbackView {
 
@@ -38,10 +39,12 @@ public class FeedbackView {
         feedbackView.setPadding(new Insets(10, 10, 10, 10));
 
         Label feedbackLabel = new Label(this.feedback);
-        Label statisticsLabel = new Label(prizeFeedback);
+        feedbackLabel.setFont(Font.font(null, FontWeight.BOLD, 14));
+        Text statisticsLabel = new Text(prizeFeedback);
+        statisticsLabel.setFill(Color.GREEN);
+        statisticsLabel.setFont(Font.font(null, FontWeight.BOLD, 14));
         Label instruction = new Label("Valitse ylävalikosta 'Harjoittele', jos haluat tehdä uuden tehtävän.");
         feedbackLabel.setWrapText(true);
-        statisticsLabel.setWrapText(true);
         instruction.setWrapText(true);
         
         feedbackView.addColumn(0, feedbackLabel, statisticsLabel, instruction);

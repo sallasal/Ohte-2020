@@ -9,6 +9,7 @@ import javafx.geometry.*;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.text.*;
 
 public class AddView {
     private BorderPane basicLayout;
@@ -22,12 +23,16 @@ public class AddView {
     public Parent getAddView() {
         GridPane addView = new GridPane();
 
-        ColumnConstraints constraint = new ColumnConstraints(300);
+        ColumnConstraints constraint = new ColumnConstraints(400);
         addView.getColumnConstraints().add(constraint);
         addView.setAlignment(Pos.CENTER);
         addView.setVgap(20);
         addView.setPadding(new Insets(10, 10, 10, 10));
 
+        Label header = new Label("Lisää uusi tehtävä");
+        header.setFont(Font.font(null, FontWeight.BOLD, 14));
+        Label instruction = new Label("Et itse pääse näkemään uutta tehtävää, mutta muut käyttäjät pääsevät ratkaisemaan sen.");
+        instruction.setWrapText(true);
         Label firstPartLab = new Label("Lauseen alkuosa:");
         Label secondPartLab = new Label("Lauseen loppuosa:");
         Label commaLab = new Label("Tuleeko väliin pilkku? \n (1 = kyllä, 0 = ei)");
@@ -63,7 +68,7 @@ public class AddView {
             }
         });
         
-        addView.addColumn(0, firstPartLab, firstPartField, secondPartLab, secondPartField, commaLab, commaField, categoryLab, categoryField, addButton, feedbackLab);
+        addView.addColumn(0, header, instruction, firstPartLab, firstPartField, secondPartLab, secondPartField, commaLab, commaField, categoryLab, categoryField, addButton, feedbackLab);
         
         return addView;
     }

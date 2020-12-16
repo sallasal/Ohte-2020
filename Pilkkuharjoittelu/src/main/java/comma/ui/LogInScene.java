@@ -5,12 +5,11 @@
 package comma.ui;
 
 import comma.domain.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.geometry.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 public class LogInScene {
@@ -39,6 +38,8 @@ public class LogInScene {
         loginLayout.setVgap(20);
         loginLayout.setPadding(new Insets(10, 10, 10, 10));
 
+        Label header = new Label("Kirjaudu sisään Pilkkuharjoitteluun!");
+        header.setFont(Font.font(null, FontWeight.BOLD, 14));
         Label instructions = new Label("Syötä käyttäjänimi:");
         Label feedback = new Label("");
         feedback.setWrapText(true);
@@ -65,7 +66,7 @@ public class LogInScene {
             window.setScene(this.register);
         });
         
-        loginLayout.addColumn(0, instructions, usernameField, loginButton, feedback, registerButton);
+        loginLayout.addColumn(0, header, instructions, usernameField, loginButton, feedback, registerButton);
 
         return new Scene(loginLayout);
     }

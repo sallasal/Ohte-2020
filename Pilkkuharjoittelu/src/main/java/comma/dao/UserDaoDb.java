@@ -4,7 +4,6 @@
  */
 package comma.dao;
 
-import java.util.*;
 import java.sql.*;
 import comma.domain.*;
 

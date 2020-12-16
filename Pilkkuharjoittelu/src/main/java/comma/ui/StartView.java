@@ -6,8 +6,6 @@
 package comma.ui;
 
 
-
-import comma.domain.*;
 import javafx.geometry.*;
 import javafx.scene.Parent;
 import javafx.scene.control.*;

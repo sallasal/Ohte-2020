@@ -5,13 +5,11 @@
 package comma.ui;
 
 import comma.domain.*;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.geometry.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 public class RegisterScene {
@@ -35,8 +33,10 @@ public class RegisterScene {
         registerLayout.setVgap(20);
         registerLayout.setPadding(new Insets(10, 10, 10, 10));
 
+        Label header = new Label("Rekisteröi uusi käyttäjä");
+        header.setFont(Font.font(null, FontWeight.BOLD, 14));
         Label usernameInstructions = new Label("Syötä uusi käyttäjänimi");
-        Label nameInstructions = new Label("Syötä käyttäjän nimi");
+        Label nameInstructions = new Label("Syötä käyttäjän oikea nimi");
         Label message = new Label("");
         message.setWrapText(true);
 
@@ -53,7 +53,7 @@ public class RegisterScene {
                 if (earlier) {
                     usernameField.clear();
                     nameField.clear();
-                    message.setText("Käyttäjä lisätty. Kirjaudu seuraavaksi sisään.");
+                    message.setText("Käyttäjä lisätty. Palaa kirjautumissivulle ja kirjaudu sisään.");
                 } else {
                     message.setText("Käyttäjää ei lisätty. Käyttäjänimi voi olla käytössä. "
                             + "Käyttäjänimen ja nimen pituuden on oltava vähintään 3 ja enintään 30 merkkiä.");
@@ -68,7 +68,7 @@ public class RegisterScene {
             window.setScene(login);
         });
         
-        registerLayout.addColumn(0, usernameInstructions, usernameField, nameInstructions, nameField, registerButton, message, loginButton);
+        registerLayout.addColumn(0, header, usernameInstructions, usernameField, nameInstructions, nameField, registerButton, message, loginButton);
 
         return new Scene(registerLayout);
     }

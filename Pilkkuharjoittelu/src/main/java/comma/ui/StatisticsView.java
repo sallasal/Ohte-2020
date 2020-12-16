@@ -9,6 +9,7 @@ import javafx.geometry.*;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.text.*;
 
 public class StatisticsView {
     private BorderPane basicLayout;
@@ -28,13 +29,18 @@ public class StatisticsView {
         statisticsView.setVgap(20);
         statisticsView.setPadding(new Insets(10, 10, 10, 10));
         
+        Font headerFont = Font.font(null, FontWeight.BOLD, 14);
+        
         Label header = new Label("Tilastot käyttäjälle " + commaService.getName());
+        header.setFont(headerFont);
         header.setWrapText(true);
         Label completedExercisesh2 = new Label("Suoritettuja tehtäviä:");
+        completedExercisesh2.setFont(headerFont);
         Label completedCtg1 = new Label("Päälausetehtäviä " + String.valueOf(commaService.getCompletedExercises(1)));
         Label completedCtg2 = new Label("Sivulausetehtäviä " + String.valueOf(commaService.getCompletedExercises(2)));
         Label completedCtg3 = new Label("Erikoistapaustehtäviä " + String.valueOf(commaService.getCompletedExercises(3)));
         Label achievements = new Label("Saavutetut palkinnot:");
+        achievements.setFont(headerFont);
         Label prizeCtg1 = new Label("Päälauseet: "+commaService.checkPrize(1));
         Label prizeCtg2 = new Label("Sivulauseet: "+commaService.checkPrize(2));
         Label prizeCtg3 = new Label("Erikoistapaukset: "+commaService.checkPrize(3));
