@@ -4,7 +4,7 @@ Sovelluksen avulla käyttäjä voi harjoitella suomen kielen pilkkusääntöjä.
 Käyttäjä voi myös seurata omaa edistymistään ja kerätä palkintoja ratkoessaan tehtäviä onnistuneesti.
 
 Sovelluksen toiminnallisuudet ovat valmiit, dokumentaatio ja ulkoasu vielä viilattavana.
-Tällä hetkellä sovelluksessa on vain muutama esimerkkitehtävä valmiina, ja palkintojen myöntämisraja on 3 onnistunutta tehtävää kategoriassaan.
+Tällä hetkellä sovelluksessa on vain parikymmentä esimerkkitehtävää valmiina, ja **palkintojen myöntämisraja on 5 onnistunutta tehtävää kategoriassaan**.
 Valmiissa sovelluksessa esimerkkitehtäviä lisätään exercises.csv-resurssiin runsaasti enemmän ja palkintojen rajaa nostetaan.
 
 Sovellus on osa Helsingin yliopiston tietojenkäsittelytieteen Ohjelmistotekniikka-kurssin syksyn 2020 suoritusta.
