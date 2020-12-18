@@ -16,7 +16,7 @@ import comma.domain.*;
  */
 public class ExerciseDaoDb implements ExerciseDao {
 
-    private final Connection connection;
+    private Connection connection;
 
     /**
      * Generates a new ExerciseDaoDb instance that has database in given
@@ -34,8 +34,7 @@ public class ExerciseDaoDb implements ExerciseDao {
      * @param dbLocation defines database location and driver
      * @return Connection object for class to use
      */
-    @Override
-    public final Connection connect(String dbLocation) {
+    public Connection connect(String dbLocation) {
         String url = dbLocation;
 
         Connection connection = null;
@@ -78,7 +77,7 @@ public class ExerciseDaoDb implements ExerciseDao {
     /**
      * Reads default exercises from resource file and inserts them to Exercise
      * table
-     */        
+     */
     private void bringExercises() throws Exception {
 
         InputStream inputStream = null;
@@ -105,9 +104,9 @@ public class ExerciseDaoDb implements ExerciseDao {
     }
 
     private void prepareInsertStatement(String[] exParts) {
-        
+
         String sqlExercise = "INSERT INTO Exercises (firstpart, secondpart, comma, category, creator) VALUES (?,?,?,?,?)";
-        
+
         try (PreparedStatement stm = connection.prepareStatement(sqlExercise)) {
             stm.setString(1, exParts[0]);
             stm.setString(2, exParts[1]);
@@ -172,36 +171,13 @@ public class ExerciseDaoDb implements ExerciseDao {
         }
 
     }
-    
-    @Override
-    public Exercise get(String firstpart) {
-        String sqlGetExercise = "SELECT secondpart, comma, category, creator FROM Exercises WHERE firstpart = ?";
-        
-        try (PreparedStatement stm = connection.prepareStatement(sqlGetExercise)) {
-            stm.setString(1, firstpart);
-            ResultSet results = stm.executeQuery();
-            
-            while (results.next()) {
-                String secondpart = results.getString("secondpart");
-                int category = results.getInt("category");
-                String creator = results.getString("creator");
-                boolean comma = false;
-
-                if (results.getInt("comma") == 1) {
-                    comma = true;
-                }
-                
-                return new Exercise(firstpart, secondpart, comma, category, creator);
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        
-        return null;
-    }
 
     /**
-     * Fetches all exercises from Exercise table as an ArrayList
+     * Fetches all exercises from Exercise table as an ArrayList except the ones
+     * created by active user
+     *
+     * @param username username of the (active) user that is excluded from
+     * search
      *
      * @return ArrayList of Exercise objects that contains all exercises from db
      */
@@ -214,7 +190,6 @@ public class ExerciseDaoDb implements ExerciseDao {
         try (PreparedStatement stm = connection.prepareStatement(sqlList)) {
             stm.setString(1, username);
             ResultSet results = stm.executeQuery();
-            
 
             while (results.next()) {
                 String firstpart = results.getString("firstpart");
@@ -236,5 +211,5 @@ public class ExerciseDaoDb implements ExerciseDao {
 
         return resultList;
     }
-    
+
 }

@@ -37,12 +37,6 @@ public class ExerciseTest {
     }
     
     @Test
-    public void toStringWorks() {
-        String testString = testExercise.toString();
-        assertEquals("First part ______ Second part. (Vastaus: false)", testString);
-    }
-    
-    @Test
     public void returnsCorrectFirstPart() {
         String testFirstPart = testExercise.getFirstPart();
         assertEquals("First part", testFirstPart);

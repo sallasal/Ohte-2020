@@ -53,13 +53,4 @@ public class Exercise {
         return this.creator;
     }
 
-    /**
-     * Overrides default toString method to be more informative
-     *
-     * @return String that includes first part, second part and comma information of the Exercise object
-     */
-    @Override
-    public String toString() {
-        return (this.firstPart + " ______ " + this.secondPart + ". (Vastaus: " + this.comma + ")");
-    }
 }

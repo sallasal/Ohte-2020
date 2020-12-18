@@ -205,17 +205,6 @@ public class CommaService {
     }
 
     /**
-     * Gets an exercise based on first part of sentence
-     *
-     * @param firstpart first part that exercise is searched with
-     * @return Exercise with asked first part
-     * @throws java.lang.Exception
-     */
-    public Exercise getExercise(String firstpart) throws Exception {
-        return db.get(firstpart);
-    }
-
-    /**
      * Gets random exercise from all exercises not created by user from database
      *
      * @return Exercise object

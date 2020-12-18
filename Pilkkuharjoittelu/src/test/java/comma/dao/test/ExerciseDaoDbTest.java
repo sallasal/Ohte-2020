@@ -33,16 +33,5 @@ public class ExerciseDaoDbTest {
     public void tearDown() {
     }
     
-    @Test
-    public void initializationAndExerciseBringingWorks() {
-        Exercise testEx = exerciseDao.get("Elämä on");
-        assertEquals("kuin matka.", testEx.getSecondPart());
-    }
-    
-    @Test
-    public void getExerciseReturnsNullCorrectly() {
-        Exercise tryGet = exerciseDao.get("This first part should not exist in test db.");
-        assertNull(tryGet);
-    }
 
 }
