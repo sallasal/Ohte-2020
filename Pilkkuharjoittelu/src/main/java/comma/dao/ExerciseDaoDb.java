@@ -217,9 +217,9 @@ public class ExerciseDaoDb implements ExerciseDao {
      * Easy way to delete all data from Exercise table
      */
     public void deleteAll() {
-        String SQLDelExercises = "DELETE FROM Exercises";
+        String sqlDelExercises = "DELETE FROM Exercises";
         try (Statement stm = connection.createStatement()) {
-            stm.execute(SQLDelExercises);
+            stm.execute(sqlDelExercises);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
