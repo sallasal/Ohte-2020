@@ -29,4 +29,4 @@
 | 16.12.| 4    | Uusien harjoitusten luominen ja palkintojen rajan nostaminen, paljon viilauksia käyttöliittymään ja testeihin. |
 | 18.12.| 5    | Kattavat refaktoroinnit ja viimeistelyt. |
 
-**Yhteensä 82 tuntia**
+**Yhteensä 87 tuntia**
