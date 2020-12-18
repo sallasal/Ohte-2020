@@ -2,7 +2,7 @@
 
 ## Ohjelman suorittaminen
 
-Ohjelma suoritetaan lataamalla release ja ajamalla .jar-tiedoston tallennusrepositoriossa komento `java -jar <tiedostonnimi>` (sijoita tiedostonnimen paikalle lataamasi .jar-tiedoston nimi).
+Ohjelma suoritetaan lataamalla release omalle tietokoneelle haluttuun kansioon. Tämän jälkeen ajetaan .jar-tiedoston tallennusrepositoriossa komento `java -jar <tiedostonnimi>` (sijoita tiedostonnimen paikalle lataamasi .jar-tiedoston nimi). Ohjelma käynnistyy.
 
 Ohjelman voi suorittaa myös kloonaamalla repositorion tai lataamalla projektin .zip-tiedostona. 
 Tällöin sen voi suorittaa omassa JDK:ssa tai kansion *Pilkkuharjoittelu* juuressa komennolla `mvn compile exec:java -Dexec.mainClass=comma.domain.Main`
@@ -47,4 +47,4 @@ Myös käyttöliittymä ohjaa lomakkeen täyttämisessä.
 
 ## Käyttäjätilastot
 
-Omia käyttäjätilastoja voi tarkastella kirjautumisen jälkeen valitsemalla ylävalikosta *Käyttäjätiedot*.
+Omia käyttäjätilastoja voi tarkastella kirjautumisen jälkeen valitsemalla ylävalikosta *Käyttäjätiedot*. Tilastoissa näkyy, paljonko tehtäviä käyttäjä on suorittanut onnistuneesti kustakin kolmesta kategoriasta. Lisäksi tilastoissa listataan mahdolliset käyttäjän saavuttamat palkinnot. Loppupalautuksen versiossa palkinnon saa, kun yhdestä kategoriasta on suorittanut viisi tehtävää.
