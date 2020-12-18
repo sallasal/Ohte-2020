@@ -27,5 +27,6 @@
 | 13.12.| 3    | Ison CommaServiceTest-testiluokan jakaminen kolmeen osaan. Testien parantaminen ja testikattavuuden kehittäminen. Testausdokumentin kirjoittaminen. |
 | 14.12.| 2    | Testien viilaaminen (mm. joidenkin puuttuvien haarojen testaaminen), testikattavuuden päivittäminen testausdokumenttiin. Käyttöliittymäkoodin siistiminen ja pienen virheen korjaus palkintopalautteissa. |
 | 16.12.| 4    | Uusien harjoitusten luominen ja palkintojen rajan nostaminen, paljon viilauksia käyttöliittymään ja testeihin. |
+| 18.12.| 5    | Kattavat refaktoroinnit ja viimeistelyt. |
 
 **Yhteensä 82 tuntia**
