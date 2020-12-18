@@ -10,9 +10,11 @@ Sovellus on osa Helsingin yliopiston tietojenkäsittelytieteen Ohjelmistotekniik
 
 ## Uusin release
 
-[Viikko 6](https://github.com/sallasal/Ohte-2020/releases/tag/viikko6)
+[Loppupalautus](https://github.com/sallasal/Ohte-2020/releases/tag/loppupalautus)
 
 **Vanhemmat vakaat versiot**
+
+[Viikko 6](https://github.com/sallasal/Ohte-2020/releases/tag/viikko6)
 
 [Viikko 5](https://github.com/sallasal/Ohte-2020/releases/tag/viikko5)
 
@@ -69,7 +71,7 @@ mvn package
 java -jar <tiedostonnimi>
 ```
 
-JavaDoc-raportin luominen (**poista ensin vanha**, jos olet luonut raportin jo aiemmin!)
+JavaDoc-raportin luominen sijaintiin `target/site/apidocs` (**poista ensin vanha**, jos olet luonut raportin jo aiemmin!)
 ```
 mvn javadoc:javadoc
 ```
