@@ -16,22 +16,29 @@ import static org.junit.Assert.*;
 
 public class ExerciseDaoDbTest {
     
-    private ExerciseDaoDb exerciseDao;
-    private UserDaoDb userDao;
+    private ExerciseDaoDb exerciseDaoDb;
+    private UserDaoDb userDaoDb;
     
     public ExerciseDaoDbTest() {
     }
     
     @Before
     public void setUp() throws Exception {
-        this.exerciseDao = new ExerciseDaoDb("jdbc:sqlite:commasTest.db");
-        this.userDao = new UserDaoDb("jdbc:sqlite:commasTest.db");
-        this.userDao.add(new User("daoTestUser", "Dao test user"));
+        this.exerciseDaoDb = new ExerciseDaoDb("jdbc:sqlite:commasTest.db");
+        this.userDaoDb = new UserDaoDb("jdbc:sqlite:commasTest.db");
+        this.userDaoDb.add(new User("daoTestUser", "Dao test user"));
     }
     
     @After
     public void tearDown() {
     }
     
+    @Test
+    public void initializingAndBringingExercisesWork() throws Exception {
+        exerciseDaoDb.deleteAll();
+        exerciseDaoDb.initialize();
+        assertFalse(exerciseDaoDb.checkIfEmpty());
+        
+    }
 
 }

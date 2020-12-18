@@ -123,8 +123,9 @@ public class ExerciseDaoDb implements ExerciseDao {
      * Checks if the Exercise table is empty (= has no rows) in database
      *
      * @return boolean true, if row count is 0, false otherwise
+     * @throws java.lang.Exception
      */
-    private boolean checkIfEmpty() throws Exception {
+    public boolean checkIfEmpty() throws Exception {
         boolean isEmpty = false;
         String sqlCount = "SELECT COUNT(*) AS count FROM Exercises";
 
@@ -210,6 +211,19 @@ public class ExerciseDaoDb implements ExerciseDao {
         }
 
         return resultList;
+    }
+    
+    /**
+     * Easy way to delete all data from Exercise table
+     */
+    public void deleteAll() {
+        String SQLDelExercises = "DELETE FROM Exercises";
+        try (Statement stm = connection.createStatement()) {
+            stm.execute(SQLDelExercises);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
     }
 
 }
