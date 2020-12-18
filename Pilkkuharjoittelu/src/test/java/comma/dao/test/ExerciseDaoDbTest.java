@@ -2,7 +2,7 @@
  *
  * @author sallasal
  */
-package comma.domain.test;
+package comma.dao.test;
 
 import comma.dao.*;
 import comma.domain.*;
