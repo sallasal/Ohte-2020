@@ -14,6 +14,7 @@ Palkintoihin liittyvät CommaServicen metodit on nostettu omaksi luokakseen, sil
 ### JUnit: yksikkötestaus
 
 Yksittäisiä yksikkötestejä on lisätty niille luokille, joiden testikattavuus ja yksittäisten toiminnallisuuksien testaus jäi integraatiotestauksen jälkeen vielä vajaaksi. 
+
 Testejä lisättiin tästä syystä yllä mainittuihin testiluokkiin, mutta myös luokkiin *ExerciseDaoDbTest* sekä *ExerciseTest*.
 
 ### JUnit ja tiedon tallennus
@@ -27,7 +28,9 @@ Tähän tiedostoon ei ohjelmassa kirjoiteta mitään.
 
 ### Integraatio- ja yksikkötestauksen testikattavuus
 
-<img src="https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/media/testikattavuus.png" />
+Testikattavuuskuva on otettu 18.12.2020 klo 16:15, minkä jälkeen muutoksia testikoodiin tai itse ohjelmakoodiin ei ole tehty.
+
+<img src="https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/media/testikattavuus_20201218.png">
 
 Tällä hetkellä yksikkötestausten piiristä puuttuvat lähinnä tilanteet, joihin ei pitäisi koskaan joutua (esim. integraatiotestauksen kautta) - virheellisten arvojen palautusarvot ja muutamia virheellisen syötteen validointihaaroista.
 
@@ -35,6 +38,10 @@ Tällä hetkellä yksikkötestausten piiristä puuttuvat lähinnä tilanteet, jo
 
 Järjestelmätestausta on totetutettu manuaalisesti koko kehitystyön ajan. Sovelluksesta on testattu kaikki toiminnot kehitysvaiheessa sekä toimintojen yhteen toiminen jälkikäteen.
 
-Käyttäjän kaikki mahdolliset toiminnot on testattu. Käyttäjän syötteet validoidaan ohjelmassa (toteutus CommaServicessä), ja validoinnin oikeellisuus on testattu erilaisilla syötteillä.
+Käyttäjän kaikki mahdolliset toiminnot, siis erilaiset klikkaukset ja syötteet, on testattu. Käyttäjän syötteet validoidaan ohjelmassa (toteutus CommaServicessä), ja validoinnin oikeellisuus on testattu erilaisilla syötteillä.
 
 Ohjelman toimivuus on testattu useammalla tietokoneella. Myös ajautuminen Java-komennoilla, NetBeansin kautta ja .jar-tiedostona on testattu omalla koneella ja yliopiston virtuaaliympäristössä.
+
+Kattavassa järjestelmätestauksessa ei saatu rakennettua tilanteita, joissa ohjelma heittäisi konsoliin errorin. Kaikki virheet printtaavat konsoliin virheviestin (logituksen sijaan), joten mahdollisten errorien tulisi kyllä näkyä konsolissa kaikissa tilanteissa. Myöskään ohjelman kaatumista ei saatu rakennettua testauksessa tavanomaisesta virhekäytöstä huolimatta.
+
+Monimutkaisempaan toteutukseen olisi kyllä kannattanut toteuttaa logitus, joka parantaisi ohjelman ylläpidettävyyttä.
