@@ -55,7 +55,20 @@ Tietokannan osoite annetaan CommaServiceä luotaessa parametrina, ja tästä se 
 
 Tiedon lukemisesta ja tallennuksesta vastaavat luokat *ExerciseDaoDb* ja *UserDaoDb*, jotka toteuttavat rajapinnat *ExerciseDao* ja *UserDao* (vastaavasti). *CommaService* kutsuu luokkia rajapinnan kautta.
 
-Sovelluksen käynnistyksen yhteydessä luokka *ExerciseDaoDb* lukee lisäksi tiedostoa Maven-resurssisijainnista: <projektin juuri>*/src/main/resources/exercises.csv*. Tiedostossa ovat ohjelmassa valmiiksi olevat harjoitustehtävät, joiden tekijäksi tietokantaan merkitään siten *ExerciseDaoDb*:ssä `program`.
+Sovelluksen käynnistyksen yhteydessä luokka *ExerciseDaoDb* lukee lisäksi tiedostoa Maven-resurssisijainnista: <projektin juuri>*/src/main/resources/exercises.csv*. Tiedostossa ovat ohjelmassa valmiiksi olevat harjoitustehtävät, joiden tekijäksi tietokantaan merkitään siten *ExerciseDaoDb*:ssä `program`. Valmiit tehtävät on tallennettu tiedostoon |-erottimella muodossa
+```
+Lauseen ensimmäinen osa|Lauseen toinen osa|1|2
+```
+jossa ensimmäinen ja toinen osa ovat merkkijonoja. Ensimmäinen kokonaisluku on 0 tai 1 sen mukaan, tuleeko pilkku (0=ei, 1=kyllä). Toinen kokonaisluku on 1-3 sen mukaan, mitä kategoriaa tehtävä koskee. 
+  
+## Tehtäväkategoriat
+
+Sovelluksen tehtävät on tietokannassa ja olioissa luokiteltu kuuluvaksi yhteen kolmesta kategoriasta:
+1. Päälausetehtävät
+2. Sivulausetehtävät
+3. Erikoistapaukset ja muut
+
+Kategorioiden perusteella muun muassa tarkkaillaan, onko käyttäjä suorittanut palkintoihin oikeuttavan määrän (tällä hetkellä 5) jonkin kategorian tehtäviä.
 
 ## Toiminnallisuudet
 
@@ -69,8 +82,15 @@ Sovelluksen aivan keskeisin toiminnallisuus on harjoituksen hakeminen ja käytt�
 
 <img src="https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/media/Sekvenssikaavio_oikea-vastaus.jpg">
 
-Muut sovelluksen keskeiset toiminnallisuudet ovat
-- Uuden tehtävän lisääminen tietokantaan
-- Tilastojen haku kirjautuneelle käyttäjälle
-- Palkintojen myöntäminen käyttäjälle, kun tehtyjä tehtäviä on riittävästi
-- Käyttäjänhallinta: rekisteröityminen, sisään- ja uloskirjautuminen
+**Uuden tehtävän syöttäminen tietokantaan**
+
+Lisäksi sovelluksessa keskeinen ominaisuus on, että käyttäjä voi lisätä tietokantaan omia tehtäviään. Näitä hän ei voi itse ratkaista, mutta muut kirjautuneet käyttäjät näkevät tehtävät ja saavat niistä normaalisti pisteitä. Uuden tehtävän lisäys tietokantaan sujuu seuraavasti, mikäli käyttäjän syöte menee CommaServicessä toteutettavasta validoinnista läpi:
+
+<img src="https://github.com/sallasal/Ohte-2020/blob/master/dokumentaatio/media/Sekvenssikaavio_uusi-tehtava.jpg">
+
+**Muut toiminnallisuudet**
+
+Lisäksi sovellus sisältää seuraavat toiminnallisuudet:
+* Yksinkertainen rekisteröityminen ja kirjautuminen. Käyttäjät tallennetaan tietokantaan selkotekstinä käyttäjänimen perusteella, salasanakirjautumista tai hashaysta ei ole toteutettu. CommaService huolehtii käyttäjänimen tarkistuksesta kirjautumisen yhteydessä ja uuden käyttäjän lisäämisestä kantaan rekisteröidyttäessä.
+* Käyttäjäkohtaisten tilastojen haku. Käyttäjätauluun tallennetaan kokonaislukuina, paljonko tehtäviä kukin käyttäjä on saanut läpi kussakin kolmesta tehtäväkategoriasta. CommaService laskee käyttäjäkohtaisia tilastoja näiden perusteella tilastointinäkymässä.
+* Palkinnot, kun tietty määrä kategorian harjoituksia läpäisty. CommaService tarkistaa tehtävän tarkistuksen yhteydessä, tuliko juuri tällä kerralla palkintoa (palautushetkellä palkinnon raja 5 onnistunutta tehtävää kategoriassaan). Jos tuli, käyttöliittymä ilmoittaa tästä. Lisäksi saavutetut palkinnot listataan pysyvästi tilastointinäkymään.
