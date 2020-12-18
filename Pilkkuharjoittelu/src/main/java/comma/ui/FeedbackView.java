@@ -25,10 +25,6 @@ public class FeedbackView {
         this.feedback = feedback;
     }
 
-    public void setStatisticsText(String statisticstest) {
-        this.statisticsText = statisticsText;
-    }
-
     public Parent getFeedbackView(String prizeFeedback) {
         GridPane feedbackView = new GridPane();
 

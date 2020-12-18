@@ -45,7 +45,8 @@ public class StatisticsView {
         Label prizeCtg2 = new Label("Sivulauseet: "+commaService.checkPrize(2));
         Label prizeCtg3 = new Label("Erikoistapaukset: "+commaService.checkPrize(3));
         
-        statisticsView.addColumn(0, header, completedExercisesh2, completedCtg1, completedCtg2, completedCtg3, achievements, prizeCtg1, prizeCtg2, prizeCtg3);
+        statisticsView.addColumn(0, header, completedExercisesh2, completedCtg1, 
+                completedCtg2, completedCtg3, achievements, prizeCtg1, prizeCtg2, prizeCtg3);
 
         return statisticsView;
     }
